@@ -4,4 +4,4 @@ import "tachyons/css/tachyons.css"
 import router from './router'
 
 
-createApp(App).use(router).mount('#app')
+createApp(App).use(router).use(router).mount('#app')
