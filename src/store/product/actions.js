@@ -15,3 +15,16 @@ export function getProducts({ commit }) {
 			console.log(error);
 		});
 }
+
+export function productDetails({ commit }, id) {
+	let url =
+		'https://my-json-server.typicode.com/sunpochin/vue-ecommerce/products';
+	axios
+		.get(url, { params: { id: id } })
+		.then((response) => {
+			commit('setProduct', response.data[0]);
+		})
+		.catch(function (error) {
+			console.log(error);
+		});
+}
