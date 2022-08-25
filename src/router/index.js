@@ -3,6 +3,7 @@ import ProductList from '../components/ProductList.vue';
 import ProductDetail from '../components/ProductDetail.vue';
 import CartView from '../components/CartView.vue';
 
+
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
