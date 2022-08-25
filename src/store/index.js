@@ -22,6 +22,10 @@ const store = createStore({
 		setLoggedIn(state, payload) {
 			state.isLoggedIn = payload.value;
 		},
+		setProducts(state, payload) {
+			console.log('mutations payload: ', payload);
+			state.products = payload.value;
+		},
 	},
 
 	actions: {
@@ -35,20 +39,22 @@ const store = createStore({
 		logout(context) {
 			context.commit('setLoggedIn', { value: false });
 		},
-		setProducts(products) {
-			console.log('products: ', products);
-			this.products = products;
+		setProducts(context, payload) {
+			context.commit('setProducts', payload);
 		},
 	},
 	getters: {
-		fullName: function (state) {
-			return `${state.firstName} ${state.lastName}`;
-		},
+		// fullName: function (state) {
+		// 	return `${state.firstName} ${state.lastName}`;
+		// },
 		counter(state) {
 			return state.count;
 		},
 		IsLoggedIn(state) {
 			return state.isLoggedIn;
+		},
+		getProducts(state) {
+			return state.products;
 		},
 	},
 });

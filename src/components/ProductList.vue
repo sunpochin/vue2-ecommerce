@@ -3,7 +3,7 @@
 	<h1>Product List</h1>
 	<h1>{{ msg }}</h1>
 	<div class="product-list">
-		<div v-for="product in products" :key="product.id">
+		<div v-for="product in getProducts" :key="product.id">
 			<ProductCard :product="product" />
 		</div>
 	</div>
@@ -12,18 +12,33 @@
 <script>
 import axios from 'axios';
 import ProductCard from './ProductCard.vue';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
 	data() {
 		return {
-			products: [],
+			// products: [],
 		};
 	},
 	components: {
 		ProductCard,
 	},
+	computed: {
+		...mapGetters(['getProducts']),
+		// getProducts() {
+		// 	console.log(
+		// 		'this.$store.getters.getProducts: ',
+		// 		this.$store.getters.getProducts
+		// 	);
+		// 	// return this.products;
+		// 	return this.$store.getters.getProducts;
+		// },
+	},
 	methods: {
-		async getProducts() {
+		...mapActions({
+			setProducts: 'setProducts',
+		}),
+		async fetchProducts() {
 			// https://my-json-server.typicode.com/sunpochin/vue-ecommerce/db
 			const ret = await axios.get(
 				'https://my-json-server.typicode.com/sunpochin/vue-ecommerce/db'
@@ -36,6 +51,7 @@ export default {
 				ret.data['products'].length
 			);
 			console.log('products: ', this.products[0]);
+			this.setProducts({ value: this.products });
 		},
 	},
 	props: {
@@ -43,7 +59,7 @@ export default {
 	},
 	mounted() {
 		console.log('productList route', this.$route);
-		this.getProducts();
+		this.fetchProducts();
 	},
 };
 </script>

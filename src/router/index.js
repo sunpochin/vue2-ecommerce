@@ -7,6 +7,11 @@ const router = createRouter({
 	history: createWebHistory(),
 	routes: [
 		{
+			path: '/',
+			component: ProductList,
+			redirect: '/products',
+		},
+		{
 			path: '/products',
 			component: ProductList,
 			// children: [
