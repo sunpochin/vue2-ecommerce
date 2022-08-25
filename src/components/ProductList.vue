@@ -1,4 +1,5 @@
 <template>
+	<router-view></router-view>
 	<h1>Product List</h1>
 	<h1>{{ msg }}</h1>
 	<div class="product-list">
@@ -41,6 +42,7 @@ export default {
 		msg: String,
 	},
 	mounted() {
+		console.log('productList route', this.$route);
 		this.getProducts();
 	},
 };

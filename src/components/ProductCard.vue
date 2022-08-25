@@ -1,6 +1,17 @@
 <template>
-	<div class="productCard">
-		<h3>Name: {{ product.name }}</h3>
+	<div class="card">
+		<img :src="product.imageUrl" class="card-img-top product-image" />
+		<div class="">
+			<h5 class="">{{ product.name }}</h5>
+			<div class="row">
+				<router-link
+					type="button"
+					class="btn btn-primary btn-lg"
+					:to="'/products/' + product.id"
+					>Details</router-link
+				>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -9,23 +20,41 @@ export default {
 	props: {
 		product: Object,
 	},
-	// data() {
-	// 	return {
-	// 		product: Object,
-	// 	};
-	// },
 	mounted() {
-		console.log('product: ', this.product);
+		// console.log('product: ', this.product);
 	},
 };
 </script>
 
 <style>
-.productCard {
-	width: 200px;
-	height: 200px;
+.card {
+	display: flex;
+	flex-direction: column;
+
+	width: 300px;
+	height: 450px;
 	background-color: pink;
-  margin: 10px;
-  border-radius: 9px;
+	margin: 20px;
+	border-radius: 9px;
 }
+
+.card .product-image {
+	height: 300px;
+}
+.card-img,
+.card-img-top {
+	width: 100%;
+}
+
+/* .card-img, .card-img-top {
+	border-top-left-radius: calc(0.25rem - 1px);
+	border-top-right-radius: calc(0.25rem - 1px);
+	flex-shrink: 0;
+	width: 100%;
+}
+
+img {
+	vertical-align: middle;
+	border-style: none;
+} */
 </style>
