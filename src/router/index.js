@@ -5,6 +5,7 @@ import CartView from '../components/CartView.vue';
 
 
 
+
 const router = createRouter({
 	history: createWebHistory(),
 	routes: [
