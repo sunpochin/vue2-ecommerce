@@ -1,9 +1,8 @@
 <template>
-	<div class="hello">
-		<h1>Product List</h1>
-		<h1>{{ msg }}</h1>
-
-		<div class="col-md-4" v-for="product in products" :key="product.id">
+	<h1>Product List</h1>
+	<h1>{{ msg }}</h1>
+	<div class="product-list">
+		<div v-for="product in products" :key="product.id">
 			<ProductCard :product="product" />
 		</div>
 	</div>
@@ -20,7 +19,7 @@ export default {
 		};
 	},
 	components: {
-		ProductCard
+		ProductCard,
 	},
 	methods: {
 		async getProducts() {
@@ -46,3 +45,10 @@ export default {
 	},
 };
 </script>
+
+<style>
+.product-list {
+	display: flex;
+	flex-wrap: wrap;
+}
+</style>
