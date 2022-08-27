@@ -1,6 +1,11 @@
 <template>
 	<router-view></router-view>
-	<h1>Product List</h1>
+	<h1>h1 Product List</h1>
+	<a href="#">this is an anchor tag</a>
+	<p class="error">this is an error</p>
+	<p class="notification">this is a notification</p>
+	<button>click me</button>
+
 	<h1>{{ msg }}</h1>
 	<div class="product-list">
 		<div v-for="product in getProducts" :key="product.id">
