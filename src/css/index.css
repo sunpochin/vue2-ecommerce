@@ -27,6 +27,10 @@ img {
   max-width: 100%;
 }
 
+.test {
+  color: #326dee;
+}
+
 h1 {
   color: #326dee;
   margin-bottom: 0.75rem;
