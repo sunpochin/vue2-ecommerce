@@ -3,6 +3,7 @@
 	<nav>
 		<router-link to="/products">Products</router-link> |
 		<router-link to="/cart">Cart </router-link> |
+		<router-link to="/about">About</router-link> |
 	</nav>
 	<router-view />
 </template>
@@ -13,15 +14,14 @@ import HeadCompo from './components/HeadCompo.vue';
 
 export default {
 	components: { HeadCompo },
-	methods: {
-	},
+	methods: {},
 	// computed: {
 	// 	// ...mapGetters(['isLoggedIn', 'numbers/finalCounter']),
 	// },
 };
 </script>
 
-<style>	
+<style>
 #app {
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
