@@ -1,4 +1,10 @@
 <template>
+	<h1>h1 Product List</h1>
+	<a href="#">this is an anchor tag</a>
+	<p class="error">this is an error</p>
+	<p class="notification">this is a notification</p>
+	<button>click me</button>
+
 	<div class="about">
 		<!-- colors -->
 		<h2>Colors</h2>

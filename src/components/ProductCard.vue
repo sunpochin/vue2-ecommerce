@@ -1,10 +1,9 @@
 <template>
 	<div class="card">
-		<img :src="product.imageUrl" class="card-img-top product-image" />
-		<h5 class="card-title">{{ product.name }}</h5>
-		<p class="card-body">
-			body <a href="#">pachinko</a> adsfadsfdasfdaadfs pionhackgrajkljsldkfj
-		</p>
+		<!-- <img :src="product.imageUrl" class="card-img-top product-image" /> -->
+		<img :src="product.image" class="card-img-top product-image" />
+		<p class="card-title">{{ product.title }}</p>
+		<!-- <p class="card-body">{{ product.description }} </p> -->
 		<br />
 		<div class="row">
 			<router-link
@@ -29,7 +28,7 @@ export default {
 </script>
 
 <style>
-/* .card {
+.card {
 	display: flex;
 	flex-direction: column;
 
@@ -38,15 +37,15 @@ export default {
 	background-color: pink;
 	margin: 20px;
 	border-radius: 9px;
-} */
+}
 
 .card .product-image {
 	height: 300px;
 }
-.card-img,
+/* .card-img,
 .card-img-top {
 	width: 100%;
-}
+} */
 
 /* .card-img, .card-img-top {
 	border-top-left-radius: calc(0.25rem - 1px);
