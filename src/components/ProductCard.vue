@@ -5,7 +5,7 @@
 		<div class="row">
 			<router-link
 				type="button"
-				class="btn btn-primary btn-lg"
+				class="btn-primary"
 				:to="'/products/' + product.id"
 				>Details</router-link
 			>
@@ -27,9 +27,19 @@ export default {
 </script>
 
 <style>
+.row {
+	margin-bottom: 10px;
+}
+.btn-primary {
+	color: blue;
+	border: 1px solid blue;
+	border-radius: 5px;
+}
+
 .product-card {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	align-items: center;
 	margin: auto;
 

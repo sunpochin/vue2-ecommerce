@@ -12,20 +12,21 @@ const router = createRouter({
 			redirect: '/products',
 		},
 		{
-			path: '/products',
-			component: ProductList,
-			// children: [
-			// 	// { path: '/products/:teamId', component: ProductDetail, props: true },
-			// 	{ path: ':productId', component: ProductDetail, props: true },
-			// ],
-		},
-		{
 			path: '/products/:productId',
 			component: ProductDetail,
 			props: true,
 		},
 		{
+			path: '/products',
+			component: ProductList,
+		},
+		{
 			path: '/cart',
+			// name: 'cart',
+			component: CartView,
+		},
+		{
+			path: '/login',
 			// name: 'cart',
 			component: CartView,
 		},

@@ -11,9 +11,8 @@
 </template>
 
 <script>
-import axios from 'axios';
 import ProductCard from './ProductCard.vue';
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters} from 'vuex';
 
 export default {
 	components: {
@@ -21,8 +20,6 @@ export default {
 	},
 	computed: {
 		...mapGetters(['getProducts']),
-	},
-	methods: {
 	},
 	props: {
 		msg: String,

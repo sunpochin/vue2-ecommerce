@@ -16,6 +16,7 @@ const store = createStore({
 			count: 0,
 			products: [],
 			isLoggedIn: false,
+			curProduct: null,
 		};
 	},
 	mutations: {
@@ -25,6 +26,9 @@ const store = createStore({
 		setProducts(state, payload) {
 			console.log('mutations payload: ', payload);
 			state.products = payload.value;
+		},
+		setCurProduct(state, payload) {
+			state.curProduct = payload.value;
 		},
 	},
 
@@ -42,11 +46,11 @@ const store = createStore({
 		setProducts(context, payload) {
 			context.commit('setProducts', payload);
 		},
+		setCurProduct(context, payload) {
+			context.commit('setCurProduct', payload);
+		},
 	},
 	getters: {
-		// fullName: function (state) {
-		// 	return `${state.firstName} ${state.lastName}`;
-		// },
 		counter(state) {
 			return state.count;
 		},
@@ -55,6 +59,9 @@ const store = createStore({
 		},
 		getProducts(state) {
 			return state.products;
+		},
+		getCurProduct(state) {
+			return state.curProduct;
 		},
 	},
 });
