@@ -16,68 +16,18 @@ import ProductCard from './ProductCard.vue';
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
-	data() {
-		return {
-			// products: [],
-		};
-	},
 	components: {
 		ProductCard,
 	},
 	computed: {
 		...mapGetters(['getProducts']),
-		// getProducts() {
-		// 	console.log(
-		// 		'this.$store.getters.getProducts: ',
-		// 		this.$store.getters.getProducts
-		// 	);
-		// 	// return this.products;
-		// 	return this.$store.getters.getProducts;
-		// },
 	},
 	methods: {
-		...mapActions({
-			setProducts: 'setProducts',
-		}),
-
-		async fetchProducts() {
-			const response = await axios.get('https://fakestoreapi.com/products');
-			// console.log('response: ', response);
-			let data = response.data;
-			console.log('data: ', data);
-
-			data = data.filter(
-				(product) =>
-					product.category === `men's clothing` ||
-					product.category === `women's clothing`
-			);
-
-			this.setProducts({ value: data });
-			return data;
-		},
-
-		// async fetchProducts() {
-		// 	// https://my-json-server.typicode.com/sunpochin/vue-ecommerce/db
-		// 	const ret = await axios.get(
-		// 		'https://my-json-server.typicode.com/sunpochin/vue-ecommerce/db'
-		// 	);
-		// 	this.products = ret.data['products'];
-		// 	console.log(
-		// 		'ret.data: ',
-		// 		ret.data['products'],
-		// 		',length: ',
-		// 		ret.data['products'].length
-		// 	);
-		// 	console.log('products: ', this.products[0]);
-		// 	this.setProducts({ value: this.products });
-		// },
 	},
 	props: {
 		msg: String,
 	},
 	mounted() {
-		console.log('productList route', this.$route);
-		this.fetchProducts();
 	},
 };
 </script>

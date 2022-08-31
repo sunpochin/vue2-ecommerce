@@ -4,7 +4,7 @@
 		<nav>
 			<router-link to="/products">Products</router-link> |
 			<router-link to="/cart">Cart </router-link> |
-			<router-link to="/about">About</router-link> |
+			<router-link to="/login">Login</router-link> |
 		</nav>
 	</div>
 	<router-view />
@@ -12,12 +12,52 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import HeadCompo from './components/HeadCompo.vue';
-// import { mapActions, mapGetters } from 'vuex';
+import axios from 'axios';
 
 export default {
+	mounted() {
+		console.log('productList route', this.$route);
+		this.fetchProducts();
+	},
 	components: { HeadCompo },
-	methods: {},
+	methods: {
+		...mapActions({
+			setProducts: 'setProducts',
+		}),
+		async fetchProducts() {
+			const response = await axios.get('https://fakestoreapi.com/products');
+			// console.log('response: ', response);
+			let data = response.data;
+			console.log('data: ', data);
+
+			data = data.filter(
+				(product) =>
+					product.category === `men's clothing` ||
+					product.category === `women's clothing`
+			);
+
+			this.setProducts({ value: data });
+			return data;
+		},
+
+		// async fetchProducts() {
+		// 	// https://my-json-server.typicode.com/sunpochin/vue-ecommerce/db
+		// 	const ret = await axios.get(
+		// 		'https://my-json-server.typicode.com/sunpochin/vue-ecommerce/db'
+		// 	);
+		// 	this.products = ret.data['products'];
+		// 	console.log(
+		// 		'ret.data: ',
+		// 		ret.data['products'],
+		// 		',length: ',
+		// 		ret.data['products'].length
+		// 	);
+		// 	console.log('products: ', this.products[0]);
+		// 	this.setProducts({ value: this.products });
+		// },
+	},
 	// computed: {
 	// 	// ...mapGetters(['isLoggedIn', 'numbers/finalCounter']),
 	// },
@@ -27,53 +67,50 @@ export default {
 <style>
 /* reset styles */
 * {
-  color: inherit;
-  margin: 0;
+	color: inherit;
+	margin: 0;
 }
 
 body {
-  font-family: Poppins;
+	font-family: Poppins;
 }
 
 ul {
-  padding: 0;
-  list-style-type: none;
+	padding: 0;
+	list-style-type: none;
 }
 
 a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 hr {
-  border: 0;
-  border-top: 1px dotted #efefef;
+	border: 0;
+	border-top: 1px dotted #efefef;
 }
 
 img {
-  max-width: 100%;
+	max-width: 100%;
 }
 
 .card {
-  display: block;
-  padding: 0.75rem;
-  border: 1px solid #ddd;
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 20px;
+	display: block;
+	padding: 0.75rem;
+	border: 1px solid #ddd;
+	box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+	border-radius: 20px;
 }
 .card .card-title {
-  font-size: 1rem;
-  padding-bottom: 0.75rem;
-  font-weight: bold;
+	font-size: 1rem;
+	padding-bottom: 0.75rem;
+	font-weight: bold;
 }
 .card .card-body {
-  font-size: 1rem;
+	font-size: 1rem;
 }
 .card .card-body a {
-  text-decoration: underline;
+	text-decoration: underline;
 }
-
-
-
 
 #app {
 	margin: 0;

@@ -2,7 +2,6 @@
 	<div class="product-card">
 		<image-container :product="product"></image-container>
 		<p class="card-title">{{ product.title }}</p>
-		<br />
 		<div class="row">
 			<router-link
 				type="button"
@@ -37,7 +36,7 @@ export default {
 	border: 1px solid black;
 	max-width: 300px;
 	height: 350px;
-	background-color: pink;
+	background-color: white;
 	border-radius: 9px;
 }
 

@@ -1,6 +1,6 @@
 <template>
 	<div class="image-container">
-		<img :src="product.image"/>
+		<img :src="product.image" />
 	</div>
 </template>
 
@@ -10,7 +10,7 @@ export default {
 		product: Object,
 	},
 	mounted() {
-		console.log('image-container: ', this.product);
+		// console.log('image-container: ', this.product);
 	},
 };
 </script>
@@ -21,14 +21,16 @@ export default {
 	align-items: center;
 	box-sizing: border-box;
 
-	max-width: 100%;
-  height: 260px;
-  margin: 1rem;
+	width: 100%;
+	height: 10rem;
+	margin: 1rem;
+	
+  border-bottom: 1px solid rgb(191,191,191);
+
 	/* max-height: 450px; */
-	background-color: pink;
 }
 img {
-  /* max-width: 80%; */
-  height: 100%;
+	max-width: 100%;
+	max-height: 100%;
 }
 </style>
