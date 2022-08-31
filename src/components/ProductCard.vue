@@ -1,9 +1,7 @@
 <template>
-	<div class="card">
-		<!-- <img :src="product.imageUrl" class="card-img-top product-image" /> -->
-		<img :src="product.image" class="card-img-top product-image" />
+	<div class="product-card">
+		<image-container :product="product"></image-container>
 		<p class="card-title">{{ product.title }}</p>
-		<!-- <p class="card-body">{{ product.description }} </p> -->
 		<br />
 		<div class="row">
 			<router-link
@@ -17,7 +15,9 @@
 </template>
 
 <script>
+import ImageContainer from './ImageContainer.vue';
 export default {
+	components: { ImageContainer },
 	props: {
 		product: Object,
 	},
@@ -28,34 +28,28 @@ export default {
 </script>
 
 <style>
-.card {
+.product-card {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
+	margin: auto;
 
-	width: 300px;
-	height: 450px;
+	border: 1px solid black;
+	max-width: 300px;
+	height: 350px;
 	background-color: pink;
-	margin: 20px;
 	border-radius: 9px;
 }
 
-.card .product-image {
-	height: 300px;
-}
-/* .card-img,
-.card-img-top {
-	width: 100%;
-} */
-
-/* .card-img, .card-img-top {
-	border-top-left-radius: calc(0.25rem - 1px);
-	border-top-right-radius: calc(0.25rem - 1px);
-	flex-shrink: 0;
-	width: 100%;
+@media (max-width: 1200) {
+	html {
+		font-size: 85%;
+	}
 }
 
-img {
-	vertical-align: middle;
-	border-style: none;
-} */
+@media (max-width: 768) {
+	html {
+		font-size: 55%;
+	}
+}
 </style>
