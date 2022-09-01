@@ -21,13 +21,10 @@ export default {
 	align-items: center;
 	box-sizing: border-box;
 
+	border-bottom: 1px solid rgb(191, 191, 191);
 	width: 100%;
 	height: 10rem;
-	margin: 1rem;
-	
-  border-bottom: 1px solid rgb(191,191,191);
-
-	/* max-height: 450px; */
+	padding: 1rem;
 }
 img {
 	max-width: 100%;

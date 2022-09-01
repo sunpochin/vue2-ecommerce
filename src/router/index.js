@@ -2,14 +2,15 @@ import { createRouter, createWebHistory } from 'vue-router';
 import ProductList from '../components/products/ProductList.vue';
 import ProductDetail from '../components/products/ProductDetail.vue';
 import CartView from '../components/CartView.vue';
+import HomeView from '../components/home/HomeView.vue'
 
 const router = createRouter({
-	history: createWebHistory(),
+	history: createWebHistory('/vue-ecommerce/'),
 	routes: [
 		{
 			path: '/',
-			component: ProductList,
-			redirect: '/products',
+			component: HomeView,
+			// redirect: '/products',
 		},
 		{
 			path: '/products/:productId',

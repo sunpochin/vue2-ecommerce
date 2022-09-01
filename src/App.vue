@@ -2,9 +2,10 @@
 	<div class="upmost">
 		<div class="logo">Logo</div>
 		<nav>
+			<router-link to="/">Home</router-link> |
 			<router-link to="/products">Products</router-link> |
-			<router-link to="/cart">Cart </router-link> |
-			<router-link to="/login">Login</router-link> |
+			<router-link to="/cart">Cart</router-link> |
+			<router-link to="/login">Login</router-link>
 		</nav>
 	</div>
 	<router-view />
@@ -69,6 +70,35 @@ export default {
 * {
 	color: inherit;
 	margin: 0;
+	padding: 0;
+}
+
+.upmost {
+	margin: 0;
+	padding: 0;
+}
+
+nav {
+	background-color: rgb(50, 50, 50);
+	display: flex;
+	justify-content: space-around;
+	gap: 30px;
+	padding: 10px;
+}
+
+nav a:hover {
+	transition: transform 0.9s ease-in-out;
+	transform: scale(1.4);
+}
+
+nav a {
+	font-weight: bold;
+	color: rgb(7, 103, 7);
+}
+
+nav a.router-link-exact-active {
+	/* color: #42b983; */
+	color: red;
 }
 
 body {
@@ -80,9 +110,9 @@ ul {
 	list-style-type: none;
 }
 
-a {
+/* a {
 	text-decoration: none;
-}
+} */
 
 hr {
 	border: 0;
@@ -134,27 +164,5 @@ img {
 
 	color: pink;
 	font-size: 32px;
-}
-
-nav {
-	background-color: rgb(50, 50, 50);
-	display: flex;
-	justify-content: space-around;
-	gap: 30px;
-	padding: 30px;
-}
-
-nav a:hover {
-	transition: transform 0.9s ease-in-out;
-	transform: scale(1.4);
-}
-
-nav a {
-	font-weight: bold;
-	color: green;
-}
-
-nav a.router-link-exact-active {
-	color: #42b983;
 }
 </style>
