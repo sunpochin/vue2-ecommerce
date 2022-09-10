@@ -11,7 +11,7 @@
 	</div>
 </template>
 
-<script >
+<script>
 import { mapActions } from 'vuex';
 import ImageContainer from './ImageContainer.vue';
 import store from '@/store';
@@ -19,7 +19,7 @@ import store from '@/store';
 export default {
 	data() {
 		return {
-			product: Object(),	// todo: using Object (instead of Object() ) will cause a build error
+			product: Object(), // todo: using Object (instead of Object() ) will cause a build error
 		};
 	},
 	components: {
@@ -75,5 +75,19 @@ export default {
 	height: 600px;
 	background-color: white;
 	border-radius: 9px;
+}
+
+.btn-detail {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	text-decoration: none;
+	height: 3rem;
+	width: 90%;
+	color: grey;
+	background-color: black;
+	border: 1px solid grey;
+	border-radius: 5px;
 }
 </style>

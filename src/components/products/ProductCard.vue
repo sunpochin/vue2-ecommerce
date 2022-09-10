@@ -1,21 +1,23 @@
 <template>
 	<div class="product-card">
 		<image-container :product="product"></image-container>
-		<p class="card-title">{{ product.title }}</p>
-		<p>$Price: {{ product.price }}</p>
 
-		<div class="row">
-			<router-link
-				type="button"
-				class="btn-detail"
-				:to="'/products/' + product.id"
-				>Details</router-link
-			>
+		<div class="details">
+			<div class="card-title">{{ product.title }}</div>
+			<div class="price">$Price: {{ product.price }}</div>
+			<div class="row">
+				<router-link
+					type="button"
+					class="btn-detail"
+					:to="'/products/' + product.id"
+					>Detail</router-link
+				>
+			</div>
 		</div>
 	</div>
 </template>
 
-<script >
+<script>
 import ImageContainer from './ImageContainer.vue';
 export default {
 	components: { ImageContainer },
@@ -29,16 +31,28 @@ export default {
 </script>
 
 <style>
+.details {
+	width: 80%;
+	height: 100%;
+	margin: 5px;
+}
+
 .card-title {
 	font-weight: bold;
+	height: 40%;
+}
+.price {
+	height: 30%;
 }
 .row {
 	display: flex;
 	align-items: center;
-	margin-bottom: 20px;
+	justify-content: center;
+
+	/* margin-bottom: 20px; */
 	padding: auto;
-	height: 3rem;
-	width: 12rem;
+	height: 20%;
+	width: 100%;
 }
 .btn-detail {
 	display: flex;
@@ -47,6 +61,7 @@ export default {
 
 	text-decoration: none;
 	height: 3rem;
+	width: 100%;
 	color: grey;
 	background-color: black;
 	border: 1px solid grey;
@@ -56,7 +71,7 @@ export default {
 .product-card {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 	align-items: center;
 	margin: auto;
 
