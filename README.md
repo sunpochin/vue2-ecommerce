@@ -1,8 +1,4 @@
-# vue-ecommerce
-
-## Live demo
-https://vue-ecommerce-68z8.onrender.com/
-
+# vue2-ecommerce
 
 ## Project setup
 ```

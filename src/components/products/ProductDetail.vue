@@ -1,28 +1,25 @@
 <template>
 	<div class="product-detail">
 		<image-container :product="product"></image-container>
-		<p class="card-title">{{ product.title }}</p>
-		<p class="card-title">{{ product.description }}</p>
-		<p class="card-title">$Price: {{ product.price }}</p>
+		<h1 class="card-title">{{ product.title }}</h1>
+		<div class="product-desc">{{ product.description }}</div>
+		<br />
+		<div class="">$Price: {{ product.price }}</div>
 		<div class="row">
-			<!-- <router-link
-				type="button"
-				class="btn-primary"
-				:to="'/products/' + product.id"
-				>Add to cart</router-link
-			> -->
+			<button @click="addToCart" class="btn-detail">Add to cart</button>
 		</div>
 	</div>
 </template>
 
-<script>
+<script >
 import { mapActions } from 'vuex';
 import ImageContainer from './ImageContainer.vue';
+import store from '@/store';
 
 export default {
 	data() {
 		return {
-			product: Object,
+			product: Object(),	// todo: using Object (instead of Object() ) will cause a build error
 		};
 	},
 	components: {
@@ -30,8 +27,12 @@ export default {
 	},
 	props: ['productId'],
 	methods: {
+		addToCart() {
+			store.commit('addToCart', this.product);
+		},
 		...mapActions({
 			setCurProduct: 'setCurProduct',
+			// addToCart: 'addToCart',
 		}),
 		async getSingle() {
 			const addr = `https://fakestoreapi.com/products/${this.productId}`;
@@ -59,6 +60,9 @@ export default {
 	display: grid;
 	grid-template-columns: repeat(1, 12rem);
 }
+.product-desc {
+	max-height: 200px;
+}
 .product-detail {
 	display: flex;
 	flex-direction: column;
@@ -68,7 +72,7 @@ export default {
 
 	border: 1px solid black;
 	max-width: 400px;
-	height: 500px;
+	height: 600px;
 	background-color: white;
 	border-radius: 9px;
 }

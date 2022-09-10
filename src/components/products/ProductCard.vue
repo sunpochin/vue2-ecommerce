@@ -2,10 +2,12 @@
 	<div class="product-card">
 		<image-container :product="product"></image-container>
 		<p class="card-title">{{ product.title }}</p>
+		<p>$Price: {{ product.price }}</p>
+
 		<div class="row">
 			<router-link
 				type="button"
-				class="btn-primary"
+				class="btn-detail"
 				:to="'/products/' + product.id"
 				>Details</router-link
 			>
@@ -13,7 +15,7 @@
 	</div>
 </template>
 
-<script>
+<script >
 import ImageContainer from './ImageContainer.vue';
 export default {
 	components: { ImageContainer },
@@ -27,12 +29,27 @@ export default {
 </script>
 
 <style>
-.row {
-	margin-bottom: 10px;
+.card-title {
+	font-weight: bold;
 }
-.btn-primary {
-	color: blue;
-	border: 1px solid blue;
+.row {
+	display: flex;
+	align-items: center;
+	margin-bottom: 20px;
+	padding: auto;
+	height: 3rem;
+	width: 12rem;
+}
+.btn-detail {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	text-decoration: none;
+	height: 3rem;
+	color: grey;
+	background-color: black;
+	border: 1px solid grey;
 	border-radius: 5px;
 }
 

@@ -1,10 +1,12 @@
 <template>
-	<router-view></router-view>
-	<h1>{{ msg }}</h1>
-	<div class="outer">
-		<div class="product-list">
-			<div v-for="product in getProducts" :key="product.id">
-				<ProductCard :product="product" />
+	<div>
+		<router-view></router-view>
+		<h1>{{ msg }}</h1>
+		<div class="outer">
+			<div class="product-list">
+				<div v-for="product in listProducts" :key="product.id">
+					<ProductCard :product="product" />
+				</div>
 			</div>
 		</div>
 	</div>
@@ -12,19 +14,52 @@
 
 <script>
 import ProductCard from './ProductCard.vue';
-import { mapGetters} from 'vuex';
-
+import { mapActions, mapGetters } from 'vuex';
+import CommonMixin from '@/utils/CommonMixin';
+import store from '@/store';
 export default {
+	data() {
+		return {
+			productsList: [],
+		};
+	},
 	components: {
 		ProductCard,
 	},
 	computed: {
-		...mapGetters(['getProducts']),
+		listProducts() {
+			console.log('mama: ', store.getters.getProducts);
+			// console.log('mama data: ', store.getters.getProducts.data);
+			return store.getters.getProducts;
+		},
+		...mapGetters({ getProducts: 'getProducts' }),
+		// ...mapState(['productsList']),
 	},
 	props: {
 		msg: String,
 	},
-	mounted() {
+	methods: {
+		...mapActions({
+			// setProducts: 'setProducts',
+			// aliasPro: 'getProducts',
+		}),
+		setAll(pro) {
+			console.log('first', pro);
+			store.commit('setProducts', pro);
+			console.log('aliasPro: ', store.getters.getSubTotal );
+		},
+	},
+	async mounted() {
+		console.log('loaded products: ', this.productsList);
+		if (this.productsList.length === 0) {
+			console.log('fetch!!');
+			// this.fetchProducts();
+		}
+		const { theJson } = CommonMixin();
+		// console.log('retProductJson: ', retProductJson);
+		// const data = await getJsonData('public/products.json');
+		console.log('mounted data: ', theJson);
+		this.setAll(theJson);
 	},
 };
 </script>

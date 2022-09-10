@@ -1,162 +1,45 @@
 <template>
-	<div class="upmost">
-		<div class="logo">Logo</div>
-		<nav>
-			<router-link to="/">Home</router-link> |
-			<router-link to="/products">Products</router-link> |
-			<router-link to="/cart">Cart</router-link> |
-			<router-link to="/login">Login</router-link>
-		</nav>
+	<div id="app">
+		<div class="upmost">
+			<div class="logo">Fashion shop</div>
+			<nav>
+				<!-- <router-link to="/">首頁</router-link> -->
+				<router-link to="/products">產品列表</router-link>
+				<router-link to="/cart">購物車</router-link>
+				<router-link to="/login">登入/註冊</router-link>
+			</nav>
+		</div>
+		<router-view />
 	</div>
-	<router-view />
-	<HeadCompo></HeadCompo>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-import HeadCompo from './components/HeadCompo.vue';
-import axios from 'axios';
-
+// import HelloWorld from './components/HelloWorld.vue';
 export default {
-	mounted() {
-		console.log('productList route', this.$route);
-		this.fetchProducts();
+	name: 'App',
+	components: {
+		// HelloWorld,
 	},
-	components: { HeadCompo },
-	methods: {
-		...mapActions({
-			setProducts: 'setProducts',
-		}),
-		async fetchProducts() {
-			const response = await axios.get('https://fakestoreapi.com/products');
-			// console.log('response: ', response);
-			let data = response.data;
-			console.log('data: ', data);
-
-			data = data.filter(
-				(product) =>
-					product.category === `men's clothing` ||
-					product.category === `women's clothing`
-			);
-
-			this.setProducts({ value: data });
-			return data;
-		},
-
-		// async fetchProducts() {
-		// 	// https://my-json-server.typicode.com/sunpochin/vue-ecommerce/db
-		// 	const ret = await axios.get(
-		// 		'https://my-json-server.typicode.com/sunpochin/vue-ecommerce/db'
-		// 	);
-		// 	this.products = ret.data['products'];
-		// 	console.log(
-		// 		'ret.data: ',
-		// 		ret.data['products'],
-		// 		',length: ',
-		// 		ret.data['products'].length
-		// 	);
-		// 	console.log('products: ', this.products[0]);
-		// 	this.setProducts({ value: this.products });
-		// },
-	},
-	// computed: {
-	// 	// ...mapGetters(['isLoggedIn', 'numbers/finalCounter']),
-	// },
 };
 </script>
 
 <style>
-/* reset styles */
-* {
-	color: inherit;
-	margin: 0;
-	padding: 0;
-}
-
-.upmost {
-	margin: 0;
-	padding: 0;
-}
-
-nav {
-	background-color: rgb(50, 50, 50);
-	display: flex;
-	justify-content: space-around;
-	gap: 30px;
-	padding: 10px;
-}
-
-nav a:hover {
-	transition: transform 0.9s ease-in-out;
-	transform: scale(1.4);
-}
-
-nav a {
-	font-weight: bold;
-	color: rgb(7, 103, 7);
-}
-
-nav a.router-link-exact-active {
-	/* color: #42b983; */
-	color: red;
-}
-
-body {
-	font-family: Poppins;
-}
-
-ul {
-	padding: 0;
-	list-style-type: none;
-}
-
-/* a {
-	text-decoration: none;
-} */
-
-hr {
-	border: 0;
-	border-top: 1px dotted #efefef;
-}
-
-img {
-	max-width: 100%;
-}
-
-.card {
-	display: block;
-	padding: 0.75rem;
-	border: 1px solid #ddd;
-	box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-	border-radius: 20px;
-}
-.card .card-title {
-	font-size: 1rem;
-	padding-bottom: 0.75rem;
-	font-weight: bold;
-}
-.card .card-body {
-	font-size: 1rem;
-}
-.card .card-body a {
-	text-decoration: underline;
-}
-
 #app {
-	margin: 0;
-	padding: 0;
-
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-align: center;
 	color: #2c3e50;
+	margin-top: 60px;
 }
+
 .upmost {
 	display: flex;
+	max-width: 100%;
 	justify-content: space-between;
 	background-color: rgb(0, 0, 0);
 }
+
 .logo {
 	display: flex;
 	align-items: center;
@@ -164,5 +47,115 @@ img {
 
 	color: pink;
 	font-size: 32px;
+	padding: 1rem;
+}
+
+nav {
+	background-color: rgb(50, 50, 50);
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	gap: 10px;
+	padding: 10px;
+	font-size: 10px;
+}
+
+nav a:hover {
+	transition: transform 0.9s ease-in-out;
+	transform: scale(1);
+	color: rgb(13, 195, 13);
+}
+
+nav a {
+	font-weight: bold;
+	color: rgb(13, 195, 13);
+}
+
+nav a.router-link-exact-active {
+	color: rgb(229, 226, 241);
+}
+
+/*  */
+/*  */
+:root {
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 24px;
+	font-weight: 400;
+
+	color-scheme: light dark;
+	color: rgba(255, 255, 255, 0.87);
+	background-color: #242424;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}
+
+a {
+	font-weight: 500;
+	color: #646cff;
+	text-decoration: inherit;
+}
+a:hover {
+	color: #535bf2;
+}
+
+body {
+	margin: 0;
+	/* display: flex; */
+	place-items: center;
+	min-width: 320px;
+	min-height: 100vh;
+}
+
+h1 {
+	font-size: 3.2em;
+	line-height: 1.1;
+}
+
+button {
+	border-radius: 8px;
+	border: 1px solid transparent;
+	padding: 0.6em 1.2em;
+	font-size: 1em;
+	font-weight: 500;
+	font-family: inherit;
+	background-color: #1a1a1a;
+	cursor: pointer;
+	transition: border-color 0.25s;
+}
+button:hover {
+	border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+	outline: 4px auto -webkit-focus-ring-color;
+}
+
+.card {
+	padding: 2em;
+}
+
+#app {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 2rem;
+	text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		color: #213547;
+		background-color: #ffffff;
+	}
+	a:hover {
+		color: #747bff;
+	}
+	button {
+		background-color: #f9f9f9;
+	}
 }
 </style>
