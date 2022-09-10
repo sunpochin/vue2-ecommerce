@@ -1,3 +1,5 @@
+// import Vue from 'vue';
+
 export default {
 	setProducts(state, payload) {
 		console.log('setProducts: ', payload);
@@ -8,18 +10,20 @@ export default {
 		const index = state.itemsInCart.findIndex((idx) => {
 			return idx.id === payload.id;
 		});
+		// Vue.set(state.itemsInCart, index, {
+		// 	formName: payload.formName,
+		// 	data: { count: 0, haha: 0 },
+		// });
 		console.log('addToCart index: ', index);
 		if (index > -1) {
-			console.log('state.itemsInCart: ', state.itemsInCart);
-			state.itemsInCart[index].count++;
-			console.log(
-				'state.itemsInCart[index].count: ',
-				state.itemsInCart[index].count
-			);
+			// assign state.itemsInCart to a new array for re-rendering.
+			let newAry = state.itemsInCart.slice(0);
+			newAry[index].count++;
+			console.log('newAry: ', newAry);
+			console.log('newAry[index].count: ', newAry[index].count);
+			state.itemsInCart = newAry;
 		} else {
 			payload.count = 1;
-			// [...state.itemsInCart, payload];
-			// console.log('newitem: ', newitem);
 			console.log('payload: ', payload);
 			state.itemsInCart.push(payload);
 		}
@@ -32,8 +36,12 @@ export default {
 		});
 		// console.log('removeItem index: ', index);
 		if (index > -1) {
-			console.log('state.itemsInCart: ', state.itemsInCart);
-			state.itemsInCart[index].count--;
+			let newAry = state.itemsInCart.slice(0);
+			newAry[index].count--;
+			console.log('newAry: ', newAry);
+			console.log('newAry[index].count: ', newAry[index].count);
+			state.itemsInCart = newAry;
+
 			if (state.itemsInCart[index].count <= 0) {
 				state.itemsInCart.splice(index, 1);
 			}
@@ -42,11 +50,9 @@ export default {
 			// 	state.itemsInCart[index].count
 			// );
 		} else {
-			payload.count = 1;
-			// [...state.itemsInCart, payload];
-			// console.log('newitem: ', newitem);
-			console.log('payload: ', payload);
-			state.itemsInCart.push(payload);
+			// should not go here.
+			console.log('should not go here.');
+			// throw Exception('should not go here.');
 		}
 		// console.log('itemsInCart: ', state.itemsInCart);
 	},

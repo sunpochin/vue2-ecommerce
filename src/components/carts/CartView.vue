@@ -1,7 +1,10 @@
 <template>
 	<div>
 		<div class="containerTable">
-			<table>
+			<div v-if="!showTable">
+				<h2>購物車是空的</h2>
+			</div>
+			<table v-if="showTable">
 				<thead>
 					<tr class="clstr">
 						<th scope="col">
@@ -34,11 +37,6 @@
 						</div>
 					</td>
 					<td>{{ item.title }}</td>
-					<!-- <td>
-					<div class="containerDesc">
-						{{ item.description }}
-					</div>
-				</td> -->
 					<td>{{ item.price }}</td>
 					<td>
 						<div class="clsCount">
@@ -50,33 +48,52 @@
 				</tr>
 			</table>
 		</div>
-		<div class="clsSubtotal">
-			<h2>Subtotal: {{ getSubTotal }}</h2>
-			<h2>getTotalCount: {{ getTotalCount }}</h2>
+		<div v-if="showTable" class="clsSubtotal">
+			<h2>總金額: {{ getSubTotal }} 貨品數: {{ getTotalCount }}</h2>
 		</div>
 	</div>
 </template>
 
 <script>
-// import CartCard from './CartCard.vue';
 import { mapState } from 'vuex';
 import CommonMixin from '@/utils/CommonMixin';
 import store from '@/store';
-// import Vue from 'vue';
 
 export default {
 	components: {
 		// CartCard,
 	},
 	computed: {
+		showTable() {
+			return store.getters.getCartItems.length === 0 ? false : true;
+		},
 		getCartProducts() {
-			console.log('getCartProducts: ', store.getters.getCartItems);
-			return store.getters.getCartItems;
+			const dummy = {
+				id: -1,
+				title: '',
+				price: 0,
+				description: '',
+				category: '',
+				image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+				rating: { rate: 3.9, count: 120 },
+			};
+			if (store.getters.getCartItems.length >= 1) {
+				console.log('getCartProducts: ', store.getters.getCartItems);
+				return store.getters.getCartItems;
+			} else {
+				const ary = [];
+				ary.push(dummy);
+				return ary;
+			}
 		},
 		getSubTotal() {
+			console.log('getSubTotal: ', store.getters.getSubTotal);
 			return store.getters.getSubTotal;
 		},
-		...mapState(['itemsInCart', 'getTotalCount']),
+		getTotalCount() {
+			return store.getters.getTotalCount;
+		},
+		...mapState(['itemsInCart']),
 	},
 	// data() {
 	// 	return {
@@ -95,25 +112,22 @@ export default {
 			this.$forceUpdate();
 		},
 
-		haha(pro) {
+		setProducts(pro) {
 			store.commit('setProducts', pro);
 		},
 	},
-	async mounted() {
+	async created() {
 		// todo: remove this temp codes for doing layout of cart.
 		const { theJson } = CommonMixin();
 		// const { data } = await getJsonData('public/products.json');
 		// console.log('mounted data: ', data);
-		const data = theJson;
-		this.haha(data);
+		this.setProducts(theJson);
+		console.log('created: ');
 
-		store.commit('addToCart', data[0]);
-		store.commit('addToCart', data[0]);
-		store.commit('addToCart', data[1]);
-		store.commit('addToCart', data[1]);
-		store.commit('addToCart', data[1]);
-		store.commit('addToCart', data[2]);
-		store.commit('addToCart', data[2]);
+		store.commit('addToCart', theJson[0]);
+		store.commit('addToCart', theJson[0]);
+		store.commit('addToCart', theJson[1]);
+		store.commit('addToCart', theJson[2]);
 	},
 };
 </script>
