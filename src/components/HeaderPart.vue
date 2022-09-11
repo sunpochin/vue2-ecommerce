@@ -4,9 +4,8 @@
 		<nav>
 			<!-- <router-link to="/">首頁</router-link> -->
 			<router-link to="/products">產品列表</router-link>
-			<router-link to="/cart">購物車</router-link>
-			<button class="buttonWrapper">
-				<FaShoppingCart />
+			<!-- <router-link to="/cart">購物車</router-link> -->
+			<button class="buttonWrapper" @click="haha">
 				<div class="quantity">{{ getTotalCount }}</div>
 			</button>
 			<router-link to="/login">登入/註冊</router-link>
@@ -20,6 +19,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import store from '@/store';
+import router from '@/router';
 
 export default {
 	computed: {
@@ -35,6 +35,9 @@ export default {
 		// },
 	},
 	methods: {
+		haha() {
+			router.push('/cart');
+		},
 		...mapActions({
 			login: 'login',
 			logout: 'logout',
@@ -84,7 +87,7 @@ export default {
 .quantity {
 	position: absolute;
 	top: 2rem;
-	right: 10.5rem;
+	right: 14rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;

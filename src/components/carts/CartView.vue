@@ -60,7 +60,7 @@
 
 <script>
 import { mapState } from 'vuex';
-import CommonMixin from '@/utils/CommonMixin';
+// import CommonMixin from '@/utils/CommonMixin';
 import store from '@/store';
 
 export default {
@@ -120,19 +120,19 @@ export default {
 			store.commit('setProducts', pro);
 		},
 	},
-	async created() {
-		// todo: remove this temp codes for doing layout of cart.
-		const { theJson } = CommonMixin();
-		// const { data } = await getJsonData('public/products.json');
-		// console.log('mounted data: ', data);
-		this.setProducts(theJson);
-		console.log('created: ');
+	// async created() {
+	// 	// todo: remove this temp codes for doing layout of cart.
+	// 	const { theJson } = CommonMixin();
+	// 	// const { data } = await getJsonData('public/products.json');
+	// 	// console.log('mounted data: ', data);
+	// 	this.setProducts(theJson);
+	// 	console.log('created: ');
 
-		store.commit('addToCart', theJson[0]);
-		store.commit('addToCart', theJson[0]);
-		store.commit('addToCart', theJson[1]);
-		store.commit('addToCart', theJson[2]);
-	},
+	// 	store.commit('addToCart', theJson[0]);
+	// 	store.commit('addToCart', theJson[0]);
+	// 	store.commit('addToCart', theJson[1]);
+	// 	store.commit('addToCart', theJson[2]);
+	// },
 };
 </script>
 

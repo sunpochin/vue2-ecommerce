@@ -8,10 +8,26 @@
 <script>
 // import HelloWorld from './components/HelloWorld.vue';
 import HeaderPart from './components/HeaderPart.vue';
+import CommonMixin from '@/utils/CommonMixin';
+import store from '@/store';
+
 export default {
 	name: 'App',
 	components: {
 		HeaderPart,
+	},
+	mounted() {
+		// todo: remove this temp codes for doing layout of cart.
+		const { theJson } = CommonMixin();
+		// const { data } = await getJsonData('public/products.json');
+		// console.log('mounted data: ', data);
+		this.setProducts(theJson);
+		console.log('created: ');
+
+		store.commit('addToCart', theJson[0]);
+		store.commit('addToCart', theJson[0]);
+		store.commit('addToCart', theJson[1]);
+		store.commit('addToCart', theJson[2]);
 	},
 };
 </script>
