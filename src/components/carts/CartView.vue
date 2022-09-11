@@ -50,8 +50,8 @@
 		</div>
 		<div v-if="showTable" class="clsSubtotal">
 			<div>
-				<p>總金額: {{ getSubTotal }}</p>
-				<p>貨品數: {{ getTotalCount }}</p>
+				<p>總金額: {{ getSubTotal }} USD</p>
+				<p>貨品數: {{ getTotalCount }} 個</p>
 			</div>
 		</div>
 	</div>

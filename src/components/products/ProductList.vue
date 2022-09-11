@@ -1,7 +1,5 @@
 <template>
 	<div>
-		<router-view></router-view>
-		<h1>{{ msg }}</h1>
 		<div class="outer">
 			<div class="product-list">
 				<div v-for="product in listProducts" :key="product.id">
@@ -97,8 +95,16 @@ export default {
 	}
 }
 @media (max-width: 480px) {
+	#app,
+	body {
+		background-color: green;
+		margin: 0 auto;
+		padding: 0 auto;
+		width: 100%;
+	}
+	
 	.product-list {
-		/* background-color: red; */
+		background-color: red;
 		grid-template-columns: repeat(1, 36rem);
 		justify-content: space-around;
 		align-content: center;
