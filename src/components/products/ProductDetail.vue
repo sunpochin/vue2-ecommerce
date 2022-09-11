@@ -2,11 +2,13 @@
 	<div class="product-detail">
 		<image-container :product="product"></image-container>
 		<h1 class="card-title">{{ product.title }}</h1>
-		<div class="product-desc">{{ product.description }}</div>
+		<div class="card-desc">{{ product.description }}</div>
 		<br />
 		<div class="">$Price: {{ product.price }}</div>
 		<div class="row">
-			<button @click="addToCart" class="btn-detail">Add to cart</button>
+			<button @click="addToCart" type="button" class="btn-detail button">
+				Add to cart
+			</button>
 		</div>
 	</div>
 </template>
@@ -60,15 +62,13 @@ export default {
 	display: grid;
 	grid-template-columns: repeat(1, 12rem);
 }
-.product-desc {
-	max-height: 200px;
-}
+
 .product-detail {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-	margin: 1rem auto;
+	margin: 2rem auto;
 
 	border: 1px solid black;
 	max-width: 400px;
@@ -77,7 +77,35 @@ export default {
 	border-radius: 9px;
 }
 
-.btn-detail {
+.card-desc {
+	max-height: 50%;
+	max-width: 90%;
+}
+
+.card-title,
+.product-desc,
+.row {
+	padding: 1rem;
+	max-height: 20%;
+}
+
+.button:hover {
+	background: black;
+	transform: scale(1.05);
+}
+.button:active {
+	transform: scale(1.02);
+	background: grey;
+	color: white;
+}
+
+.button:focus {
+	outline-color: transparent;
+	outline-style: solid;
+	/* box-shadow: 0 0 0 4px #5a01a7; */
+}
+
+/* .btn-detail {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -89,5 +117,5 @@ export default {
 	background-color: black;
 	border: 1px solid grey;
 	border-radius: 5px;
-}
+} */ ;
 </style>

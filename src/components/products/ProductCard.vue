@@ -66,6 +66,8 @@ export default {
 	background-color: black;
 	border: 1px solid grey;
 	border-radius: 5px;
+
+	cursor: pointer;
 }
 
 .product-card {
