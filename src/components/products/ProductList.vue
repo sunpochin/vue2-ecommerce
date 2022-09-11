@@ -104,8 +104,7 @@ export default {
 	}
 	
 	.product-list {
-		background-color: red;
-		grid-template-columns: repeat(1, 36rem);
+		grid-template-columns: repeat(1, 24rem);
 		justify-content: space-around;
 		align-content: center;
 	}
