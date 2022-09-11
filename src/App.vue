@@ -2,12 +2,14 @@
 	<div id="app">
 		<HeaderPart />
 		<router-view />
+		<FooterPart />
 	</div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue';
 import HeaderPart from './components/HeaderPart.vue';
+import FooterPart from '@/components/FooterPart.vue';
 import CommonMixin from '@/utils/CommonMixin';
 import store from '@/store';
 
@@ -15,6 +17,12 @@ export default {
 	name: 'App',
 	components: {
 		HeaderPart,
+		FooterPart,
+	},
+	methods: {
+		setProducts(pro) {
+			store.commit('setProducts', pro);
+		},
 	},
 	mounted() {
 		// todo: remove this temp codes for doing layout of cart.

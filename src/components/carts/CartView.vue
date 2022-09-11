@@ -60,7 +60,6 @@
 
 <script>
 import { mapState } from 'vuex';
-// import CommonMixin from '@/utils/CommonMixin';
 import store from '@/store';
 
 export default {
@@ -116,9 +115,9 @@ export default {
 			this.$forceUpdate();
 		},
 
-		setProducts(pro) {
-			store.commit('setProducts', pro);
-		},
+	},
+	mounted() {
+
 	},
 	// async created() {
 	// 	// todo: remove this temp codes for doing layout of cart.
