@@ -5,6 +5,10 @@
 			<!-- <router-link to="/">首頁</router-link> -->
 			<router-link to="/products">產品列表</router-link>
 			<router-link to="/cart">購物車</router-link>
+			<button class="buttonWrapper">
+				<FaShoppingCart />
+				<div class="quantity">{{ getTotalCount }}</div>
+			</button>
 			<router-link to="/login">登入/註冊</router-link>
 		</nav>
 		<!-- <p>login state:{{ IsLoggedIn }}</p>
@@ -15,9 +19,14 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import store from '@/store';
 
 export default {
 	computed: {
+		getTotalCount() {
+			return store.getters.getTotalCount;
+		},
+
 		...mapGetters(['IsLoggedIn']),
 		// IsLoggedIn() {
 		// 	console.log('this.$store: ', this.$store);
@@ -58,6 +67,35 @@ export default {
 </script>
 
 <style scoped>
+.buttonWrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	font-weight: bold;
+}
+/* .buttonWrapper:active {
+	transform: scale(1.02);
+}
+.buttonWrapper:hover {
+	transform: scale(1.1);
+} */
+
+.quantity {
+	position: absolute;
+	top: 2rem;
+	right: 10.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	border-radius: 50px;
+	/* background-color: ${({ theme }) => theme.colors.red}; */
+	background-color: pink;
+	font-size: 2rem;
+	font-weight: bold;
+}
 .upmost {
 	display: flex;
 	max-width: 100%;
