@@ -72,15 +72,17 @@ nav {
 nav a:hover {
 	transition: transform 0.9s ease-in-out;
 	transform: scale(1);
-	color: rgb(13, 195, 13);
+	color: lightgreen;
 }
 
 nav a {
+	text-decoration: none;
+
 	font-weight: bold;
-	color: rgb(13, 195, 13);
+	color: white;
 }
 
 nav a.router-link-exact-active {
-	color: rgb(229, 226, 241);
+	color: lightgreen;
 }
 </style>
