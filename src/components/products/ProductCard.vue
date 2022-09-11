@@ -2,9 +2,9 @@
 	<div class="product-card">
 		<image-container :product="product"></image-container>
 
-		<div class="details">
+		<div class="card-details">
 			<div class="card-title">{{ product.title }}</div>
-			<div class="price">$Price: {{ product.price }}</div>
+			<div class="card-price">$Price: {{ product.price }}</div>
 			<div class="row">
 				<router-link
 					type="button"
@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style>
-.details {
+.card-details {
 	width: 80%;
 	height: 100%;
 	margin: 5px;
@@ -40,8 +40,13 @@ export default {
 .card-title {
 	font-weight: bold;
 	height: 40%;
+	padding: 0.5rem 0 0.5rem 0;
+
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
-.price {
+.card-price {
+	padding: 0.5rem 0 0.5rem 0;
 	height: 30%;
 }
 .row {
@@ -66,6 +71,18 @@ export default {
 	background-color: black;
 	border: 1px solid grey;
 	border-radius: 5px;
+
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.btn-detail:hover {
+	transform: scale(1.05);
+	/* background-color: grey; */
+}
+.btn-detail:active {
+	background-color: grey;
+	color: white;
 }
 
 .product-card {

@@ -1,12 +1,14 @@
 <template>
 	<div class="product-card">
 		<image-container :product="product"></image-container>
-		<h1 class="card-title">{{ product.title }}</h1>
-		<div class="product-desc">{{ product.description }}</div>
-		<br />
-		<div class="">$Price: {{ product.price }}</div>
-		<div class="row">
-			<button @click="addToCart" class="btn-detail">Add to cart</button>
+		<div class="card-details">
+			<h1 class="card-title">{{ product.title }}</h1>
+			<div class="product-desc">{{ product.description }}</div>
+			<br />
+			<div class="cart-price">$Price: {{ product.price }}</div>
+			<div class="row">
+				<button @click="addToCart" class="btn-detail">Add to cart</button>
+			</div>
 		</div>
 	</div>
 </template>
@@ -83,11 +85,23 @@ export default {
 	justify-content: center;
 
 	text-decoration: none;
-	height: 3rem;
+	height: 2rem;
 	width: 90%;
 	color: grey;
 	background-color: black;
 	border: 1px solid grey;
 	border-radius: 5px;
+
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.btn-detail:hover {
+	transform: scale(1.05);
+	/* background-color: grey; */
+}
+.btn-detail:active {
+	background-color: grey;
+	color: white;
 }
 </style>
