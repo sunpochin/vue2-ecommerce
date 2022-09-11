@@ -6,7 +6,6 @@
 				<!-- <router-link to="/">首頁</router-link> -->
 				<router-link to="/products">產品列表</router-link>
 				<router-link to="/cart">購物車</router-link>
-				<button>{{ getTotalCount }}</button>
 				<router-link to="/login">登入/註冊</router-link>
 			</nav>
 		</div>
@@ -16,16 +15,10 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue';
-import store from '@/store';
 export default {
 	name: 'App',
 	components: {
 		// HelloWorld,
-	},
-	computed: {
-		getTotalCount() {
-			return store.getters.getTotalCount;
-		},
 	},
 };
 </script>
@@ -35,11 +28,6 @@ export default {
 	color: inherit;
 	margin: 0;
 	padding: 0;
-}
-
-nav button {
-	padding: 0.5rem;
-	border-radius: 50px;
 }
 
 #app {
@@ -115,8 +103,7 @@ nav a.router-link-exact-active {
 	.logo {
 		min-width: 120px;
 	}
-	.logo,
-	nav {
+	.logo, nav {
 		font-size: 12px;
 		gap: 5px;
 		min-width: 120px;
