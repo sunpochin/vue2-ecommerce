@@ -97,7 +97,6 @@ export default {
 @media (max-width: 480px) {
 	#app,
 	body {
-		background-color: green;
 		margin: 0 auto;
 		padding: 0 auto;
 		width: 100%;
