@@ -17,7 +17,7 @@
 	</div>
 </template>
 
-<script>
+<script scoped>
 import ImageContainer from './ImageContainer.vue';
 export default {
 	components: { ImageContainer },
@@ -71,7 +71,7 @@ export default {
 .product-card {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: space-between; */
+	justify-content: space-between;
 	align-items: center;
 	margin: auto;
 

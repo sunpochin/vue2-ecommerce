@@ -1,5 +1,5 @@
 <template>
-	<div class="product-detail">
+	<div class="product-card">
 		<image-container :product="product"></image-container>
 		<h1 class="card-title">{{ product.title }}</h1>
 		<div class="product-desc">{{ product.description }}</div>
@@ -55,7 +55,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .body {
 	display: grid;
 	grid-template-columns: repeat(1, 12rem);
@@ -63,7 +63,7 @@ export default {
 .product-desc {
 	max-height: 200px;
 }
-.product-detail {
+.product-card {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
