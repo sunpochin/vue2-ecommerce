@@ -104,7 +104,7 @@ export default {
 	}
 	
 	.product-list {
-		grid-template-columns: repeat(1, 24rem);
+		grid-template-columns: repeat(1, 18rem);
 		justify-content: space-around;
 		align-content: center;
 	}
