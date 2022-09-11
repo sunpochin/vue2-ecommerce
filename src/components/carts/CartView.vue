@@ -7,14 +7,14 @@
 			<table v-if="showTable">
 				<thead>
 					<tr class="clstr">
-						<th scope="col">
+						<!-- <th scope="col">
 							<div>
 								<label class="containerCheckbox cartProduct">
 									<input type="checkbox" id="regular" name="optradio"
 								/></label>
 							</div>
-						</th>
-						<th scope="col">縮圖</th>
+						</th> -->
+						<th scope="col">圖</th>
 						<th scope="col">品名</th>
 						<!-- <th scope="col">
 						<div class="containerDesc">description</div>
@@ -24,13 +24,13 @@
 					</tr>
 				</thead>
 				<tr v-for="item in getCartProducts" :key="item.id">
-					<td>
+					<!-- <td>
 						<div>
 							<label class="containerCheckbox cartProduct">
 								<input type="checkbox" id="regular" name="optradio"
 							/></label>
 						</div>
-					</td>
+					</td> -->
 					<td>
 						<div class="containerImg">
 							<img :src="item.image" />
@@ -151,6 +151,7 @@ https://stackoverflow.com/questions/29617200/how-to-make-checkboxes-rounded
 .clsSubtotal {
 	margin-right: 0;
 }
+
 .cartview {
 	margin: 0;
 	padding: 0;
@@ -163,8 +164,8 @@ table {
 	width: 100%;
 }
 button {
-	margin: 15px;
-	width: 2rem;
+	margin: 10px;
+	width: 1rem;
 }
 
 .clsCount {
@@ -174,20 +175,20 @@ button {
 	justify-content: center;
 }
 .containerImg {
-	max-width: 100px;
+	/* max-width: 100px; */
 }
 
 .containerDesc {
-	max-width: 100px;
+	/* max-width: 100px; */
 }
 .clstr {
-	border: 1px solid red;
+	border: 1px solid black;
 	background-color: grey;
 }
 td,
 th {
 	/* border: 1px solid grey; */
-	padding: 1rem;
+	padding: 0.5rem;
 }
 /* .cart-list {
 	display: flex;
