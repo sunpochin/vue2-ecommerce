@@ -49,7 +49,10 @@
 			</table>
 		</div>
 		<div v-if="showTable" class="clsSubtotal">
-			<h2>總金額: {{ getSubTotal }} 貨品數: {{ getTotalCount }}</h2>
+			<div>
+				<p>總金額: {{ getSubTotal }}</p>
+				<p>貨品數: {{ getTotalCount }}</p>
+			</div>
 		</div>
 	</div>
 </template>
@@ -138,9 +141,20 @@ export default {
 https://stackoverflow.com/questions/29617200/how-to-make-checkboxes-rounded
 
 */
+
+.clsSubtotal div {
+	margin-left: auto;
+	margin-right: 0;
+	text-align: right;
+}
+
+.clsSubtotal {
+	margin-right: 0;
+}
 .cartview {
 	margin: 0;
 	padding: 0;
+	width: 100%;
 }
 .containerTable {
 	width: 100%;
@@ -175,13 +189,13 @@ th {
 	/* border: 1px solid grey; */
 	padding: 1rem;
 }
-.cart-list {
+/* .cart-list {
 	display: flex;
 	flex-direction: column;
 
-	/* grid-template-columns: repeat(3, minmax(14rem, 18rem)); */
+	grid-template-columns: repeat(3, minmax(14rem, 18rem));
 	gap: 10rem;
 	margin: auto;
 	padding: auto;
-}
+} */
 </style>

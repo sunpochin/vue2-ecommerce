@@ -88,22 +88,25 @@ nav a.router-link-exact-active {
 	color: lightgreen;
 }
 
-@media (max-width: 480px) {
-	#app {
+@media (max-width: 768px) {
+	#app,
+	body {
 		margin: 0 auto;
 		padding: 0 auto;
-		width: 100vw;
+		width: 100%;
 	}
-	upmost * {
+	/* .upmost * {
 		font-size: 12px;
 		gap: 5px;
 		min-width: 220px;
+	} */
+	.logo {
+		min-width: 120px;
 	}
-	.logo,
-	nav {
+	.logo, nav {
 		font-size: 12px;
 		gap: 5px;
-		min-width: 220px;
+		min-width: 120px;
 	}
 }
 </style>
