@@ -90,9 +90,9 @@ nav a.router-link-exact-active {
 
 @media (max-width: 480px) {
 	#app {
-		margin: 0;
-		padding: 0;
-		width: 100%;
+		margin: 0 auto;
+		padding: 0 auto;
+		width: 100vw;
 	}
 	upmost * {
 		font-size: 12px;
