@@ -33,7 +33,7 @@ export default {
 #app {
 	margin: 0;
 	padding: 0;
-	max-width: 100%;
+	width: 100%;
 
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
@@ -60,13 +60,15 @@ export default {
 }
 
 nav {
-	background-color: rgb(50, 50, 50);
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	gap: 50px;
-	padding: 30px;
-	font-size: 30px;
+
+	background-color: rgb(50, 50, 50);
+	gap: 30px;
+	padding: 10px;
+	font-size: 24px;
+	min-width: 440px;
 }
 
 nav a:hover {
@@ -84,5 +86,24 @@ nav a {
 
 nav a.router-link-exact-active {
 	color: lightgreen;
+}
+
+@media (max-width: 480px) {
+	#app {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+	}
+	upmost * {
+		font-size: 12px;
+		gap: 5px;
+		min-width: 220px;
+	}
+	.logo,
+	nav {
+		font-size: 12px;
+		gap: 5px;
+		min-width: 220px;
+	}
 }
 </style>

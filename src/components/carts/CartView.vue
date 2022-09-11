@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="cartview">
 		<div class="containerTable">
 			<div v-if="!showTable">
 				<h2>購物車是空的</h2>
@@ -138,17 +138,26 @@ export default {
 https://stackoverflow.com/questions/29617200/how-to-make-checkboxes-rounded
 
 */
-
-.containerTable {
-	margin: 2rem;
+.cartview {
+	margin: 0;
+	padding: 0;
 }
-
+.containerTable {
+	width: 100%;
+}
+table {
+	width: 100%;
+}
 button {
 	margin: 15px;
+	width: 2rem;
 }
 
 .clsCount {
-	width: 250px;
+	display: flex;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
 }
 .containerImg {
 	max-width: 100px;
@@ -163,7 +172,7 @@ button {
 }
 td,
 th {
-	border: 1px solid grey;
+	/* border: 1px solid grey; */
 	padding: 1rem;
 }
 .cart-list {

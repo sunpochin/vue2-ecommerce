@@ -46,7 +46,7 @@ export default {
 		setAll(pro) {
 			console.log('first', pro);
 			store.commit('setProducts', pro);
-			console.log('aliasPro: ', store.getters.getSubTotal );
+			console.log('aliasPro: ', store.getters.getSubTotal);
 		},
 	},
 	async mounted() {
@@ -85,8 +85,7 @@ export default {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(14rem, 18rem));
 	gap: 1rem;
-	margin: auto;
-	padding: auto;
+	justify-content: space-around;
 }
 
 @media (max-width: 768px) {
@@ -94,12 +93,15 @@ export default {
 		/* background-color: green; */
 		grid-template-columns: repeat(2, minmax(14rem, 18rem));
 		justify-content: space-around;
+		align-content: center;
 	}
 }
 @media (max-width: 480px) {
 	.product-list {
 		/* background-color: red; */
 		grid-template-columns: repeat(1, 36rem);
+		justify-content: space-around;
+		align-content: center;
 	}
 }
 </style>
