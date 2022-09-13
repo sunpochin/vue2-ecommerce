@@ -3,12 +3,12 @@
 		<div class="logo">Fashion shop</div>
 		<nav>
 			<!-- <router-link to="/">首頁</router-link> -->
-			<router-link to="/products">產品列表</router-link>
-			<!-- <router-link to="/cart">購物車</router-link> -->
-			<button class="buttonWrapper" @click="haha">
+			<router-link to="/products">產品</router-link>
+			<router-link to="/cart">購物車：{{ getTotalCount }} </router-link>
+			<!-- <button class="buttonWrapper" @click="haha">
 				<div class="quantity">{{ getTotalCount }}</div>
 			</button>
-			<router-link to="/login">登入/註冊</router-link>
+			<router-link to="/login">登入/註冊</router-link> -->
 		</nav>
 		<!-- <p>login state:{{ IsLoggedIn }}</p>
 		<button v-show="!IsLoggedIn" @click="login">Login</button>
@@ -99,11 +99,12 @@ export default {
 	font-size: 2rem;
 	font-weight: bold;
 }
+
 .upmost {
 	display: flex;
 	max-width: 100%;
 	justify-content: space-between;
-	background-color: rgb(0, 0, 0);
+	background-color: black;
 }
 
 .logo {
@@ -143,5 +144,11 @@ nav a {
 
 nav a.router-link-exact-active {
 	color: lightgreen;
+}
+
+@media (max-width: 480px) {
+.upmost {
+		flex-direction: column;
+	}
 }
 </style>

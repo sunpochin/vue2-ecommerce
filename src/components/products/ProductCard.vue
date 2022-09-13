@@ -6,27 +6,31 @@
 			<div class="card-title">{{ product.title }}</div>
 			<div class="card-price">$Price: {{ product.price }}</div>
 			<div class="row">
-				<router-link
+				<button @click="addToCart" class="btn-detail">Add to cart</button>
+				<!-- <router-link
 					type="button"
 					class="btn-detail"
 					:to="'/products/' + product.id"
 					>Detail</router-link
-				>
+				> -->
 			</div>
 		</div>
 	</div>
 </template>
 
 <script scoped>
+import store from '@/store';
 import ImageContainer from './ImageContainer.vue';
 export default {
 	components: { ImageContainer },
 	props: {
 		product: Object,
 	},
-	mounted() {
-		// console.log('product: ', this.product);
-	},
+	methods: {
+		addToCart() {
+			store.commit('addToCart', this.product);
+		},
+	}
 };
 </script>
 
