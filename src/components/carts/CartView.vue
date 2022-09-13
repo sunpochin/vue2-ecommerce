@@ -119,14 +119,14 @@ export default {
 
 		postToCart(item) {
 			axios
-				.post('http://fastapi-app-dev.ap-southeast-1.elasticbeanstalk.com/users/', {
+				.post('https://fastapi-app-dev.ap-southeast-1.elasticbeanstalk.com/users/', {
 					email: 'pachinkosun@gmail.com',
 					password: 'sunpochin',
 				})
 				.then((res) => console.log('users:', res));
 
 			axios
-				.post('http://fastapi-app-dev.ap-southeast-1.elasticbeanstalk.com/users/1/items', {
+				.post('https://fastapi-app-dev.ap-southeast-1.elasticbeanstalk.com/users/1/items', {
 					id: item.id,
 					title: item.title,
 					description: item.description,
