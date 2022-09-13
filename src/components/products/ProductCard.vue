@@ -21,6 +21,7 @@
 <script scoped>
 import store from '@/store';
 import ImageContainer from './ImageContainer.vue';
+
 export default {
 	components: { ImageContainer },
 	props: {
