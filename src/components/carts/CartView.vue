@@ -59,6 +59,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import { mapState } from 'vuex';
 import store from '@/store';
 
@@ -113,12 +114,28 @@ export default {
 			console.log('add item: ', item);
 			store.commit('addToCart', item);
 			this.$forceUpdate();
+			this.postToCart(item);
 		},
 
-	},
-	mounted() {
+		postToCart(item) {
+			axios
+				.post('http://localhost:8000/users/', {
+					email: 'sunpochin@gmail.com',
+					password: 'sunpochin',
+				})
+				.then((res) => console.log('users:', res));
 
+			axios
+				.post('http://localhost:8000/users/1/items', {
+					id: item.id,
+					title: item.title,
+					description: item.description,
+					price: item.price,
+				})
+				.then((res) => console.log('add item:', res));
+		},
 	},
+	mounted() {},
 	// async created() {
 	// 	// todo: remove this temp codes for doing layout of cart.
 	// 	const { theJson } = CommonMixin();
@@ -157,12 +174,15 @@ https://stackoverflow.com/questions/29617200/how-to-make-checkboxes-rounded
 	padding: 0;
 	width: 100%;
 }
+
 .containerTable {
 	width: 100%;
 }
+
 table {
 	width: 100%;
 }
+
 button {
 	margin: 10px;
 	width: 1rem;
@@ -174,6 +194,7 @@ button {
 	align-items: center;
 	justify-content: center;
 }
+
 .containerImg {
 	max-width: 100px;
 }
@@ -189,15 +210,18 @@ tr {
 .containerDesc {
 	max-width: 100px;
 }
+
 .clstr {
 	border: 1px solid black;
 	background-color: grey;
 }
+
 td,
 th {
 	/* border: 1px solid grey; */
 	padding: 0.5rem;
 }
+
 /* .cart-list {
 	display: flex;
 	flex-direction: column;
