@@ -125,7 +125,7 @@ nav {
 	gap: 30px;
 	padding: 10px;
 	font-size: 24px;
-	min-width: 440px;
+	/* min-width: 440px; */
 }
 
 nav a:hover {

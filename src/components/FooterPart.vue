@@ -1,8 +1,8 @@
 <template>
 	<footer>
-		<div>
+		<!-- <div>
 			<a href="https://github.com/sunpochin/vue2-ecommerce">source code</a>
-		</div>
+		</div> -->
 	</footer>
 </template>
 
