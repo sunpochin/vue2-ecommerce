@@ -7,7 +7,7 @@ export default {
 		context.commit('setCurProduct', payload);
 	},
 	addToCart(context, payload) {
-		console.log('addToCart: ', payload);
+		console.log('payload addToCart: ', payload);
 		context.commit('addToCart', payload);
 	},
 	removeItem(context, payload) {

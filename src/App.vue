@@ -13,6 +13,11 @@ import FooterPart from '@/components/FooterPart.vue';
 import CommonMixin from '@/utils/CommonMixin';
 import store from '@/store';
 
+import axios from 'axios';
+const devAddress = 'http://localhost:8000'
+let curAddress = devAddress
+
+
 export default {
 	name: 'App',
 	components: {
@@ -23,6 +28,14 @@ export default {
 		setProducts(pro) {
 			store.commit('setProducts', pro);
 		},
+		async getCartFromServer() {
+			let cateAddress = curAddress + '/items/cate'
+			console.log('cateAddress: ', cateAddress);
+			let response = await axios.get(cateAddress);
+			let items = response.data
+			store.commit('updateCartFromServer', items)
+		}
+
 	},
 	mounted() {
 		// todo: remove this temp codes for doing layout of cart.
@@ -31,11 +44,7 @@ export default {
 		// console.log('mounted data: ', data);
 		this.setProducts(theJson);
 		console.log('created: ');
-
-		// store.commit('addToCart', theJson[0]);
-		// store.commit('addToCart', theJson[0]);
-		// store.commit('addToCart', theJson[1]);
-		// store.commit('addToCart', theJson[2]);
+		this.getCartFromServer();
 	},
 };
 </script>

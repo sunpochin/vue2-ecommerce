@@ -59,10 +59,11 @@
 </template>
 
 <script>
-import axios from 'axios';
+// import axios from 'axios';
 import { mapState } from 'vuex';
 import store from '@/store';
-import CommonMixin from '@/utils/CommonMixin';
+// import CommonMixin from '@/utils/CommonMixin';
+// const { theJson } = CommonMixin();
 
 export default {
 	components: {
@@ -73,21 +74,21 @@ export default {
 			return store.getters.getCartItems.length === 0 ? false : true;
 		},
 		getCartProducts() {
-			const dummy = {
-				id: -1,
-				title: '',
-				price: 0,
-				description: '',
-				category: '',
-				image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-				rating: { rate: 3.9, count: 120 },
-			};
+			// const dummy = {
+			// 	id: -1,
+			// 	title: '',
+			// 	price: 0,
+			// 	description: '',
+			// 	category: '',
+			// 	image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+			// 	rating: { rate: 3.9, count: 120 },
+			// };
 			if (store.getters.getCartItems.length >= 1) {
 				console.log('getCartProducts: ', store.getters.getCartItems);
 				return store.getters.getCartItems;
 			} else {
 				const ary = [];
-				ary.push(dummy);
+				// ary.push(dummy);
 				return ary;
 			}
 		},
@@ -109,48 +110,15 @@ export default {
 			console.log('minus item: ', item);
 			store.commit('removeItem', item);
 			this.$forceUpdate();
-			// to backend
-			const devAddress = 'http://localhost:8000'
-			let curAddress = devAddress
-			let itemsAddress = curAddress + '/items/decrease'
-
-			await axios
-				.post(itemsAddress, {
-					product_id: item.id,
-				})
-
 		},
 		async addItem(item) {
 			console.log('add item: ', item);
 			store.commit('addToCart', item);
 			this.$forceUpdate();
 			// this.postToCart(item);
-
-			const devAddress = 'http://localhost:8000'
-			let curAddress = devAddress
-			let itemsAddress = curAddress + '/items/add'
-			let data = {
-					product_id: 'prod_' + item.id,
-					title: item.title,
-					description: item.description,
-					price: item.price,
-				}
-			console.warn('add data: ', data)
-			await axios
-				.post(itemsAddress, data)
-				.then((res) => console.log('add item:', res));
-
 		},
-
-		// postToCart(item) {
-		// },
 	},
 	mounted() {
-		const { theJson } = CommonMixin();
-		this.addItem(theJson[0]);
-		this.addItem(theJson[1]);
-		this.addItem(theJson[2]);
-		this.addItem(theJson[2]);
 	},
 };
 </script>

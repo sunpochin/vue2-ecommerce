@@ -1,12 +1,31 @@
 // import Vue from 'vue';
+import axios from 'axios';
+import CommonMixin from '@/utils/CommonMixin';
+const { theJson } = CommonMixin();
+
+const devAddress = 'http://localhost:8000';
+let curAddress = devAddress;
 
 export default {
+	updateCartFromServer(state, payload) {
+		console.log('updateCartFromServer payload: ', payload);
+		Object.keys(payload).forEach((element) => {
+			let newID = element.replace('prod_', '');
+			let item = theJson[newID];
+			item.count = payload[element];
+			// console.log('newID: ', newID);
+			// console.log('item: ', item);
+			console.log('updateCartFromServer: ', item);
+			state.itemsInCart.push(item);
+		});
+	},
+
 	setProducts(state, payload) {
 		console.log('setProducts: ', payload);
 		state.productsList = payload;
 	},
 	// add an item into cart.
-	addToCart(state, payload) {
+	async addToCart(state, payload) {
 		const index = state.itemsInCart.findIndex((idx) => {
 			return idx.id === payload.id;
 		});
@@ -29,8 +48,20 @@ export default {
 		}
 		// Vue.$set(state, 'itemsInCart', payload);
 		// console.log('itemsInCart: ', state.itemsInCart);
+		let item = payload;
+		let itemsAddress = curAddress + '/items/add';
+		let data = {
+			product_id: 'prod_' + item.id,
+			title: item.title,
+			description: item.description,
+			price: item.price,
+		};
+		console.warn('add data: ', data);
+		await axios
+			.post(itemsAddress, data)
+			.then((res) => console.log('add item:', res));
 	},
-	removeItem(state, payload) {
+	async removeItem(state, payload) {
 		const index = state.itemsInCart.findIndex((idx) => {
 			return idx.id === payload.id;
 		});
@@ -55,6 +86,12 @@ export default {
 			// throw Exception('should not go here.');
 		}
 		// console.log('itemsInCart: ', state.itemsInCart);
+		// to backend
+		let itemsAddress = curAddress + '/items/decrease';
+		let item = payload;
+		await axios.post(itemsAddress, {
+			product_id: item.id,
+		});
 	},
 };
 
