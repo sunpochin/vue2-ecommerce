@@ -35,7 +35,22 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+
+.product-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin: auto;
+
+	border: 1px solid black;
+	max-width: 300px;
+	height: 400px;
+	background-color: grey;
+	border-radius: 9px;
+}
+
 .card-details {
 	width: 80%;
 	height: 100%;
@@ -44,7 +59,7 @@ export default {
 
 .card-title {
 	font-weight: bold;
-	height: 40%;
+	height: 55%;
 	padding: 0.5rem 0 0.5rem 0;
 
 	text-overflow: ellipsis;
@@ -52,13 +67,12 @@ export default {
 }
 .card-price {
 	padding: 0.5rem 0 0.5rem 0;
-	height: 30%;
+	height: 15%;
 }
 .row {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
 	/* margin-bottom: 20px; */
 	padding: auto;
 	height: 20%;
@@ -90,19 +104,6 @@ export default {
 	color: white;
 }
 
-.product-card {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	margin: auto;
-
-	border: 1px solid black;
-	max-width: 300px;
-	height: 350px;
-	background-color: white;
-	border-radius: 9px;
-}
 
 @media (max-width: 1200) {
 	html {

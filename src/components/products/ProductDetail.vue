@@ -65,19 +65,6 @@ export default {
 .product-desc {
 	max-height: 200px;
 }
-.product-card {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	margin: 1rem auto;
-
-	border: 1px solid black;
-	max-width: 400px;
-	height: 600px;
-	background-color: white;
-	border-radius: 9px;
-}
 
 .btn-detail {
 	display: flex;

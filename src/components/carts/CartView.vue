@@ -168,6 +168,8 @@ button {
 
 .containerImg {
 	max-width: 100px;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 /* table {
@@ -179,7 +181,7 @@ tr {
 } */
 
 .containerDesc {
-	max-width: 100px;
+	max-width: 90px;
 }
 
 .clstr {
