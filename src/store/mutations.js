@@ -11,7 +11,9 @@ export default {
 		console.log('updateCartFromServer payload: ', payload);
 		Object.keys(payload).forEach((element) => {
 			let newID = element.replace('prod_', '');
-			let item = theJson[newID];
+			
+			let item = theJson.find(item => item.id == newID)
+			console.log('item: ', item);
 			item.count = payload[element];
 			console.log('newID: ', newID);
 			console.log('updateCartFromServer: ', item);
