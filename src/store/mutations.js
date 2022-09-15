@@ -13,8 +13,7 @@ export default {
 			let newID = element.replace('prod_', '');
 			let item = theJson[newID];
 			item.count = payload[element];
-			// console.log('newID: ', newID);
-			// console.log('item: ', item);
+			console.log('newID: ', newID);
 			console.log('updateCartFromServer: ', item);
 			state.itemsInCart.push(item);
 		});
@@ -87,11 +86,9 @@ export default {
 		}
 		// console.log('itemsInCart: ', state.itemsInCart);
 		// to backend
-		let itemsAddress = curAddress + '/items/decrease';
 		let item = payload;
-		await axios.post(itemsAddress, {
-			product_id: item.id,
-		});
+		let itemsAddress = curAddress + '/items/decrease/' + item.id;
+		await axios.get(itemsAddress);
 	},
 };
 
