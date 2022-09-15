@@ -14,8 +14,9 @@ import CommonMixin from '@/utils/CommonMixin';
 import store from '@/store';
 
 import axios from 'axios';
-const devAddress = 'http://localhost:8000'
-let curAddress = devAddress
+// const devAddress = 'http://localhost:8000'
+const prodAddress = 'https://fastapi-pac.onrender.com';
+let curAddress = prodAddress;
 
 
 export default {

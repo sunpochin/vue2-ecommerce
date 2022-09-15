@@ -3,8 +3,9 @@ import axios from 'axios';
 import CommonMixin from '@/utils/CommonMixin';
 const { theJson } = CommonMixin();
 
-const devAddress = 'http://localhost:8000';
-let curAddress = devAddress;
+// const devAddress = 'http://localhost:8000';
+const prodAddress = 'https://fastapi-pac.onrender.com';
+let curAddress = prodAddress;
 
 export default {
 	updateCartFromServer(state, payload) {
