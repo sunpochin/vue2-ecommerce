@@ -62,6 +62,7 @@
 import axios from 'axios';
 import { mapState } from 'vuex';
 import store from '@/store';
+import CommonMixin from '@/utils/CommonMixin';
 
 export default {
 	components: {
@@ -91,7 +92,6 @@ export default {
 			}
 		},
 		getSubTotal() {
-			console.log('getSubTotal: ', store.getters.getSubTotal);
 			return store.getters.getSubTotal;
 		},
 		getTotalCount() {
@@ -105,55 +105,58 @@ export default {
 	// 	};
 	// },
 	methods: {
-		removeItem(item) {
+		async removeItem(item) {
 			console.log('minus item: ', item);
 			store.commit('removeItem', item);
 			this.$forceUpdate();
+			// to backend
+			const devAddress = 'http://localhost:8000'
+			let curAddress = devAddress
+			let itemsAddress = curAddress + '/items/decrease'
+
+			await axios
+				.post(itemsAddress, {
+					product_id: item.id,
+				})
+
 		},
-		addItem(item) {
+		async addItem(item) {
 			console.log('add item: ', item);
 			store.commit('addToCart', item);
 			this.$forceUpdate();
-			this.postToCart(item);
-		},
+			// this.postToCart(item);
 
-		postToCart(item) {
-			axios
-				.post('https://fastapi-pac.onrender.com/users/', {
-					email: 'pachinkosun@gmail.com',
-					password: 'sunpochin',
-				})
-				.then((res) => console.log('users:', res));
-
-			axios
-				.post('https://fastapi-pac.onrender.com/users/1/items', {
-					id: item.id,
+			const devAddress = 'http://localhost:8000'
+			let curAddress = devAddress
+			let itemsAddress = curAddress + '/items/add'
+			let data = {
+					product_id: 'prod_' + item.id,
 					title: item.title,
 					description: item.description,
 					price: item.price,
-				})
+				}
+			console.warn('add data: ', data)
+			await axios
+				.post(itemsAddress, data)
 				.then((res) => console.log('add item:', res));
-		},
-	},
-	mounted() {},
-	// async created() {
-	// 	// todo: remove this temp codes for doing layout of cart.
-	// 	const { theJson } = CommonMixin();
-	// 	// const { data } = await getJsonData('public/products.json');
-	// 	// console.log('mounted data: ', data);
-	// 	this.setProducts(theJson);
-	// 	console.log('created: ');
 
-	// 	store.commit('addToCart', theJson[0]);
-	// 	store.commit('addToCart', theJson[0]);
-	// 	store.commit('addToCart', theJson[1]);
-	// 	store.commit('addToCart', theJson[2]);
-	// },
+		},
+
+		// postToCart(item) {
+		// },
+	},
+	mounted() {
+		const { theJson } = CommonMixin();
+		this.addItem(theJson[0]);
+		this.addItem(theJson[1]);
+		this.addItem(theJson[2]);
+		this.addItem(theJson[2]);
+	},
 };
 </script>
 
 <style scoped>
-/* https://www.google.com/search?q=how+to+make+a+round+checkbox+with+check+mark&client=ubuntu&hs=5Pr&channel=fs&sxsrf=ALiCzsYBd-_g38CzBPg_4kLbQaLmNWZ8xQ%3A1662686596298&ei=hJUaY9jsEcCFr7wPxuCWqAs&ved=0ahUKEwjYvsefxob6AhXAwosBHUawBbUQ4dUDCA0&uact=5&oq=how+to+make+a+round+checkbox+with+check+mark&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgoIABBHENYEELADOgcIIRCgARAKSgQIQRgASgQIRhgAUO8IWP0PYNIRaAJwAXgAgAG_AYgB7giSAQMzLjeYAQCgAQHIAQrAAQE&sclient=gws-wiz  
+/* https://www.google.com/search?q=how+to+make+a+round+checkbox+with+check+mark&client=ubuntu&hs=5Pr&channel=fs&sxsrf=ALiCzsYBd-_g38CzBPg_4kLbQaLmNWZ8xQ%3A1662686596298&ei=hJUaY9jsEcCFr7wPxuCWqAs&ved=0ahUKEwjYvsefxob6AhXAwosBHUawBbUQ4dUDCA0&uact=5&oq=how+to+make+a+round+checkbox+with+check+mark&gs_lcp=Cgdnd3Mtd2l6EAMyBQghEKABOgoIABBHENYEELADOgcIIRCgARAKSgQIQRgASgQIRhgAUO8IWP0PYNIRaAJwAXgAgAG_AYgB7giSAQMzLjeYAQCgAQHIAQrAAQE&sclient=gws-wiz
 
 https://stackoverflow.com/questions/29617200/how-to-make-checkboxes-rounded
 

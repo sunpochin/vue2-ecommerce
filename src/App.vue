@@ -32,10 +32,10 @@ export default {
 		this.setProducts(theJson);
 		console.log('created: ');
 
-		store.commit('addToCart', theJson[0]);
-		store.commit('addToCart', theJson[0]);
-		store.commit('addToCart', theJson[1]);
-		store.commit('addToCart', theJson[2]);
+		// store.commit('addToCart', theJson[0]);
+		// store.commit('addToCart', theJson[0]);
+		// store.commit('addToCart', theJson[1]);
+		// store.commit('addToCart', theJson[2]);
 	},
 };
 </script>

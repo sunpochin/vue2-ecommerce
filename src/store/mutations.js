@@ -24,7 +24,7 @@ export default {
 			state.itemsInCart = newAry;
 		} else {
 			payload.count = 1;
-			console.log('payload: ', payload);
+			// console.log('payload: ', payload);
 			state.itemsInCart.push(payload);
 		}
 		// Vue.$set(state, 'itemsInCart', payload);

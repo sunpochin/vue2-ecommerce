@@ -1,8 +1,8 @@
 export default {
 	getTotalCount(state) {
 		return state.itemsInCart.reduce((acc, curItem) => {
-			console.log('acc: ', acc);
-			console.log('curItem: ', curItem.count);
+			// console.log('acc: ', acc);
+			// console.log('curItem: ', curItem.count);
 			return acc + curItem.count;
 		}, 0);
 		// console.log('result: ', result);
@@ -20,8 +20,8 @@ export default {
 				return acc + curItem.price * curItem.count;
 			}, 0)
 			.toFixed(2);
-		console.log('getSubTotal.itemsInCart: ', state.itemsInCart);
-		console.log('getSubTotal: ', ret);
+		// console.log('getSubTotal.itemsInCart: ', state.itemsInCart);
+		// console.log('getSubTotal: ', ret);
 		return ret;
 	},
 	getCartItems(state) {
