@@ -2,7 +2,7 @@
 	<div class="cartview">
 		<div class="containerTable">
 			<div v-if="!showTable">
-				<h2>購物車是空的</h2>
+				<h2 class="empty-cart">購物車是空的</h2>
 			</div>
 			<table v-if="showTable">
 				<thead>
@@ -130,6 +130,10 @@ https://stackoverflow.com/questions/29617200/how-to-make-checkboxes-rounded
 
 */
 
+.empty-cart{
+	text-align: center;
+}
+
 .clsSubtotal div {
 	margin-left: auto;
 	margin-right: 20px;
@@ -156,7 +160,8 @@ table {
 
 button {
 	margin: 10px;
-	width: 1rem;
+	width: 2rem;
+	height: 2rem;
 }
 
 .clsCount {
