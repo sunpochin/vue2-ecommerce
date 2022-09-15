@@ -90,7 +90,7 @@ export default {
 		// console.log('itemsInCart: ', state.itemsInCart);
 		// to backend
 		let item = payload;
-		let itemsAddress = curAddress + '/items/decrease/' + item.id;
+		let itemsAddress = curAddress + '/items/decrease/' + 'prod_' + item.id;
 		await axios.get(itemsAddress);
 	},
 };
