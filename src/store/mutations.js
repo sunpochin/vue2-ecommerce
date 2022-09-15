@@ -23,7 +23,7 @@ export default {
 	},
 
 	setProducts(state, payload) {
-		console.log('setProducts: ', payload);
+		// console.log('setProducts: ', payload);
 		state.productsList = payload;
 	},
 	// add an item into cart.

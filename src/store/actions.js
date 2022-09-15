@@ -1,6 +1,6 @@
 export default {
 	setProducts(context, payload) {
-		console.log('setProducts context: ', payload);
+		// console.log('setProducts context: ', payload);
 		context.commit('setProducts', payload);
 	},
 	setCurProduct(context, payload) {

@@ -26,7 +26,6 @@ export default {
 	},
 	computed: {
 		listProducts() {
-			console.log('mama: ', store.getters.getProducts);
 			// console.log('mama data: ', store.getters.getProducts.data);
 			return store.getters.getProducts;
 		},
@@ -42,13 +41,12 @@ export default {
 			// aliasPro: 'getProducts',
 		}),
 		setAll(pro) {
-			console.log('first', pro);
 			store.commit('setProducts', pro);
-			console.log('aliasPro: ', store.getters.getSubTotal);
+			// console.log('aliasPro: ', store.getters.getSubTotal);
 		},
 	},
 	async mounted() {
-		console.log('loaded products: ', this.productsList);
+		// console.log('loaded products: ', this.productsList);
 		if (this.productsList.length === 0) {
 			console.log('fetch!!');
 			// this.fetchProducts();
@@ -56,7 +54,7 @@ export default {
 		const { theJson } = CommonMixin();
 		// console.log('retProductJson: ', retProductJson);
 		// const data = await getJsonData('public/products.json');
-		console.log('mounted data: ', theJson);
+		// console.log('mounted data: ', theJson);
 		this.setAll(theJson);
 	},
 };
