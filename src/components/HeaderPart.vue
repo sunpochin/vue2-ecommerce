@@ -48,29 +48,6 @@ export default {
 			login: 'login',
 			logout: 'logout',
 		}),
-
-		// logout() {
-		// 	this.$store.dispatch({
-		// 		type: 'setLoggedIn',
-		// 		value: false,
-		// 	});
-		// },
-		// login() {
-		// 	// this.$store.state.counter++;
-		// 	// this.$store.commit('increment');
-		// 	// this.$store.commit('increase', { value: 4 });
-		// 	// this.$store.commit({
-		// 	//   type:'increase',
-		// 	//   value: 10,
-		// 	//   haha: 3,
-		// 	//   });
-		// 	console.log('login');
-		// 	this.$store.dispatch({
-		// 		type: 'setLoggedIn',
-		// 		value: true,
-		// 	});
-		// 	// this.$store.dispatch('increment');
-		// },
 	},
 };
 </script>

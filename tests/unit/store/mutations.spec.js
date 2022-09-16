@@ -78,9 +78,9 @@ describe('Add product', () => {
 		let afterCountBy = getters.getCountBy(cartState, newItem);
 		console.log('afterCountBy: ', afterCountBy);
 
-		// expect(afterCount).to.equal(count + 1);
-		// expect(afterCateCount).to.equal(cateCount);
-		// expect(afterCountBy).to.equal(countBy + 1);
+		expect(afterCount).toEqual(count + 1);
+		expect(afterCateCount).toEqual(cateCount);
+		expect(afterCountBy).toEqual(countBy + 1);
 	});
 
 	it('add to cart', async () => {});
