@@ -4,12 +4,11 @@
 			<h4><a href="/products">Fashion Shop</a></h4>
 
 		</div>
-		<nav>
+		<nav class="main-nav">
 			<!-- <router-link to="/">首頁</router-link> -->
-			<div class="router1"><router-link class="route" to="/products">產品</router-link></div>
-			<div class="router2"><router-link class="route" to="/cart">購物車：{{ getTotalCount }} </router-link></div>
-			
-			
+			<router-link class="route" to="/products">產品</router-link>
+			<router-link class="route" to="/cart">購物車：{{ getTotalCount }} </router-link>
+
 			<!-- <button class="buttonWrapper" @click="haha">
 				<div class="quantity">{{ getTotalCount }}</div>
 			</button>
@@ -132,6 +131,8 @@ a {
 	cursor: pointer;
 }
 
+
+
 .logo h4:after {
 	content: '';
 	display: block;
@@ -146,7 +147,9 @@ a {
 	width: 100%;
 }
 
-.router1, .router2 {
+
+
+nav {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -157,7 +160,7 @@ a {
 	font-size: 24px;
 }
 
-.router1 a:after, .router2 a:after {
+nav a:after {
 	content: '';
 	display: block;
 	width: 0%;
@@ -166,12 +169,14 @@ a {
 	background-color: #9f0;
 	transition: width .5s .3s;
 }
-.router1:hover a:after, .router2:hover a:after {
+
+nav a:hover:after {
 	width: 100%;
 }
-nav {
+
+/* nav {
 	display: flex;
-}
+} */
 
 
 nav a:hover {
