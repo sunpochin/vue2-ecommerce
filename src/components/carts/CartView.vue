@@ -163,7 +163,10 @@ button {
 	width: 2rem;
 	height: 2rem;
 }
-
+button:hover {
+	transition: transform 0.9s ease-in-out;
+	transform: scale(1.1);
+}
 .clsCount {
 	display: flex;
 	align-content: center;

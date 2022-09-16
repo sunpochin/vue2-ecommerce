@@ -6,8 +6,10 @@
 		</div>
 		<nav>
 			<!-- <router-link to="/">首頁</router-link> -->
-			<router-link to="/products">產品</router-link>
-			<router-link to="/cart">購物車：{{ getTotalCount }} </router-link>
+			<div class="router1"><router-link class="route" to="/products">產品</router-link></div>
+			<div class="router2"><router-link class="route" to="/cart">購物車：{{ getTotalCount }} </router-link></div>
+			
+			
 			<!-- <button class="buttonWrapper" @click="haha">
 				<div class="quantity">{{ getTotalCount }}</div>
 			</button>
@@ -144,7 +146,7 @@ a {
 	width: 100%;
 }
 
-nav {
+.router1, .router2 {
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -153,12 +155,28 @@ nav {
 	gap: 30px;
 	padding: 10px;
 	font-size: 24px;
-	/* min-width: 440px; */
 }
+
+.router1 a:after, .router2 a:after {
+	content: '';
+	display: block;
+	width: 0%;
+	height: 2px;
+	margin: 5px 0;
+	background-color: #9f0;
+	transition: width .5s .3s;
+}
+.router1:hover a:after, .router2:hover a:after {
+	width: 100%;
+}
+nav {
+	display: flex;
+}
+
 
 nav a:hover {
 	transition: transform 0.9s ease-in-out;
-	transform: scale(1);
+	transform: scale(1.1);
 	color: lightgreen;
 }
 
