@@ -2,6 +2,7 @@
 	<div class="upmost">
 		<div class="logo">
 			<h4><a href="/products">Fashion Shop</a></h4>
+			<h2>{{msg}}</h2>
 
 		</div>
 		<nav class="main-nav">
@@ -26,6 +27,7 @@ import store from '@/store';
 import router from '@/router';
 
 export default {
+	props: ["msg"],
 	computed: {
 		getTotalCount() {
 			return store.getters.getTotalCount;
