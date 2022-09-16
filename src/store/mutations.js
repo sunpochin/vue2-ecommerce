@@ -4,8 +4,11 @@ import CommonMixin from '@/utils/CommonMixin';
 const { theJson } = CommonMixin();
 
 // const devAddress = 'http://localhost:8000';
-const prodAddress = 'https://fastapi-pac.onrender.com';
-let curAddress = prodAddress;
+// const prodAddress = 'https://fastapi-pac.onrender.com';
+
+const devAddress = 'http://localhost:8000';
+// const prodAddress = 'https://fastapi-pac.onrender.com';
+let curAddress = devAddress;
 
 export default {
 	updateCartFromServer(state, payload) {
@@ -58,7 +61,7 @@ export default {
 			description: item.description,
 			price: item.price,
 		};
-		console.warn('add data: ', data);
+		// console.warn('add data: ', data);
 		await axios
 			.post(itemsAddress, data)
 			.then((res) => console.log('add item:', res));

@@ -47,7 +47,7 @@ export default {
 		return state.isLoggedIn;
 	},
 	getProducts(state) {
-		console.log('getter getProducts: ', state);
+		// console.log('getter getProducts: ', state);
 		return state.productsList;
 	},
 	// getCurProduct(state) {
