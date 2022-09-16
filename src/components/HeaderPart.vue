@@ -160,7 +160,25 @@ nav {
 	font-size: 24px;
 }
 
+/* https://codepen.io/bad_printer/pen/QWLYjeZ */
 nav a:after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	right: 50%;
+	bottom: 0px;
+	height: 2px;
+	border-bottom: 1px solid #9f0;
+	transition: .9s;
+}
+
+nav a:hover:after {
+	left: 0.1em;
+	right: 0.1em;
+}
+
+/* different effect */
+/* nav a:after {
 	content: '';
 	display: block;
 	width: 0%;
@@ -172,12 +190,7 @@ nav a:after {
 
 nav a:hover:after {
 	width: 100%;
-}
-
-/* nav {
-	display: flex;
 } */
-
 
 nav a:hover {
 	transition: transform 0.9s ease-in-out;
