@@ -3,6 +3,7 @@
 ## Live demo
 https://vue-ecommerce-68z8.onrender.com/
 
+[![CircleCI](https://circleci.com/gh/sunpochin/vue2-ecommerce.svg?style=shield)](https://app.circleci.com/pipelines/github/sunpochin/vue2-ecommerce)
 
 ## Project setup
 ```
