@@ -1,7 +1,7 @@
 # vue-ecommerce
 
 ## Live demo
-https://vue-ecommerce-68z8.onrender.com/
+https://vue2-ecommerce.netlify.app/
 
 [![CircleCI](https://circleci.com/gh/sunpochin/vue2-ecommerce.svg?style=shield)](https://app.circleci.com/pipelines/github/sunpochin/vue2-ecommerce)
 
