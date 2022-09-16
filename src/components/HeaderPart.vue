@@ -1,6 +1,9 @@
 <template>
 	<div class="upmost">
-		<div class="logo">Fashion shop</div>
+		<div class="logo">
+			<h4><a href="/products">Fashion Shop</a></h4>
+
+		</div>
 		<nav>
 			<!-- <router-link to="/">首頁</router-link> -->
 			<router-link to="/products">產品</router-link>
@@ -77,6 +80,7 @@ export default {
 	padding: 1rem;
 	font-weight: bold;
 }
+
 /* .buttonWrapper:active {
 	transform: scale(1.02);
 }
@@ -115,6 +119,29 @@ export default {
 	color: pink;
 	font-size: 32px;
 	padding: 1rem;
+
+}
+
+a {
+	text-decoration: none;
+}
+
+.logo h4 {
+	cursor: pointer;
+}
+
+.logo h4:after {
+	content: '';
+	display: block;
+	width: 0%;
+	height: 2px;
+	margin: 5px 0;
+	background-color: #9f0;
+	transition: width .5s .3s;
+}
+
+.logo:hover h4:after {
+	width: 100%;
 }
 
 nav {
@@ -147,7 +174,7 @@ nav a.router-link-exact-active {
 }
 
 @media (max-width: 480px) {
-.upmost {
+	.upmost {
 		flex-direction: column;
 	}
 }
