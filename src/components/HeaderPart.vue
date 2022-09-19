@@ -1,7 +1,7 @@
 <template>
 	<div class="upmost">
 		<div class="logo">
-			<h4><a href="/products">Fashion Shop</a></h4>
+			<h4><router-link class="route" to="/products">Fashion Shop</router-link></h4>
 			<h2>{{msg}}</h2>
 
 		</div>

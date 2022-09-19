@@ -6,6 +6,7 @@ const { theJson } = CommonMixin();
 // const prodAddress = 'https://fastapi-pac.onrender.com';
 // const devAddress = 'http://localhost:8000';
 const prodAddress = 'https://fastapi-pac.onrender.com';
+// prodAddress = 'http://ec2-13-215-141-221.ap-southeast-1.compute.amazonaws.com';
 let curAddress = prodAddress;
 
 export default {

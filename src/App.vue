@@ -15,7 +15,8 @@ import store from '@/store';
 
 import axios from 'axios';
 // const devAddress = 'http://localhost:8000'
-const prodAddress = 'https://fastapi-pac.onrender.com';
+let prodAddress = 'https://fastapi-pac.onrender.com';
+// prodAddress = 'http://ec2-13-215-141-221.ap-southeast-1.compute.amazonaws.com'
 let curAddress = prodAddress;
 
 
