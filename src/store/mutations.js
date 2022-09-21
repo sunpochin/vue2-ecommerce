@@ -1,13 +1,7 @@
-// import Vue from 'vue';
+import Vue from 'vue'
 import axios from 'axios';
 import CommonMixin from '@/utils/CommonMixin';
 const { theJson } = CommonMixin();
-
-// const prodAddress = 'https://fastapi-pac.onrender.com';
-// const devAddress = 'http://localhost:8000';
-const prodAddress = 'https://fastapi-pac.onrender.com';
-// prodAddress = 'http://ec2-13-215-141-221.ap-southeast-1.compute.amazonaws.com';
-let curAddress = prodAddress;
 
 export default {
 	updateCartFromServer(state, payload) {
@@ -30,6 +24,9 @@ export default {
 	},
 	// add an item into cart.
 	async addToCart(state, payload) {
+		console.log('addToCart: ', Vue.prototype.$hostname);
+		let curAddress = Vue.prototype.$hostname;
+
 		const index = state.itemsInCart.findIndex((idx) => {
 			return idx.id === payload.id;
 		});
@@ -53,6 +50,7 @@ export default {
 		// Vue.$set(state, 'itemsInCart', payload);
 		// console.log('itemsInCart: ', state.itemsInCart);
 		let item = payload;
+
 		let itemsAddress = curAddress + '/items/add';
 		let data = {
 			product_id: 'prod_' + item.id,
@@ -66,6 +64,8 @@ export default {
 			.then((res) => console.log('add item:', res));
 	},
 	async removeItem(state, payload) {
+		console.log('removeItem: ', Vue.prototype.$hostname);
+		let curAddress = Vue.prototype.$hostname;
 		const index = state.itemsInCart.findIndex((idx) => {
 			return idx.id === payload.id;
 		});

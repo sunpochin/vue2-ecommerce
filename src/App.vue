@@ -12,12 +12,7 @@ import HeaderPart from './components/HeaderPart.vue';
 import FooterPart from '@/components/FooterPart.vue';
 import CommonMixin from '@/utils/CommonMixin';
 import store from '@/store';
-
 import axios from 'axios';
-// const devAddress = 'http://localhost:8000'
-let prodAddress = 'https://fastapi-pac.onrender.com';
-// prodAddress = 'http://ec2-13-215-141-221.ap-southeast-1.compute.amazonaws.com'
-let curAddress = prodAddress;
 
 
 export default {
@@ -31,6 +26,8 @@ export default {
 			store.commit('setProducts', pro);
 		},
 		async getCartFromServer() {
+			console.log('App.vue this: ', this.$hostname)
+			let curAddress = this.$hostname;
 			let cateAddress = curAddress + '/items/cate'
 			console.log('cateAddress: ', cateAddress);
 			let response = await axios.get(cateAddress);
@@ -71,12 +68,14 @@ export default {
 }
 
 @media (max-width: 768px) {
+
 	#app,
 	body {
 		margin: 0 auto;
 		padding: 0 auto;
 		width: 100%;
 	}
+
 	/* .upmost * {
 		font-size: 12px;
 		gap: 5px;
@@ -85,6 +84,7 @@ export default {
 	.logo {
 		min-width: 120px;
 	}
+
 	.logo,
 	nav {
 		font-size: 12px;
