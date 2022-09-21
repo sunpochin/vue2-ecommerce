@@ -151,7 +151,7 @@ https://stackoverflow.com/questions/29617200/how-to-make-checkboxes-rounded
 }
 
 .containerTable {
-	width: 80%;
+	width: 100%;
 }
 
 table {
