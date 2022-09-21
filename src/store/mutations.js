@@ -4,6 +4,9 @@ import CommonMixin from '@/utils/CommonMixin';
 const { theJson } = CommonMixin();
 
 export default {
+	mutationToTest(state, payload) {
+		state.count += payload;
+	},
 	updateCartFromServer(state, payload) {
 		console.log('updateCartFromServer payload: ', payload);
 		Object.keys(payload).forEach((element) => {
