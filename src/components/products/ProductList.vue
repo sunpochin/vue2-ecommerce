@@ -77,7 +77,7 @@ export default {
 
 .carousel {
 	border-radius: 10px;
-	border-radius: 10px;
+	border-radius: 20px;
 	margin-bottom: 10px;
 	/* width: 100%;
  */

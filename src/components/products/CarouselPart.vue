@@ -4,8 +4,10 @@
       img-width="1024" img-height="480" style="text-shadow: 1px 1px 2px #333;" @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd">
       <!-- Text slides with image -->
-      <b-carousel-slide img-src="/0_1_20220922160038.jpg">
-        <!-- <img src="/0_1_20220922160038.jpg" /> -->
+      <b-carousel-slide>
+        <img slot="img" class="d-block img-fluid w-100" width="1024" height="480" src="/0_1_20220922160038.jpg"
+          alt="image slot" v-on:click="gotoAnyWhere">
+        <!-- <a href="#"><img src="/0_1_20220922160038.jpg" />ssss</a> -->
       </b-carousel-slide>
 
       <!-- Slides with image only -->
@@ -15,8 +17,7 @@
       <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
       <b-carousel-slide>
         <template #img>
-          <img class="d-block img-fluid w-100" width="1024" height="480" src="/2_1_20220922160038.jpg"
-            alt="image slot">
+          <img class="d-block img-fluid w-100" width="1024" height="480" src="/2_1_20220922160038.jpg" alt="image slot">
         </template>
       </b-carousel-slide>
       <b-carousel-slide>
@@ -51,15 +52,23 @@
         console.log('slide: ', slide);
         this.slide = slide
         this.sliding = false
-      }
+      },
+      gotoAnyWhere () {
+        window.location.href = "https://go.to.any.where";
+      },
     }
   }
 </script>
 
 <style>
-b-carousel-slide {
+.carousel {
+  border-radius: 20px;
+  overflow: hidden;
+}
+img {
+  cursor: pointer;
   background-color: pink;
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
 .carousel-control-prev-icon {
