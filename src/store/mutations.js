@@ -7,6 +7,9 @@ export default {
 	mutationToTest(state, payload) {
 		state.count += payload;
 	},
+	openCheckout(state, payload) {
+		state.isCheckoutOpen = payload;
+	},
 	updateCartFromServer(state, payload) {
 		console.log('updateCartFromServer payload: ', payload);
 		Object.keys(payload).forEach((element) => {

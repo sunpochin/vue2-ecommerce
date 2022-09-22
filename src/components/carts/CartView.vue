@@ -50,9 +50,11 @@
 		</div>
 		<hr />
 		<div v-if="showTable" class="clsSubtotal">
-			<div>
-				<p>總金額: {{ getSubTotal }} USD</p>
-				<p>貨品數: {{ getTotalCount }} 個</p>
+			<div class="checkout">
+				<div>總金額: {{ getSubTotal }} USD</div>
+				<div>貨品數: {{ getTotalCount }} 個</div>
+				<button class="checkout-button" @click="checkout">Checkout</button>
+
 			</div>
 		</div>
 	</div>
@@ -64,6 +66,7 @@ import { mapState } from 'vuex';
 import store from '@/store';
 // import CommonMixin from '@/utils/CommonMixin';
 // const { theJson } = CommonMixin();
+// import router from '@/router'
 
 export default {
 	components: {
@@ -74,15 +77,6 @@ export default {
 			return store.getters.getCartItems.length === 0 ? false : true;
 		},
 		getCartProducts() {
-			// const dummy = {
-			// 	id: -1,
-			// 	title: '',
-			// 	price: 0,
-			// 	description: '',
-			// 	category: '',
-			// 	image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-			// 	rating: { rate: 3.9, count: 120 },
-			// };
 			if (store.getters.getCartItems.length >= 1) {
 				console.log('getCartProducts: ', store.getters.getCartItems);
 				return store.getters.getCartItems;
@@ -106,6 +100,9 @@ export default {
 	// 	};
 	// },
 	methods: {
+		checkout() {
+			store.commit('openCheckout', true);
+		},
 		async removeItem(item) {
 			console.log('minus item: ', item);
 			store.commit('removeItem', item);
@@ -129,6 +126,10 @@ export default {
 https://stackoverflow.com/questions/29617200/how-to-make-checkboxes-rounded
 
 */
+.checkout-button{
+	width: 100%;
+
+}
 
 .empty-cart{
 	text-align: center;

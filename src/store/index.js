@@ -15,6 +15,7 @@ export default new Vuex.Store({
 			isLoggedIn: false,
 			curProduct: null,
 			itemsInCart: [],
+			isCheckoutOpen: false,
 		};
 	},
 	// modules: {

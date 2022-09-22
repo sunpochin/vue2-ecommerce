@@ -13,6 +13,9 @@ export default {
 	removeItem(context, payload) {
 		context.commit('removeItem', payload);
 	},
+	openCheckout(context, payload) {
+		context.commit('openCheckout', payload);
+	},
 
 	login(context) {
 		context.commit('setLoggedIn', { value: true });

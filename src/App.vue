@@ -3,13 +3,15 @@
 		<HeaderPart />
 		<router-view />
 		<FooterPart />
+		<CheckOutHaha />
 	</div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue';
-import HeaderPart from './components/HeaderPart.vue';
-import FooterPart from '@/components/FooterPart.vue';
+import HeaderPart from '@/components/main/HeaderPart.vue';
+import FooterPart from '@/components/main/FooterPart.vue';
+import CheckOutHaha from '@/components/checkout/CheckOutHaha';
 import CommonMixin from '@/utils/CommonMixin';
 import store from '@/store';
 import axios from 'axios';
@@ -18,9 +20,10 @@ import axios from 'axios';
 export default {
 	name: 'App',
 	components: {
-		HeaderPart,
-		FooterPart,
-	},
+    HeaderPart,
+    FooterPart,
+    CheckOutHaha,
+},
 	methods: {
 		setProducts(pro) {
 			store.commit('setProducts', pro);
@@ -65,6 +68,7 @@ export default {
 	-moz-osx-font-smoothing: grayscale;
 	/* text-align: center; */
 	color: #2c3e50;
+	/* font-size: 62.5%; */
 }
 
 @media (max-width: 768px) {

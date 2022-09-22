@@ -50,6 +50,9 @@ export default {
 		// console.log('getter getProducts: ', state);
 		return state.productsList;
 	},
+	getIsCheckoutOpen(state) {
+		return state.isCheckoutOpen;
+	}
 	// getCurProduct(state) {
 	// 	return state.curProduct;
 	// },
