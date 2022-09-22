@@ -41,8 +41,6 @@ describe('Add product', () => {
 		console.log('before all');
 		// use local data instead, faster.
 		let data = productJson;
-		console.log('store: ', store);
-		store.commit('productsState', data);
 	});
 
 	describe('mutations', () => {
@@ -86,10 +84,10 @@ describe('Add product', () => {
 		let count = store.getters.getTotalCount;
 		let cateCount = store.getters.getCategoryCount;
 		// let countBy = store.getters.getCountBy(newItem);
-		console.log('origin count: ', count);
+		// console.log('origin count: ', count);
 		// console.log('origin countBy: ', countBy);
 
-		const ret = store.commit('addToCart', newItem);
+		store.commit('addToCart', newItem);
 
 		let afterCount = store.getters.getTotalCount;
 		let afterCateCount = store.getters.getCategoryCount;
