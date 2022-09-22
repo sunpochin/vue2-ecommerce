@@ -1,10 +1,9 @@
 <template>
-	<div>
-		<div class="outer">
-			<div class="product-list">
-				<div v-for="product in listProducts" :key="product.id">
-					<ProductCard :product="product" />
-				</div>
+	<div class="outer">
+		<CarouselPartVue class="carousel" />
+		<div class="product-list">
+			<div v-for="product in listProducts" :key="product.id">
+				<ProductCard :product="product" />
 			</div>
 		</div>
 	</div>
@@ -15,6 +14,10 @@ import ProductCard from './ProductCard.vue';
 import { mapActions, mapGetters } from 'vuex';
 import CommonMixin from '@/utils/CommonMixin';
 import store from '@/store';
+
+import CarouselPartVue from './CarouselPart.vue';
+
+
 export default {
 	data() {
 		return {
@@ -23,6 +26,7 @@ export default {
 	},
 	components: {
 		ProductCard,
+		CarouselPartVue,
 	},
 	computed: {
 		listProducts() {
@@ -71,8 +75,18 @@ export default {
 	box-sizing: border-box;
 }
 
+.carousel {
+	border-radius: 10px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	/* width: 100%;
+ */
+	/* padding-bottom: 10px; */
+}
+
 .outer {
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	margin: 1rem;
 }
@@ -81,8 +95,9 @@ export default {
 	display: grid;
 	grid-template-columns: repeat(4, minmax(14rem, 18rem));
 	gap: 1rem;
-	justify-content: space-around;
+	justify-content: space-between;
 }
+
 @media (max-width: 1024px) {
 	.product-list {
 		grid-template-columns: repeat(3, minmax(14rem, 18rem));
@@ -97,7 +112,9 @@ export default {
 		align-content: center;
 	}
 }
+
 @media (max-width: 480px) {
+
 	#app,
 	body {
 		margin: 0 auto;
