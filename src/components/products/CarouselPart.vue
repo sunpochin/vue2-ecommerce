@@ -4,39 +4,32 @@
       img-width="1024" img-height="480" style="text-shadow: 1px 1px 2px #333;" @sliding-start="onSlideStart"
       @sliding-end="onSlideEnd">
       <!-- Text slides with image -->
-      <b-carousel-slide caption="First slide" text="Nulla vitae elit libero, a pharetra augue mollis interdum."
-        img-src="https://picsum.photos/1024/480/?image=52"></b-carousel-slide>
-
-      <!-- Slides with custom text -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=54">
-        <h1>Hello world!</h1>
+      <b-carousel-slide img-src="/0_1_20220922160038.jpg">
+        <!-- <img src="/0_1_20220922160038.jpg" /> -->
       </b-carousel-slide>
 
       <!-- Slides with image only -->
-      <b-carousel-slide img-src="https://picsum.photos/1024/480/?image=58"></b-carousel-slide>
+      <b-carousel-slide img-src="/1_1_20220922160038.jpg"></b-carousel-slide>
 
       <!-- Slides with img slot -->
       <!-- Note the classes .d-block and .img-fluid to prevent browser default image alignment -->
       <b-carousel-slide>
         <template #img>
-          <img class="d-block img-fluid w-100" width="1024" height="480" src="https://picsum.photos/1024/480/?image=55"
+          <img class="d-block img-fluid w-100" width="1024" height="480" src="/2_1_20220922160038.jpg"
             alt="image slot">
         </template>
       </b-carousel-slide>
-
-      <!-- Slide with blank fluid image to maintain slide aspect ratio -->
-      <b-carousel-slide caption="Blank Image" img-blank img-alt="Blank image">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eros felis, tincidunt
-          a tincidunt eget, convallis vel est. Ut pellentesque ut lacus vel interdum.
-        </p>
+      <b-carousel-slide>
+        <template #img>
+          <img class="d-block img-fluid w-100" width="1024" height="480" src="/3_1_20220922160039.jpg" alt="image slot">
+        </template>
       </b-carousel-slide>
     </b-carousel>
 
-    <p class="mt-4">
+    <!-- <p class="mt-4">
       Slide #: {{ slide }}<br>
       Sliding: {{ sliding }}
-    </p>
+    </p> -->
   </div>
 </template>
 
@@ -60,3 +53,34 @@
     }
   }
 </script>
+
+<style scoped>
+.carousel-indicators li {
+  border-color: #e100ff;
+  border-width: 12px;
+  border-style: none solid none solid;
+  background-color: #e100ff;
+  height: 2px;
+  margin: 0 16px;
+  opacity: 1;
+  padding: 1px;
+  position: relative;
+}
+
+.carousel-indicators li::after {
+  bottom: -7px;
+  content: none;
+  left: -7px;
+  padding: 1px;
+  position: absolute;
+  right: -7px;
+  top: -7px;
+}
+
+.carousel-indicators li.active {
+  background-color: #7f00ff;
+  border-color: #7f00ff;
+  border-width: 12px;
+  border-style: none solid none solid;
+}
+</style>
