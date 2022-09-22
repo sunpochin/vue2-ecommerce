@@ -1,0 +1,22 @@
+sudo: false
+language: node_js
+node_js:
+  - lts/*
+branches:
+  only:
+    - dev
+before_script:
+  - npm install -g @vue/cli
+  - npm install -g @vue/cli-service-global
+script:
+  - npm run build
+  # - echo "$CNAME_URL" > dist/CNAME
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github-token: $GITHUB_TOKEN
+  target_branch: master
+  keep-history: false
+  on:
+    branch: dev
+  local-dir: dist
