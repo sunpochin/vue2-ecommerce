@@ -79,9 +79,14 @@ export default {
 
 .product-list {
 	display: grid;
-	grid-template-columns: repeat(3, minmax(14rem, 18rem));
+	grid-template-columns: repeat(4, minmax(14rem, 18rem));
 	gap: 1rem;
 	justify-content: space-around;
+}
+@media (max-width: 1024px) {
+	.product-list {
+		grid-template-columns: repeat(3, minmax(14rem, 18rem));
+	}
 }
 
 @media (max-width: 768px) {
@@ -99,7 +104,7 @@ export default {
 		padding: 0 auto;
 		width: 100%;
 	}
-	
+
 	.product-list {
 		grid-template-columns: repeat(1, 18rem);
 		justify-content: space-around;
