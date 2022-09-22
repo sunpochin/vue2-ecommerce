@@ -1,6 +1,6 @@
 <template>
 	<div class="outer">
-		<CarouselPartVue class="carousel" />
+		<CarouselPartVue/>
 		<div class="product-list">
 			<div v-for="product in listProducts" :key="product.id">
 				<ProductCard :product="product" />
