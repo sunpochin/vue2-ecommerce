@@ -1,4 +1,4 @@
-import Vue from 'vue'
+import Vue from 'vue';
 import axios from 'axios';
 import CommonMixin from '@/utils/CommonMixin';
 const { theJson } = CommonMixin();
@@ -14,8 +14,8 @@ export default {
 		console.log('updateCartFromServer payload: ', payload);
 		Object.keys(payload).forEach((element) => {
 			let newID = element.replace('prod_', '');
-			
-			let item = theJson.find(item => item.id == newID)
+
+			let item = theJson.find((item) => item.id == newID);
 			console.log('item: ', item);
 			item.count = payload[element];
 			console.log('newID: ', newID);
@@ -65,9 +65,16 @@ export default {
 			price: item.price,
 		};
 		// console.warn('add data: ', data);
-		await axios
-			.post(itemsAddress, data)
-			.then((res) => console.log('add item:', res));
+		try {
+			let pro = await axios
+				.post(itemsAddress, data)
+				.then((res) => console.log('add item:', res))
+				.catch((error) => {
+					reject();
+				});
+		} catch (e) {
+			// throw e;
+		}
 	},
 	async removeItem(state, payload) {
 		console.log('removeItem: ', Vue.prototype.$hostname);
@@ -99,7 +106,11 @@ export default {
 		// to backend
 		let item = payload;
 		let itemsAddress = curAddress + '/items/decrease/' + 'prod_' + item.id;
-		await axios.get(itemsAddress);
+		try {
+			let pro = await axios.get(itemsAddress);
+		} catch (e) {
+			console.log('Error happend while axios ', e.message);
+		}
 	},
 };
 
