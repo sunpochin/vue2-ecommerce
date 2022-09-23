@@ -86,8 +86,8 @@ describe('Add product', () => {
 		// let countBy = store.getters.getCountBy(newItem);
 		// console.log('origin count: ', count);
 		// console.log('origin countBy: ', countBy);
-
-		store.commit('addToCart', newItem);
+		let pro;
+		pro = store.commit('addToCart', newItem);
 
 		let afterCount = store.getters.getTotalCount;
 		let afterCateCount = store.getters.getCategoryCount;
