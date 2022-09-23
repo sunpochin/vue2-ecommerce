@@ -66,12 +66,9 @@ export default {
 		};
 		// console.warn('add data: ', data);
 		try {
-			let pro = await axios
+			await axios
 				.post(itemsAddress, data)
-				.then((res) => console.log('add item:', res))
-				.catch((error) => {
-					reject();
-				});
+				.then((res) => console.log('add item:', res));
 		} catch (e) {
 			// throw e;
 		}
@@ -107,7 +104,7 @@ export default {
 		let item = payload;
 		let itemsAddress = curAddress + '/items/decrease/' + 'prod_' + item.id;
 		try {
-			let pro = await axios.get(itemsAddress);
+			await axios.get(itemsAddress);
 		} catch (e) {
 			console.log('Error happend while axios ', e.message);
 		}
