@@ -10,6 +10,7 @@ before_script:
   - npm install -g @vue/cli-service-global
 script:
   - npm run build
+  - npm run test:coverage
   # - echo "$CNAME_URL" > dist/CNAME
 deploy:
   provider: pages
