@@ -8,7 +8,7 @@
 		"build": "vue-cli-service build",
 		"lint": "vue-cli-service lint",
 		"test:unit": "vue-cli-service test:unit",
-		"test:coverage": "vue-cli-service test:unit --coverage",
+		"coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
 		"test:unit:watch": "vue-cli-service test:unit --watch"
 	},
 	"dependencies": {
@@ -29,6 +29,7 @@
 		"@vue/cli-service": "~5.0.0",
 		"@vue/test-utils": "^1.3.0",
 		"@vue/vue2-jest": "^27.0.0",
+		"coveralls": "^3.1.1",
 		"eslint": "^7.32.0",
 		"eslint-plugin-vue": "^8.0.3",
 		"vue-template-compiler": "^2.6.14",

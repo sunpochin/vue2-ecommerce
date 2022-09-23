@@ -9,14 +9,14 @@ before_script:
   - npm install -g @vue/cli
   - npm install -g @vue/cli-service-global
 script:
-  - npm run build
-  - npm run test:coverage
+  # - npm run build
+  - npm run coveralls
   # - echo "$CNAME_URL" > dist/CNAME
 deploy:
   provider: pages
   skip_cleanup: true
   github-token: $GITHUB_TOKEN
-  target_branch: master
+  target_branch: main
   keep-history: false
   on:
     branch: dev
