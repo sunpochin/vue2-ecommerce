@@ -66,12 +66,6 @@ export default {
 </script>
 
 <style>
-/* .product-list {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-evenly
-} */
-
 * {
 	box-sizing: border-box;
 }
@@ -94,21 +88,21 @@ export default {
 
 .product-list {
 	display: grid;
-	grid-template-columns: repeat(4, minmax(14rem, 18rem));
+	grid-template-columns: repeat(4, minmax(10rem, 18rem));
 	gap: 1rem;
 	justify-content: space-between;
 }
 
 @media (max-width: 1024px) {
 	.product-list {
-		grid-template-columns: repeat(3, minmax(14rem, 18rem));
+		grid-template-columns: repeat(3, minmax(10rem, 18rem));
 	}
 }
 
 @media (max-width: 768px) {
 	.product-list {
 		/* background-color: green; */
-		grid-template-columns: repeat(2, minmax(14rem, 18rem));
+		grid-template-columns: repeat(2, minmax(10rem, 18rem));
 		justify-content: space-around;
 		align-content: center;
 	}

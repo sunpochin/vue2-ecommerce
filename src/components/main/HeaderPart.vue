@@ -1,28 +1,27 @@
 <template>
-	<nav class="main-nav">
+	<div class="upmost">
 		<div class="left">
 			<div class="logo">
-				<h4>
-					<router-link class="route" to="/products">Fashion Shop</router-link>
-				</h4>
+				<h2><a href="/">鞋鞋網</a> </h2>
 				<h2>{{msg}}</h2>
 			</div>
-
-			<router-link class="route" to="/products">Men</router-link>
-			<router-link class="route" to="/products">Women</router-link>
-			<router-link class="route" to="/products">All</router-link>
-			<router-link class="route" to="/products">Contact</router-link>
+			<nav class="main-nav">
+				<router-link class="route" to="#">Men</router-link>
+				<router-link class="route" to="#">Women</router-link>
+				<router-link class="route" to="/products">All</router-link>
+				<div class="right">
+					<router-link class="route" to="/cart">購物車：{{ getTotalCount }}
+					</router-link>
+				</div>
+			</nav>
+			<!-- <router-link class="route" to="#">Contact</router-link> -->
 		</div>
-		<div class="right">
-			<router-link class="route" to="/cart">購物車：{{ getTotalCount }}
-			</router-link>
-		</div>
+	</div>
 
-		<!-- <button class="buttonWrapper" @click="haha">
-				<div class="quantity">{{ getTotalCount }}</div>
-			</button>
-			<router-link to="/login">登入/註冊</router-link> -->
-	</nav>
+	<!-- <button class="buttonWrapper" @click="haha">
+						<div class="quantity">{{ getTotalCount }}</div>
+					</button>
+					<router-link to="/login">登入/註冊</router-link> -->
 	<!-- <p>login state:{{ IsLoggedIn }}</p>
 		<button v-show="!IsLoggedIn" @click="login">Login</button>
 		<button v-show="IsLoggedIn" @click="logout">Logout</button> -->
@@ -68,7 +67,8 @@ export default {
 	font-weight: bold;
 }
 
-.left, .logo {
+.left,
+.logo {
 	display: flex;
 	align-items: center;
 	align-content: center;
@@ -83,8 +83,16 @@ export default {
 }
 
 .logo {
-		margin-right: 100px;
+	min-width: 130px;
+	margin-right: 50px;
 }
+
+.logo a {
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+}
+
 /* .buttonWrapper:active {
 	transform: scale(1.02);
 }
@@ -123,8 +131,6 @@ a {
 	cursor: pointer;
 }
 
-
-
 .logo h4:after {
 	content: '';
 	display: block;
@@ -138,8 +144,6 @@ a {
 .logo:hover h4:after {
 	width: 100%;
 }
-
-
 
 nav {
 	display: flex;
@@ -187,23 +191,47 @@ nav a:hover:after {
 nav a:hover {
 	transition: transform 0.9s ease-in-out;
 	transform: scale(1.1);
-	color: lightgreen;
+	color: black;
 }
 
 nav a {
 	text-decoration: none;
 
 	font-weight: bold;
-	color: white;
+	color: grey;
 }
 
-nav a.router-link-exact-active {
-	color: lightgreen;
+/* nav a.router-link-exact-active {
+	color: black;
+} */
+@media (max-width: 768px) {
+
+	/* .upmost * {
+		font-size: 12px;
+		gap: 5px;
+		min-width: 220px;
+	} */
+	body {
+		padding: 10px
+	}
+
+	.logo {
+		min-width: 120px;
+	}
+
+	.logo,
+	nav {
+		font-size: 1.5rem;
+	}
 }
 
 @media (max-width: 480px) {
-	.upmost {
+	.left {
 		flex-direction: column;
+	}
+
+	body {
+		padding: 10px
 	}
 }
 </style>
