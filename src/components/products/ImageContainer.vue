@@ -1,6 +1,6 @@
 <template>
 	<div class="image-container">
-		<img :src="product.image" />
+		<img :src="product.img[0]" />
 	</div>
 </template>
 
@@ -14,17 +14,18 @@ export default {
 	},
 };
 </script>
-<style>
+<style scoped>
 .image-container {
-	display: flex;
+	/* display: flex;
 	flex-direction: column;
 	align-items: center;
-	box-sizing: border-box;
+	box-sizing: border-box; */
 
 	border-bottom: 1px solid rgb(191, 191, 191);
-	width: 100%;
-	height: 10rem;
-	padding: 1rem;
+	width: 300px;
+	height: 300px;
+	/* max-width: 100%;
+	max-height: 100%; */
 }
 img {
 	max-width: 100%;

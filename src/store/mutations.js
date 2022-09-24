@@ -13,14 +13,25 @@ export default {
 	updateCartFromServer(state, payload) {
 		console.log('updateCartFromServer payload: ', payload);
 		Object.keys(payload).forEach((element) => {
-			let newID = element.replace('prod_', '');
-
-			let item = theJson.find((item) => item.id == newID);
+			let item = payload[element];
 			console.log('item: ', item);
-			item.count = payload[element];
-			console.log('newID: ', newID);
-			console.log('updateCartFromServer: ', item);
-			state.itemsInCart.push(item);
+			let newProductID = item.product_id.replace('prod_', '');
+			console.log(
+				'element: ',
+				element,
+				',item: ',
+				item,
+				' newProductID: ',
+				newProductID,
+				typeof newProductID
+			);
+
+			let findItem = theJson.find((item) => item.id == newProductID);
+			console.log('find item: ', findItem);
+			findItem.count = payload[element].quantity;
+			console.log('newProductID: ', newProductID);
+			console.log('updateCartFromServer: ', findItem);
+			state.itemsInCart.push(findItem);
 		});
 	},
 
