@@ -1,24 +1,31 @@
 <template>
-	<div class="upmost">
-		<div class="logo">
-			<h4><router-link class="route" to="/products">Fashion Shop</router-link></h4>
-			<h2>{{msg}}</h2>
+	<nav class="main-nav">
+		<div class="left">
+			<div class="logo">
+				<h4>
+					<router-link class="route" to="/products">Fashion Shop</router-link>
+				</h4>
+				<h2>{{msg}}</h2>
+			</div>
 
+			<router-link class="route" to="/products">Men</router-link>
+			<router-link class="route" to="/products">Women</router-link>
+			<router-link class="route" to="/products">All</router-link>
+			<router-link class="route" to="/products">Contact</router-link>
 		</div>
-		<nav class="main-nav">
-			<!-- <router-link to="/">首頁</router-link> -->
-			<router-link class="route" to="/products">產品</router-link>
-			<router-link class="route" to="/cart">購物車：{{ getTotalCount }} </router-link>
+		<div class="right">
+			<router-link class="route" to="/cart">購物車：{{ getTotalCount }}
+			</router-link>
+		</div>
 
-			<!-- <button class="buttonWrapper" @click="haha">
+		<!-- <button class="buttonWrapper" @click="haha">
 				<div class="quantity">{{ getTotalCount }}</div>
 			</button>
 			<router-link to="/login">登入/註冊</router-link> -->
-		</nav>
-		<!-- <p>login state:{{ IsLoggedIn }}</p>
+	</nav>
+	<!-- <p>login state:{{ IsLoggedIn }}</p>
 		<button v-show="!IsLoggedIn" @click="login">Login</button>
 		<button v-show="IsLoggedIn" @click="logout">Logout</button> -->
-	</div>
 </template>
 
 <script>
@@ -61,6 +68,23 @@ export default {
 	font-weight: bold;
 }
 
+.left, .logo {
+	display: flex;
+	align-items: center;
+	align-content: center;
+	color: pink;
+	font-size: 32px;
+	padding: 1rem;
+}
+
+.left {
+	gap: 20px;
+	font-size: 20px;
+}
+
+.logo {
+		margin-right: 100px;
+}
 /* .buttonWrapper:active {
 	transform: scale(1.02);
 }
@@ -84,23 +108,13 @@ export default {
 	font-weight: bold;
 }
 
-.upmost {
+.main-nav {
 	display: flex;
 	max-width: 100%;
 	justify-content: space-between;
 	background-color: black;
 }
 
-.logo {
-	display: flex;
-	align-items: center;
-	align-content: center;
-
-	color: pink;
-	font-size: 32px;
-	padding: 1rem;
-
-}
 
 a {
 	text-decoration: none;
