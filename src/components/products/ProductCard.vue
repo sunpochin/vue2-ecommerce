@@ -1,7 +1,9 @@
 <template>
 	<div class="product-card" @click="addToCart">
 		<!-- <image-container :product="product"></image-container> -->
-		<img :src="product.img[0]" />
+		<div class="center-cropped">
+			<img :src="product.img[0]" />
+		</div>
 		<div class="card-details">
 			<div class="card-title">{{ product.title }}</div>
 			<div class="card-price">$Price: {{ product.price }}</div>
@@ -35,15 +37,20 @@ export default {
 </script>
 
 <style scoped>
-img {
-	/* https: //stackoverflow.com/questions/11552380/how-to-automatically-crop-and-center-an-image */
+/* https://stackoverflow.com/questions/11552380/how-to-automatically-crop-and-center-an-image */
+.center-cropped {
+	width: 100%;
+	height: 300px;
+	/* background-position: center center;
+	background-repeat: no-repeat; */
+	overflow: hidden;
+}
 
-	/* Do not scale the image */
-	object-fit: fill;
-	/* Center the image within the element */
-	object-position: 50% 50%;
-	height: 250px;
-	max-width: 100%;
+.center-cropped img {
+	object-fit: cover;
+	height: 100%;
+	width: 100%;
+
 	border-radius: 9px;
 }
 

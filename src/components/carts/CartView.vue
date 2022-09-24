@@ -2,7 +2,7 @@
 	<div class="cartview">
 		<div class="containerTable">
 			<div v-if="!showTable">
-				<h2 class="empty-cart">購物車是空的</h2>
+				<h2 class="empty-cart">購物車是空的，請<strong><router-link class="route" to="/products">回到商品頁</router-link></strong></h2>
 			</div>
 			<table v-if="showTable">
 				<thead>
@@ -126,6 +126,12 @@ export default {
 https://stackoverflow.com/questions/29617200/how-to-make-checkboxes-rounded
 
 */
+
+.empty-cart * {
+	text-decoration: none;
+	color: black;
+}
+
 .checkout-button{
 	width: 100%;
 

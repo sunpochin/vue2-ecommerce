@@ -69,32 +69,22 @@ export default {
 	-moz-osx-font-smoothing: grayscale;
 	/* text-align: center; */
 	color: hsl(220, 13%, 13%);
-	/* font-size: 62.5%; */
+	font-size: 62.5%;
+}
+
+body {
+	padding: 0 100px 0 100px;
 }
 
 @media (max-width: 768px) {
-
-	#app,
-	body {
+	#app {
 		margin: 0 auto;
 		padding: 0 auto;
 		width: 100%;
 	}
 
-	/* .upmost * {
-		font-size: 12px;
-		gap: 5px;
-		min-width: 220px;
-	} */
-	.logo {
-		min-width: 120px;
-	}
-
-	.logo,
-	nav {
-		font-size: 12px;
-		gap: 5px;
-		min-width: 120px;
+	body {
+		padding: 0 40px 0 40px;
 	}
 }
 </style>
