@@ -36,14 +36,16 @@ export default {
 
 <style scoped>
 img {
-	/* https: //stackoverflow.com/questions/11552380/how-to-automatically-crop-and-center-an-image
-	object-fit: none; */
+	/* https: //stackoverflow.com/questions/11552380/how-to-automatically-crop-and-center-an-image */
+
 	/* Do not scale the image */
-	object-position: center;
+	object-fit: fill;
 	/* Center the image within the element */
-	height: 300px;
-	width: 300px;
-	border-radius: 9px;}
+	object-position: 50% 50%;
+	height: 250px;
+	max-width: 100%;
+	border-radius: 9px;
+}
 
 .product-card {
 	cursor: pointer;
@@ -54,7 +56,7 @@ img {
 	margin: auto;
 
 	/* border: 1px solid black; */
-	width: 300px;
+	max-width: 300px;
 	height: 400px;
 	/* background-color: grey; */
 	border-radius: 9px;

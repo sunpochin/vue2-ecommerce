@@ -72,7 +72,7 @@ export default {
 	display: flex;
 	align-items: center;
 	align-content: center;
-	color: pink;
+	color: hsl(220, 13%, 13%);
 	font-size: 32px;
 	padding: 1rem;
 }
@@ -112,9 +112,8 @@ export default {
 	display: flex;
 	max-width: 100%;
 	justify-content: space-between;
-	background-color: black;
+	background-color: white;
 }
-
 
 a {
 	text-decoration: none;
@@ -132,7 +131,7 @@ a {
 	width: 0%;
 	height: 2px;
 	margin: 5px 0;
-	background-color: #9f0;
+	background-color: hsl(220, 13%, 13%);
 	transition: width .5s .3s;
 }
 
@@ -161,7 +160,7 @@ nav a:after {
 	right: 50%;
 	bottom: 0px;
 	height: 2px;
-	border-bottom: 1px solid #9f0;
+	border-bottom: 1px solid hsl(220, 13%, 13%);
 	transition: .9s;
 }
 
