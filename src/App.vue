@@ -39,14 +39,14 @@ export default {
 		}
 
 	},
-	mounted() {
+	created() {
 		// todo: remove this temp codes for doing layout of cart.
 		const { theJson, shoes } = CommonMixin();
 		// const { data } = await getJsonData('public/products.json');
 		// console.log('mounted data: ', data);
 		this.setProducts(theJson);
 		this.setProducts(shoes);
-		console.log('created: ');
+		console.log('App created: ');
 		this.getCartFromServer();
 	},
 };

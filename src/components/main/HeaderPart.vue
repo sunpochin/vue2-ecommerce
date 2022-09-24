@@ -6,8 +6,8 @@
 				<h2>{{msg}}</h2>
 			</div>
 			<nav class="main-nav">
-				<router-link class="route" to="#">Men</router-link>
-				<router-link class="route" to="#">Women</router-link>
+				<router-link class="route" to="/products">Men</router-link>
+				<router-link class="route" to="/products">Women</router-link>
 				<router-link class="route" to="/products">All</router-link>
 				<div class="right">
 					<router-link class="route" to="/cart">購物車：{{ getTotalCount }}
@@ -226,6 +226,10 @@ nav a {
 }
 
 @media (max-width: 480px) {
+	.logo {
+		font-size: 1rem;
+	}
+
 	.left {
 		flex-direction: column;
 	}
