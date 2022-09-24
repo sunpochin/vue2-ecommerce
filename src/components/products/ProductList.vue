@@ -1,6 +1,6 @@
 <template>
 	<div class="outer">
-		<CarouselPartVue/>
+		<!-- <CarouselPartVue/> -->
 		<div class="product-list">
 			<div v-for="product in listProducts" :key="product.id">
 				<ProductCard :product="product" />
@@ -15,7 +15,7 @@ import { mapActions, mapGetters } from 'vuex';
 import CommonMixin from '@/utils/CommonMixin';
 import store from '@/store';
 
-import CarouselPartVue from './CarouselPart.vue';
+// import CarouselPartVue from './CarouselPart.vue';
 
 
 export default {
@@ -26,7 +26,7 @@ export default {
 	},
 	components: {
 		ProductCard,
-		CarouselPartVue,
+		// CarouselPartVue,
 	},
 	computed: {
 		listProducts() {
@@ -55,11 +55,12 @@ export default {
 			console.log('fetch!!');
 			// this.fetchProducts();
 		}
-		const { theJson } = CommonMixin();
+		const { AllProducts } = CommonMixin();
+		console.log('ssss ', AllProducts)
 		// console.log('retProductJson: ', retProductJson);
 		// const data = await getJsonData('public/products.json');
 		// console.log('mounted data: ', theJson);
-		this.setAll(theJson);
+		// this.setAll(AllProducts);
 	},
 };
 </script>

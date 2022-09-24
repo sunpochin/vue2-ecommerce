@@ -31,20 +31,21 @@ export default {
 		async getCartFromServer() {
 			console.log('App.vue this: ', this.$hostname)
 			let curAddress = this.$hostname;
-			let cateAddress = curAddress + '/items/cate'
+			let cateAddress = curAddress + '/items/list'
 			console.log('cateAddress: ', cateAddress);
 			let response = await axios.get(cateAddress);
-			let items = response.data
+			let items = response.data.items
 			store.commit('updateCartFromServer', items)
 		}
 
 	},
 	mounted() {
 		// todo: remove this temp codes for doing layout of cart.
-		const { theJson } = CommonMixin();
+		const { theJson, shoes } = CommonMixin();
 		// const { data } = await getJsonData('public/products.json');
 		// console.log('mounted data: ', data);
 		this.setProducts(theJson);
+		this.setProducts(shoes);
 		console.log('created: ');
 		this.getCartFromServer();
 	},
@@ -67,7 +68,7 @@ export default {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	/* text-align: center; */
-	color: #2c3e50;
+	color: hsl(220, 13%, 13%);
 	/* font-size: 62.5%; */
 }
 

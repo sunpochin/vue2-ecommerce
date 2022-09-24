@@ -1,29 +1,28 @@
 <template>
-	<div class="product-card">
-		<image-container :product="product"></image-container>
-
+	<div class="product-card" @click="addToCart">
+		<!-- <image-container :product="product"></image-container> -->
+		<img :src="product.img[0]" />
 		<div class="card-details">
 			<div class="card-title">{{ product.title }}</div>
 			<div class="card-price">$Price: {{ product.price }}</div>
-			<div class="row">
+			<!-- <div class="row">
 				<button @click="addToCart" class="btn-detail">Add to cart</button>
-				<!-- <router-link
+				<router-link
 					type="button"
 					class="btn-detail"
 					:to="'/products/' + product.id"
 					>Detail</router-link
-				> -->
-			</div>
+				>
+			</div> -->
 		</div>
 	</div>
 </template>
 
 <script scoped>
 import store from '@/store';
-import ImageContainer from './ImageContainer.vue';
-
+// import ImageContainer from './ImageContainer.vue';
 export default {
-	components: { ImageContainer },
+	// components: { ImageContainer },
 	props: {
 		product: Object,
 	},
@@ -36,24 +35,36 @@ export default {
 </script>
 
 <style scoped>
+img {
+	/* https: //stackoverflow.com/questions/11552380/how-to-automatically-crop-and-center-an-image */
+
+	/* Do not scale the image */
+	object-fit: fill;
+	/* Center the image within the element */
+	object-position: 50% 50%;
+	height: 250px;
+	max-width: 100%;
+	border-radius: 9px;
+}
 
 .product-card {
+	cursor: pointer;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 	margin: auto;
 
-	border: 1px solid black;
+	/* border: 1px solid black; */
 	max-width: 300px;
 	height: 400px;
-	background-color: grey;
+	/* background-color: grey; */
 	border-radius: 9px;
 }
 
 .card-details {
 	width: 80%;
-	height: 100%;
+	height: 100px;
 	margin: 5px;
 }
 
@@ -65,10 +76,12 @@ export default {
 	text-overflow: ellipsis;
 	overflow: hidden;
 }
+
 .card-price {
 	padding: 0.5rem 0 0.5rem 0;
 	height: 15%;
 }
+
 .row {
 	display: flex;
 	align-items: center;
@@ -78,6 +91,7 @@ export default {
 	height: 20%;
 	width: 100%;
 }
+
 .btn-detail {
 	display: flex;
 	align-items: center;
@@ -99,6 +113,7 @@ export default {
 	transform: scale(1.05);
 	/* background-color: grey; */
 }
+
 .btn-detail:active {
 	background-color: grey;
 	color: white;
