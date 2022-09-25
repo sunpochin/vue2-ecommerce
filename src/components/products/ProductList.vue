@@ -95,14 +95,14 @@ export default {
 
 @media (max-width: 1024px) {
 	.product-list {
-		grid-template-columns: repeat(3, minmax(10rem, 18rem));
+		grid-template-columns: repeat(3, 1fr);
 	}
 }
 
 @media (max-width: 768px) {
 	.product-list {
 		/* background-color: green; */
-		grid-template-columns: repeat(2, minmax(10rem, 18rem));
+		grid-template-columns: repeat(2, 1fr);
 		justify-content: space-around;
 		align-content: center;
 	}
@@ -118,7 +118,7 @@ export default {
 	}
 
 	.product-list {
-		grid-template-columns: repeat(1, 18rem);
+		grid-template-columns: repeat(1, 1fr);
 		justify-content: space-around;
 		align-content: center;
 	}

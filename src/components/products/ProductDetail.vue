@@ -6,12 +6,8 @@
 			</div>
 			<div class="small_conatiner">
 				<div v-for="(item, idx) in getImgs" :key="idx">
-					<img class="small_img" :src="item" alt="thumbnail" />
+					<img class="small_img" :src="item" v-on:click="changeBig(idx)" alt="thumbnail" />
 				</div>
-				<!-- <img class="small" src="images/image-product-1-thumbnail.jpg" alt="" />
-				<img class="small" src="images/image-product-2-thumbnail.jpg" alt="" />
-				<img class="small" src="images/image-product-3-thumbnail.jpg" alt="" />
-				<img class="small" src="images/image-product-4-thumbnail.jpg" alt="" /> -->
 			</div>
 		</div>
 		<div class="details">
@@ -72,6 +68,7 @@
 	width: 100px;
 	height: 100px;
 	border-radius: 10px;
+	cursor: pointer;
 }
 
 .big-image,
@@ -121,6 +118,7 @@ import store from '@/store';
 export default {
 	data() {
 		return {
+			bigImgIdx: 0,
 			product: Object(), // todo: using Object (instead of Object() ) will cause a build error
 		};
 	},
@@ -132,7 +130,7 @@ export default {
 		getBig() {
 			console.log('getBig: ', this.product)
 			console.log('getBig: ', this.product.img[0])
-			return this.product.img[0];
+			return this.product.img[this.bigImgIdx];
 		},
 		getImgs() {
 			console.log('array: ', this.product.img)
@@ -140,6 +138,10 @@ export default {
 		},
 	},
 	methods: {
+		changeBig(idx) {
+			console.log('idx: ', idx)
+			this.bigImgIdx = idx 
+		},
 		addToCart() {
 			store.commit('addToCart', this.product);
 		},
@@ -150,7 +152,8 @@ export default {
 		async getSingle() {
 			let products = store.getters.getProducts;
 			console.log('let products: ', products);
-			this.product = products[`${this.productId}`];
+			let index = products.findIndex((item) => `${this.productId}` == item.id)
+			this.product = products[index]
 			console.log('this.product: ', this.product);
 			return this.product;
 		},
