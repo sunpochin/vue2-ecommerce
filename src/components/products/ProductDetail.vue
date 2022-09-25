@@ -43,7 +43,6 @@
 
 .images-holder {
 	flex: 0 0 90%;
-
 	overflow: auto;
 	max-width: 50%;
 	height: calc(100vh - 16px);
@@ -160,6 +159,7 @@
 	}
 
 	.images-holder {
+		max-width: 100%;
 		flex: 0 0 100%;
 		padding: 10px;
 	}

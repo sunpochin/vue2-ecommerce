@@ -1,13 +1,13 @@
 <template>
 	<div>
 		<Slide class="slide_wrapper" @openMenu="handleOpenMenu" @closeMenu="handleCloseMenu">
-			<a id="men" href="#" v-on:click="filterProducts(id)">
+			<a id="men" href="/products" >
 				<span>Men</span>
 			</a>
-			<a id="women" href="#" @click="filterProducts(id)">
+			<a id="women" href="/products" >
 				<span>Women</span>
 			</a>
-			<a id="all" href="#" @click="filterProducts">
+			<a id="all" href="/products">
 				<span>All</span>
 			</a>
 		</Slide>
