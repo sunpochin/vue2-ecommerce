@@ -37,7 +37,7 @@ export default {
 /* https://stackoverflow.com/questions/11552380/how-to-automatically-crop-and-center-an-image */
 .center-cropped {
 	width: 100%;
-	height: 250px;
+	height: 300px;
 	/* background-position: center center;
 	background-repeat: no-repeat; */
 	overflow: hidden;
@@ -47,7 +47,6 @@ export default {
 	object-fit: cover;
 	height: 100%;
 	width: 100%;
-
 	border-radius: 9px;
 }
 
@@ -57,7 +56,6 @@ export default {
 	flex-direction: column;
 	align-items: center;
 	margin: auto;
-
 	/* border: 1px solid black; */
 	/* max-width: 300px; */
 	height: 400px;
@@ -72,15 +70,18 @@ export default {
 .card-title {
 	font-weight: bold;
 	font-size: 16px;
-	height: 55%;
+	margin-top: 10px;
 
+	height: 80%;
 	/* text-overflow: ellipsis;
 	overflow: hidden; */
 }
 
 .card-price {
-	padding: 0.5rem 0 0.5rem 0;
-	height: 15%;
+	margin-bottom: 10px;
+	font-size: 24px;
+	bottom: 0px;
+	/* height: 15%; */
 }
 
 .row {

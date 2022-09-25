@@ -32,7 +32,7 @@ export default {
 			}
 			// not all, women or men.
 			let filtered = all.filter((item) => {
-				console.log('item.category[0].gender, this.cateID:', item.category[0].gender, this.cateID)
+				// console.log('item.category[0].gender, this.cateID:', item.category[0].gender, this.cateID)
 				if (item.category[0].gender.includes(this.cateID) ) {
 					return item;
 				}
