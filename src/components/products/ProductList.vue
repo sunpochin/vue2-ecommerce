@@ -12,7 +12,7 @@
 <script>
 import ProductCard from './ProductCard.vue';
 import { mapActions, mapGetters } from 'vuex';
-import CommonMixin from '@/utils/CommonMixin';
+// import CommonMixin from '@/utils/CommonMixin';
 import store from '@/store';
 
 // import CarouselPartVue from './CarouselPart.vue';
@@ -36,9 +36,7 @@ export default {
 		...mapGetters({ getProducts: 'getProducts' }),
 		// ...mapState(['productsList']),
 	},
-	props: {
-		msg: String,
-	},
+	props: ['cateID'],
 	methods: {
 		...mapActions({
 			// setProducts: 'setProducts',
@@ -49,18 +47,12 @@ export default {
 			// console.log('aliasPro: ', store.getters.getSubTotal);
 		},
 	},
-	async mounted() {
-		// console.log('loaded products: ', this.productsList);
-		if (this.productsList.length === 0) {
-			console.log('fetch!!');
-			// this.fetchProducts();
-		}
-		const { AllProducts } = CommonMixin();
-		console.log('ssss ', AllProducts)
-		// console.log('retProductJson: ', retProductJson);
-		// const data = await getJsonData('public/products.json');
-		// console.log('mounted data: ', theJson);
-		// this.setAll(AllProducts);
+	mounted() {
+		console.log('cateId: ', this.cateID);
+		// if (this.productsList.length === 0) {
+		// 	console.log('fetch!!');
+		// 	// this.fetchProducts();
+		// }
 	},
 };
 </script>

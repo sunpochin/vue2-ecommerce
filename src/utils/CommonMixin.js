@@ -20,8 +20,6 @@ export default function () {
 	};
 	// let result = getJsonData('/shoes.js')
 	// console.log('result: ', result);
-	console.log('shoes: ', shoes)
-
 	return { getJsonData, theJson, shoes };
 	// return { getJsonData };
 }

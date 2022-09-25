@@ -6,9 +6,9 @@
 				<h2>{{msg}}</h2>
 			</div>
 			<nav class="main-nav">
-				<router-link class="route" to="#">Men</router-link>
-				<router-link class="route" to="#">Women</router-link>
-				<router-link class="route" to="/products">All</router-link>
+				<router-link class="route" to="/cate/1">Men</router-link>
+				<router-link class="route" to="/cate/2">Women</router-link>
+				<router-link class="route" to="/cate/3">All</router-link>
 				<div class="right">
 					<router-link class="route" to="/cart">購物車：{{ getTotalCount }}
 					</router-link>
