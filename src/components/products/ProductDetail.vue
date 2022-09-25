@@ -34,7 +34,7 @@ html {
 	/* gap: 5px; */
 	width: 100%;
 	/* max-width: 1024px; */
-	max-height: 400px;
+	max-height: 700px;
 	padding: 0px;
 	margin: 0;
 }
@@ -43,11 +43,10 @@ html {
 	flex: 0 0 90%;
 	overflow: auto;
 	max-width: 50%;
-	height: calc(100vh - 16px);
 }
 
 /* todo: https: //stackoverflow.com/questions/1495407/maintain-the-aspect-ratio-of-a-div-with-css */
-.demoWrapper {
+/* .demoWrapper {
 	padding: 10px;
 	background: white;
 	box-sizing: border-box;
@@ -56,7 +55,7 @@ html {
 	overflow: auto;
 	max-width: 100%;
 	height: calc(100vh - 16px);
-}
+} */
 
 .big-image {
 	/* width: 100%;
