@@ -14,8 +14,7 @@
 			<div class="card_details">
 				<h1 class="card-title">{{ product.title }}</h1>
 				<div class="product-desc">{{ product.description }}</div>
-				<br />
-				<div class="cart-price">$Price: {{ product.price }}</div>
+				<div class="product-price">$Price: {{ product.price }}</div>
 				<div class="row">
 					<button @click="addToCart" class="btn-detail">Add to cart</button>
 				</div>
@@ -26,6 +25,7 @@
 
 <style scoped>
 .body {
+	height: 100%;
 	display: grid;
 	grid-template-columns: repeat(1, 12rem);
 }
@@ -45,7 +45,7 @@
 	flex: 0 0 90%;
 
 	overflow: auto;
-	max-width: 100%;
+	max-width: 50%;
 	height: calc(100vh - 16px);
 }
 
@@ -105,6 +105,10 @@
 
 .product-desc {
 	max-height: 200px;
+}
+
+.product-price {
+	font-size: 32px;
 }
 
 .row {
@@ -168,7 +172,6 @@
 
 <script>
 import { mapActions } from 'vuex';
-// import ImageContainer from './ImageContainer.vue';
 import store from '@/store';
 
 export default {
