@@ -6,7 +6,7 @@
 		</div>
 		<div class="card-details">
 			<div class="card-title">{{ product.title }}</div>
-			<div class="card-price">$Price: {{ product.price }}</div>
+			<div class="card-price">Price: ${{ product.price }}</div>
 		</div>
 	</div>
 </template>
@@ -58,7 +58,7 @@ export default {
 	margin: auto;
 	/* border: 1px solid black; */
 	/* max-width: 300px; */
-	height: 400px;
+	height: 450px;
 	/* background-color: grey; */
 	border-radius: 9px;
 }
@@ -69,19 +69,18 @@ export default {
 
 .card-title {
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 24px;
 	margin-top: 10px;
 
-	height: 80%;
+	height: 100%;
 	/* text-overflow: ellipsis;
 	overflow: hidden; */
 }
 
 .card-price {
-	margin-bottom: 10px;
+	margin-top: 10px;
 	font-size: 24px;
-	bottom: 0px;
-	/* height: 15%; */
+	height: 30px;
 }
 
 .row {
