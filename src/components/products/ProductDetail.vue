@@ -11,7 +11,7 @@
 			</div>
 		</div>
 		<div class="details">
-			<div class="card-details">
+			<div class="card_details">
 				<h1 class="card-title">{{ product.title }}</h1>
 				<div class="product-desc">{{ product.description }}</div>
 				<br />
@@ -33,21 +33,20 @@
 .product-card {
 	display: flex;
 	justify-content: space-between;
-	gap: 100px;
-	/* width: 100%; */
-	max-width: 1024px;
-
-	height: 700px;
-	padding: 50px;
-	margin: auto;
+	/* gap: 5px; */
+	width: 100%;
+	/* max-width: 1024px; */
+	max-height: 400px;
+	padding: 0px;
+	margin: 0;
 }
 
 .images-holder {
 	flex: 0 0 90%;
 
 	overflow: auto;
-		max-width: 100%;
-		height: calc(100vh - 16px);
+	max-width: 100%;
+	height: calc(100vh - 16px);
 }
 
 /* todo: https: //stackoverflow.com/questions/1495407/maintain-the-aspect-ratio-of-a-div-with-css */
@@ -61,13 +60,14 @@
 	max-width: 100%;
 	height: calc(100vh - 16px);
 }
+
 .big-image {
-	width: 100%;
-	background: gold;
-		/** <-- For the demo **/
 	/* width: 100%;
+	background: gold; */
+	/** <-- For the demo **/
+	width: 100%;
 	height: 300px;
-	object-fit: cover; */
+	object-fit: cover;
 
 	/* aspect-ratio: 1 / 1; */
 	/* height: 100%; */
@@ -98,9 +98,19 @@
 	border-radius: 10px;
 }
 
+.card_details {
+	max-width: 100%;
+	text-align: center;
+}
 
 .product-desc {
 	max-height: 200px;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .btn-detail {
@@ -110,7 +120,7 @@
 
 	text-decoration: none;
 	height: 2rem;
-	width: 90%;
+	width: 50%;
 	color: grey;
 	background-color: black;
 	border: 1px solid grey;
@@ -131,21 +141,23 @@
 }
 
 @media (max-width: 768px) {
-	#app {
-		padding: 0;
-		margin: 0;
+
+	html,
+	body {
+		overflow-x: hidden;
 	}
 
 	.product-card {
 		flex-direction: column;
 		width: 100%;
-		padding: 0;
-		margin: 0;
+		margin: 0px;
+		padding: 15px;
+		/* padding: 5px; */
 	}
 
 	.images-holder {
 		flex: 0 0 100%;
-		margin: 0;
+		padding: 10px;
 	}
 }
 

@@ -58,7 +58,7 @@ export default {
 	margin: auto;
 
 	/* border: 1px solid black; */
-	max-width: 300px;
+	/* max-width: 300px; */
 	height: 400px;
 	/* background-color: grey; */
 	border-radius: 9px;
