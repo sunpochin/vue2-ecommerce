@@ -9,12 +9,12 @@
 				<router-link class="route" to="/products">Men</router-link>
 				<router-link class="route" to="/products">Women</router-link>
 				<router-link class="route" to="/products">All</router-link>
-				<div class="right">
-					<router-link class="route" to="/cart">購物車：{{ getTotalCount }}
-					</router-link>
-				</div>
 			</nav>
 			<!-- <router-link class="route" to="#">Contact</router-link> -->
+		</div>
+		<div class="right">
+			<router-link class="route" to="/cart">購物車：{{ getTotalCount }}
+			</router-link>
 		</div>
 	</div>
 
@@ -67,20 +67,24 @@ export default {
 	font-weight: bold;
 }
 
-.left,
-.logo {
+.upmost {
 	display: flex;
 	align-items: center;
-	align-content: center;
+	/* align-content: center; */
+	justify-content: space-between;
 	color: hsl(220, 13%, 13%);
 	font-size: 32px;
 	padding: 1rem;
 }
 
 .left {
+	display: flex;
+	align-items: center;
+	align-content: center;
 	gap: 20px;
 	font-size: 20px;
 }
+
 
 .logo {
 	min-width: 130px;
@@ -205,12 +209,12 @@ nav a {
 	color: black;
 } */
 @media (max-width: 768px) {
-
 	.upmost * {
-		font-size: 12px;
+		font-size: 24px;
 		gap: 5px;
-	
+
 	}
+
 	body {
 		padding: 10px
 	}
@@ -226,16 +230,13 @@ nav a {
 }
 
 @media (max-width: 480px) {
-	.logo {
-		font-size: 1rem;
-	}
-
 	.left {
 		flex-direction: column;
 	}
 
-	body {
-		padding: 10px
+	.logo {
+		font-size: 1rem;
 	}
+
 }
 </style>

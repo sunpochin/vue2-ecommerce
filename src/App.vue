@@ -59,12 +59,14 @@ export default {
 	padding: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
 #app {
 	margin: 0;
 	padding: 0;
 	width: 100%;
 
-	font-family: Avenir, Helvetica, Arial, sans-serif;
+	/* font-family: Avenir, Helvetica, Arial, sans-serif; */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	/* text-align: center; */
@@ -73,6 +75,7 @@ export default {
 }
 
 body {
+	font-family: 'Kumbh Sans', sans-serif;
 	padding: 0 100px 0 100px;
 }
 

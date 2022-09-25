@@ -87,6 +87,7 @@ export default {
 	grid-template-columns: repeat(4, minmax(10rem, 18rem));
 	gap: 1rem;
 	justify-content: space-between;
+	margin: 1rem;
 }
 
 @media (max-width: 1024px) {
