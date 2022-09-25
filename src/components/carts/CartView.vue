@@ -33,7 +33,7 @@
 					</td> -->
 					<td>
 						<div class="containerImg">
-							<img :src="item.image" />
+							<img :src="item.img[0]" />
 						</div>
 					</td>
 					<td>{{ item.title }}</td>
@@ -64,9 +64,6 @@
 // import axios from 'axios';
 import { mapState } from 'vuex';
 import store from '@/store';
-// import CommonMixin from '@/utils/CommonMixin';
-// const { theJson } = CommonMixin();
-// import router from '@/router'
 
 export default {
 	components: {

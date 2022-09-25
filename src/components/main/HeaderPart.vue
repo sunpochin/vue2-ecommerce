@@ -1,15 +1,33 @@
 <template>
 	<div class="upmost">
+		<div class="slide_wrapper">
+			<Slide @openMenu="handleOpenMenu" @closeMenu="handleCloseMenu">
+				<a id="men" href="/products">
+					<span>Men</span>
+				</a>
+				<a id="women" href="/products">
+					<span>Women</span>
+				</a>
+				<a id="all" href="/products">
+					<span>All</span>
+				</a>
+			</Slide>
+
+		</div>
 		<div class="left">
 			<div class="logo">
 				<h2><a href="/">鞋鞋網</a> </h2>
 				<h2>{{msg}}</h2>
 			</div>
-			<nav class="main-nav">
-				<router-link class="route" to="/products">Men</router-link>
-				<router-link class="route" to="/products">Women</router-link>
-				<router-link class="route" to="/products">All</router-link>
-			</nav>
+			<Menu>
+				<main id="page-wrap">
+					<nav class="main-nav">
+						<router-link class="route" to="/products">Men</router-link>
+						<router-link class="route" to="/products">Women</router-link>
+						<router-link class="route" to="/products">All</router-link>
+					</nav>
+				</main>
+			</Menu>
 			<!-- <router-link class="route" to="#">Contact</router-link> -->
 		</div>
 		<div class="right">
@@ -31,9 +49,14 @@
 import { mapGetters, mapActions } from 'vuex';
 import store from '@/store';
 import router from '@/router';
+import { Slide } from 'vue-burger-menu'  //in this case we are using `Slide`
+
 
 export default {
 	props: ["msg"],
+	components: {
+		Slide
+	},
 	computed: {
 		getTotalCount() {
 			return store.getters.getTotalCount;
@@ -47,6 +70,10 @@ export default {
 		// },
 	},
 	methods: {
+		handleOpenMenu() {
+		},
+		handleCloseMenu() {
+		},
 		haha() {
 			router.push('/cart');
 		},
@@ -205,14 +232,20 @@ nav a {
 	color: grey;
 }
 
+.slide_wrapper {
+	display: none;
+}
 /* nav a.router-link-exact-active {
 	color: black;
 } */
 @media (max-width: 768px) {
+	.slide_wrapper {
+		display: inline;
+	}
+
 	.upmost * {
 		font-size: 24px;
 		gap: 5px;
-
 	}
 
 	body {
@@ -221,11 +254,10 @@ nav a {
 
 	.logo {
 		min-width: 120px;
-	}
+		font-size: 1.5rem;	}
 
-	.logo,
-	nav {
-		font-size: 1.5rem;
+	.main-nav {
+		display: none;
 	}
 }
 

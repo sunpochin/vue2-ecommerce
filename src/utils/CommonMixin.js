@@ -1,7 +1,6 @@
 import axios from 'axios';
 // import json = require('@/assets/products.json');
-
-import theJson from '@/assets/products.json';
+// import theJson from '@/assets/products.json';
 import { shoes } from '@/assets/shoes.js';
 // import shoesJson from '@/assets/shoes.json';
 // import { mapActions, mapGetters, mapState } from 'vuex';
@@ -22,6 +21,6 @@ export default function () {
 	// console.log('result: ', result);
 	console.log('shoes: ', shoes)
 
-	return { getJsonData, theJson, shoes };
+	return { getJsonData, shoes };
 	// return { getJsonData };
 }
