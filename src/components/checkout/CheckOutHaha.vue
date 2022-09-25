@@ -18,6 +18,7 @@ export default {
 <style>
 .checkout {
   display: none;
+  height: 0px;
 }
 
 img {

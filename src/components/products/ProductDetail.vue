@@ -24,10 +24,8 @@
 </template>
 
 <style scoped>
-.body {
-	height: 100%;
-	display: grid;
-	grid-template-columns: repeat(1, 12rem);
+html {
+	height: 100px;
 }
 
 .product-card {
@@ -144,7 +142,6 @@
 }
 
 @media (max-width: 768px) {
-
 	html,
 	body {
 		overflow-x: hidden;
