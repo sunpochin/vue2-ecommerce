@@ -77,9 +77,9 @@ body {
 }
 
 @media (max-width: 768px) {
-	#app {
-		margin: 0 auto;
-		padding: 0 auto;
+	body {
+		margin: 0;
+		padding: 0;
 		width: 100%;
 	}
 

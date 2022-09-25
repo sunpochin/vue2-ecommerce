@@ -80,7 +80,6 @@ export default {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin: 1rem;
 }
 
 .product-list {
