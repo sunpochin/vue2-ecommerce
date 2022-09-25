@@ -1,8 +1,5 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-// import HomeView from '../components/HomeView.vue';
-// import ProductsView from '../components/OldProductsView.vue';
-
 import ProductList from '../components/products/ProductList.vue';
 import ProductDetail from '../components/products/ProductDetail.vue';
 import CartView from '../components/carts/CartView.vue';
@@ -10,12 +7,10 @@ import CartView from '../components/carts/CartView.vue';
 Vue.use(VueRouter);
 const routes = [
 	{
-		path: '/',
-		component: ProductList,
-	},
-	{
 		path: '/cate/:cateID',
 		component: ProductList,
+		name: 'category',
+		props: true,
 	},
 	{
 		path: '/products/:productId',
@@ -24,13 +19,16 @@ const routes = [
 	},
 	{
 		path: '/cart',
-		// name: 'cart',
+		name: 'cart',
 		component: CartView,
 	},
 	{
 		path: '/login',
-		// name: 'cart',
 		component: CartView,
+	},
+	{
+		path: '/',
+		component: ProductList,
 	},
 	{
 		// path: "*",

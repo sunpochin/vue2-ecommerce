@@ -14,23 +14,23 @@ export default {
 		console.log('updateCartFromServer payload: ', payload);
 		Object.keys(payload).forEach((element) => {
 			let item = payload[element];
-			console.log('item: ', item);
+			// console.log('item: ', item);
 			let newProductID = item.product_id.replace('prod_', '');
-			console.log(
-				'element: ',
-				element,
-				',item: ',
-				item,
-				' newProductID: ',
-				newProductID,
-				typeof newProductID
-			);
+			// console.log(
+			// 	'element: ',
+			// 	element,
+			// 	',item: ',
+			// 	item,
+			// 	' newProductID: ',
+			// 	newProductID,
+			// 	typeof newProductID
+			// );
 
 			let findItem = shoes.find((item) => item.id == newProductID);
-			console.log('find item: ', findItem);
+			// console.log('find item: ', findItem);
 			findItem.count = payload[element].quantity;
-			console.log('newProductID: ', newProductID);
-			console.log('updateCartFromServer: ', findItem);
+			// console.log('newProductID: ', newProductID);
+			// console.log('updateCartFromServer: ', findItem);
 			state.itemsInCart.push(findItem);
 		});
 	},

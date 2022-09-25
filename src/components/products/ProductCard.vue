@@ -25,8 +25,9 @@ export default {
 			store.commit('addToCart', this.product);
 		},
 		jumpToDetail() {
-			console.log('id: ', '/products/' + this.product.id)
-			router.push('/products/' + this.product.id)
+			let str = '/products/' + this.product.id
+			console.log('id: ', str)
+			router.push(str)
 		},
 	}
 };

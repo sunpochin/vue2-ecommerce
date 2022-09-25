@@ -1,6 +1,5 @@
 <template>
 	<div class="outer">
-		<!-- <CarouselPartVue/> -->
 		<div class="product-list">
 			<div v-for="product in listProducts" :key="product.id">
 				<ProductCard :product="product" />
@@ -15,8 +14,6 @@ import { mapActions, mapGetters } from 'vuex';
 // import CommonMixin from '@/utils/CommonMixin';
 import store from '@/store';
 
-// import CarouselPartVue from './CarouselPart.vue';
-
 
 export default {
 	data() {
@@ -26,12 +23,21 @@ export default {
 	},
 	components: {
 		ProductCard,
-		// CarouselPartVue,
 	},
 	computed: {
 		listProducts() {
-			// console.log('mama data: ', store.getters.getProducts.data);
-			return store.getters.getProducts;
+			let all = store.getters.getProducts;
+			if ("all" === this.cateID || undefined === this.cateID) {
+				return all;
+			}
+			// not all, women or men.
+			let filtered = all.filter((item) => {
+				console.log('item.category[0].gender, this.cateID:', item.category[0].gender, this.cateID)
+				if (item.category[0].gender.includes(this.cateID) ) {
+					return item;
+				}
+			}); 
+			return filtered;
 		},
 		...mapGetters({ getProducts: 'getProducts' }),
 		// ...mapState(['productsList']),
@@ -42,10 +48,6 @@ export default {
 			// setProducts: 'setProducts',
 			// aliasPro: 'getProducts',
 		}),
-		setAll(pro) {
-			store.commit('setProducts', pro);
-			// console.log('aliasPro: ', store.getters.getSubTotal);
-		},
 	},
 	mounted() {
 		console.log('cateId: ', this.cateID);

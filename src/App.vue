@@ -1,14 +1,13 @@
 <template>
 	<div id="app">
 		<HeaderPart />
-		<router-view />
+		<router-view :key="$route.path"></router-view>
 		<FooterPart />
 		<CheckOutHaha />
 	</div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue';
 import HeaderPart from './components/main/HeaderPart.vue';
 import FooterPart from './components/main/FooterPart.vue';
 import CheckOutHaha from './components/checkout/CheckOutHaha';
@@ -16,14 +15,13 @@ import CommonMixin from './utils/CommonMixin';
 import store from '@/store';
 import axios from 'axios';
 
-
 export default {
 	name: 'App',
 	components: {
     HeaderPart,
     FooterPart,
     CheckOutHaha,
-},
+	},
 	methods: {
 		setProducts(pro) {
 			store.commit('setProducts', pro);
@@ -37,7 +35,6 @@ export default {
 			let items = response.data.items
 			store.commit('updateCartFromServer', items)
 		}
-
 	},
 	created() {
 		// todo: remove this temp codes for doing layout of cart.
@@ -45,6 +42,7 @@ export default {
 		// const { data } = await getJsonData('public/products.json');
 		// console.log('mounted data: ', data);
 		this.setProducts(shoes);
+		console.log('products: ', store.getters.getProducts)
 		console.log('App created: ');
 		this.getCartFromServer();
 	},
@@ -83,10 +81,8 @@ body {
 		margin: 0;
 		padding: 0;
 		width: 100%;
+		/* padding: 0 40px 0 40px; */
 	}
 
-	/* body {
-		padding: 0 40px 0 40px;
-	} */
 }
 </style>
