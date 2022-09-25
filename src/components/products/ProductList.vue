@@ -66,16 +66,12 @@ export default {
 	border-radius: 10px;
 	border-radius: 20px;
 	margin-bottom: 10px;
-	/* width: 100%;
- */
-	/* padding-bottom: 10px; */
 }
 
 .outer {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin: 1rem;
 }
 
 .product-list {
@@ -83,34 +79,27 @@ export default {
 	grid-template-columns: repeat(4, minmax(10rem, 18rem));
 	gap: 1rem;
 	justify-content: space-between;
+	margin: 1rem;
 }
 
 @media (max-width: 1024px) {
 	.product-list {
-		grid-template-columns: repeat(3, minmax(10rem, 18rem));
+		grid-template-columns: repeat(3, 1fr);
 	}
 }
 
 @media (max-width: 768px) {
 	.product-list {
 		/* background-color: green; */
-		grid-template-columns: repeat(2, minmax(10rem, 18rem));
+		grid-template-columns: repeat(2, 1fr);
 		justify-content: space-around;
 		align-content: center;
 	}
 }
 
 @media (max-width: 480px) {
-
-	#app,
-	body {
-		margin: 0 auto;
-		padding: 0 auto;
-		width: 100%;
-	}
-
 	.product-list {
-		grid-template-columns: repeat(1, 18rem);
+		grid-template-columns: repeat(1, 1fr);
 		justify-content: space-around;
 		align-content: center;
 	}

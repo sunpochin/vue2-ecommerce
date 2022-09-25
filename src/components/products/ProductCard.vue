@@ -1,5 +1,5 @@
 <template>
-	<div class="product-card" @click="addToCart">
+	<div class="product-card" @click="jumpToDetail">
 		<!-- <image-container :product="product"></image-container> -->
 		<div class="center-cropped">
 			<img :src="product.img[0]" />
@@ -7,22 +7,14 @@
 		<div class="card-details">
 			<div class="card-title">{{ product.title }}</div>
 			<div class="card-price">$Price: {{ product.price }}</div>
-			<!-- <div class="row">
-				<button @click="addToCart" class="btn-detail">Add to cart</button>
-				<router-link
-					type="button"
-					class="btn-detail"
-					:to="'/products/' + product.id"
-					>Detail</router-link
-				>
-			</div> -->
 		</div>
 	</div>
 </template>
 
 <script scoped>
 import store from '@/store';
-// import ImageContainer from './ImageContainer.vue';
+import router from '@/router';
+
 export default {
 	// components: { ImageContainer },
 	props: {
@@ -32,6 +24,10 @@ export default {
 		addToCart() {
 			store.commit('addToCart', this.product);
 		},
+		jumpToDetail() {
+			console.log('id: ', '/products/' + this.product.id)
+			router.push('/products/' + this.product.id)
+		},
 	}
 };
 </script>
@@ -40,7 +36,7 @@ export default {
 /* https://stackoverflow.com/questions/11552380/how-to-automatically-crop-and-center-an-image */
 .center-cropped {
 	width: 100%;
-	height: 300px;
+	height: 250px;
 	/* background-position: center center;
 	background-repeat: no-repeat; */
 	overflow: hidden;
@@ -58,30 +54,27 @@ export default {
 	cursor: pointer;
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
 	align-items: center;
 	margin: auto;
 
 	/* border: 1px solid black; */
-	max-width: 300px;
+	/* max-width: 300px; */
 	height: 400px;
 	/* background-color: grey; */
 	border-radius: 9px;
 }
 
 .card-details {
-	width: 80%;
-	height: 100px;
-	margin: 5px;
+	height: 60px;
 }
 
 .card-title {
 	font-weight: bold;
+	font-size: 16px;
 	height: 55%;
-	padding: 0.5rem 0 0.5rem 0;
 
-	text-overflow: ellipsis;
-	overflow: hidden;
+	/* text-overflow: ellipsis;
+	overflow: hidden; */
 }
 
 .card-price {

@@ -1,5 +1,6 @@
 <template>
-  <div class="image-container">
+  <div class="checkout">
+    <h1>Check Page under construction</h1>
   </div>
 </template>
 
@@ -13,17 +14,11 @@ export default {
 	},
 };
 </script>
-<style>
-.image-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
 
-  border-bottom: 1px solid rgb(191, 191, 191);
-  width: 100%;
-  height: 10rem;
-  padding: 1rem;
+<style>
+.checkout {
+  display: none;
+  height: 0px;
 }
 
 img {

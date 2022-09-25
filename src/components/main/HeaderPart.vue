@@ -1,21 +1,39 @@
 <template>
-	<div class="upmost">
-		<div class="left">
-			<div class="logo">
-				<h2><a href="/">鞋鞋網</a> </h2>
-				<h2>{{msg}}</h2>
-			</div>
-			<nav class="main-nav">
-				<router-link class="route" to="/cate/1">Men</router-link>
-				<router-link class="route" to="/cate/2">Women</router-link>
-				<router-link class="route" to="/cate/3">All</router-link>
-				<div class="right">
-					<router-link class="route" to="/cart">購物車：{{ getTotalCount }}
-					</router-link>
+	<div>
+		<Slide class="slide_wrapper" @openMenu="handleOpenMenu" @closeMenu="handleCloseMenu">
+			<a id="men" href="/products">
+				<span>Men</span>
+			</a>
+			<a id="women" href="/products">
+				<span>Women</span>
+			</a>
+			<a id="all" href="/products">
+				<span>All</span>
+			</a>
+		</Slide>
+		<div class="upmost">
+			<div class="left">
+				<div class="logo">
+					<h2><a href="/">鞋鞋網</a> </h2>
+					<h2>{{msg}}</h2>
 				</div>
-			</nav>
-			<!-- <router-link class="route" to="#">Contact</router-link> -->
+				<Menu>
+					<main id="page-wrap">
+						<nav class="main-nav">
+							<router-link class="route" to="/products">Men</router-link>
+							<router-link class="route" to="/products">Women</router-link>
+							<router-link class="route" to="/products">All</router-link>
+						</nav>
+					</main>
+				</Menu>
+				<!-- <router-link class="route" to="#">Contact</router-link> -->
+			</div>
+			<div class="right">
+				<router-link class="route" to="/cart">購物車：{{ getTotalCount }}
+				</router-link>
+			</div>
 		</div>
+
 	</div>
 
 	<!-- <button class="buttonWrapper" @click="haha">
@@ -31,9 +49,14 @@
 import { mapGetters, mapActions } from 'vuex';
 import store from '@/store';
 import router from '@/router';
+import { Slide } from 'vue-burger-menu'  //in this case we are using `Slide`
+
 
 export default {
 	props: ["msg"],
+	components: {
+		Slide
+	},
 	computed: {
 		getTotalCount() {
 			return store.getters.getTotalCount;
@@ -47,6 +70,14 @@ export default {
 		// },
 	},
 	methods: {
+		filterProducts(filter) {
+			console.log('filter: ', filter)
+			
+		},
+		handleOpenMenu() {
+		},
+		handleCloseMenu() {
+		},
 		haha() {
 			router.push('/cart');
 		},
@@ -67,20 +98,24 @@ export default {
 	font-weight: bold;
 }
 
-.left,
-.logo {
+.upmost {
 	display: flex;
 	align-items: center;
-	align-content: center;
+	/* align-content: center; */
+	justify-content: space-between;
 	color: hsl(220, 13%, 13%);
 	font-size: 32px;
-	padding: 1rem;
+	padding: 2rem;
 }
 
 .left {
+	display: flex;
+	align-items: center;
+	align-content: center;
 	gap: 20px;
 	font-size: 20px;
 }
+
 
 .logo {
 	min-width: 130px;
@@ -201,27 +236,35 @@ nav a {
 	color: grey;
 }
 
+.slide_wrapper {
+	display: none;
+}
+
 /* nav a.router-link-exact-active {
 	color: black;
 } */
 @media (max-width: 768px) {
+	.slide_wrapper {
+		display: inline;
+	}
 
-	/* .upmost * {
-		font-size: 12px;
+	.upmost * {
+		font-size: 24px;
 		gap: 5px;
-		min-width: 220px;
-	} */
+	}
+
 	body {
 		padding: 10px
 	}
 
 	.logo {
+		margin-left: 100px;
 		min-width: 120px;
+		font-size: 1.5rem;
 	}
 
-	.logo,
-	nav {
-		font-size: 1.5rem;
+	.main-nav {
+		display: none;
 	}
 }
 
@@ -230,8 +273,9 @@ nav a {
 		flex-direction: column;
 	}
 
-	body {
-		padding: 10px
+	.logo {
+		font-size: 1rem;
 	}
+
 }
 </style>

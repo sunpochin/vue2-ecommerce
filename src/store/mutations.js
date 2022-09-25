@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import CommonMixin from '@/utils/CommonMixin';
-const { theJson } = CommonMixin();
+const { shoes } = CommonMixin();
 
 export default {
 	mutationToTest(state, payload) {
@@ -26,7 +26,7 @@ export default {
 				typeof newProductID
 			);
 
-			let findItem = theJson.find((item) => item.id == newProductID);
+			let findItem = shoes.find((item) => item.id == newProductID);
 			console.log('find item: ', findItem);
 			findItem.count = payload[element].quantity;
 			console.log('newProductID: ', newProductID);

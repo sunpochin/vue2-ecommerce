@@ -39,14 +39,13 @@ export default {
 		}
 
 	},
-	mounted() {
+	created() {
 		// todo: remove this temp codes for doing layout of cart.
-		const { theJson, shoes } = CommonMixin();
+		const { shoes } = CommonMixin();
 		// const { data } = await getJsonData('public/products.json');
 		// console.log('mounted data: ', data);
-		this.setProducts(theJson);
 		this.setProducts(shoes);
-		console.log('created: ');
+		console.log('App created: ');
 		this.getCartFromServer();
 	},
 };
@@ -59,12 +58,14 @@ export default {
 	padding: 0;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
 #app {
 	margin: 0;
 	padding: 0;
 	width: 100%;
 
-	font-family: Avenir, Helvetica, Arial, sans-serif;
+	/* font-family: Avenir, Helvetica, Arial, sans-serif; */
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	/* text-align: center; */
@@ -73,18 +74,19 @@ export default {
 }
 
 body {
+	font-family: 'Kumbh Sans', sans-serif;
 	padding: 0 100px 0 100px;
 }
 
 @media (max-width: 768px) {
-	#app {
-		margin: 0 auto;
-		padding: 0 auto;
+	body {
+		margin: 0;
+		padding: 0;
 		width: 100%;
 	}
 
-	body {
+	/* body {
 		padding: 0 40px 0 40px;
-	}
+	} */
 }
 </style>
