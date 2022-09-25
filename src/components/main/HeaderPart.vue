@@ -206,11 +206,11 @@ nav a {
 } */
 @media (max-width: 768px) {
 
-	/* .upmost * {
+	.upmost * {
 		font-size: 12px;
 		gap: 5px;
-		min-width: 220px;
-	} */
+	
+	}
 	body {
 		padding: 10px
 	}

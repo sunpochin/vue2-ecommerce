@@ -74,9 +74,6 @@ export default {
 	border-radius: 10px;
 	border-radius: 20px;
 	margin-bottom: 10px;
-	/* width: 100%;
- */
-	/* padding-bottom: 10px; */
 }
 
 .outer {
@@ -109,14 +106,6 @@ export default {
 }
 
 @media (max-width: 480px) {
-
-	#app,
-	body {
-		margin: 0 auto;
-		padding: 0 auto;
-		width: 100%;
-	}
-
 	.product-list {
 		grid-template-columns: repeat(1, 1fr);
 		justify-content: space-around;

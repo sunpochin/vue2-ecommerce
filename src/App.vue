@@ -83,8 +83,8 @@ body {
 		width: 100%;
 	}
 
-	body {
+	/* body {
 		padding: 0 40px 0 40px;
-	}
+	} */
 }
 </style>

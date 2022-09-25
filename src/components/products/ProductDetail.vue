@@ -43,16 +43,34 @@
 }
 
 .images-holder {
-	flex-basis: 448px;
-	flex-grow: 0;
-	flex-shrink: 0;
-	flex: 0 0 448px;
-	width: 448px;
+	flex: 0 0 90%;
+
+	overflow: auto;
+		max-width: 100%;
+		height: calc(100vh - 16px);
 }
 
+/* todo: https: //stackoverflow.com/questions/1495407/maintain-the-aspect-ratio-of-a-div-with-css */
+.demoWrapper {
+	padding: 10px;
+	background: white;
+	box-sizing: border-box;
+	resize: horizontal;
+	border: 1px dashed;
+	overflow: auto;
+	max-width: 100%;
+	height: calc(100vh - 16px);
+}
 .big-image {
 	width: 100%;
-	height: 448px;
+	background: gold;
+		/** <-- For the demo **/
+	/* width: 100%;
+	height: 300px;
+	object-fit: cover; */
+
+	/* aspect-ratio: 1 / 1; */
+	/* height: 100%; */
 	/* width: 100%; */
 }
 
@@ -113,31 +131,26 @@
 }
 
 @media (max-width: 768px) {
+	#app {
+		padding: 0;
+		margin: 0;
+	}
+
 	.product-card {
 		flex-direction: column;
+		width: 100%;
+		padding: 0;
+		margin: 0;
 	}
 
 	.images-holder {
-		margin: 0 auto;
+		flex: 0 0 100%;
+		margin: 0;
 	}
 }
 
 
-@media (max-width: 480px) {
-	.product-card {
-		flex-direction: column;
-		/* display: flex;
-
-
-		justify-content: space-between;
-		gap: 100px;
-		max-width: 1024px;
-
-		height: 700px;
-		padding: 50px;
-		margin: auto; */
-	}
-}
+@media (max-width: 480px) {}
 </style>
 
 
