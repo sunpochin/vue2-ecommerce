@@ -8,6 +8,9 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/js/all.js';
+
 // Vue.prototype.$hostname = 'http://localhost:8000';
 // Vue.prototype.$hostname = 'https://fastapi-pac.onrender.com';
 // Vue.prototype.$hostname = 'http://localhost:8081/v1';

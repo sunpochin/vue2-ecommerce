@@ -29,7 +29,7 @@
 				<!-- <router-link class="route" to="#">Contact</router-link> -->
 			</div>
 			<div class="right">
-				<router-link class="route" to="/cart">購物車：{{ getTotalCount }}
+				<router-link class="route" to="/cart"><i class="fa fa-shopping-cart" aria-hidden="true"></i>：{{ getTotalCount }}
 				</router-link>
 			</div>
 		</div>
