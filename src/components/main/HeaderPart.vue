@@ -1,15 +1,9 @@
 <template>
 	<div>
 		<Slide class="slide_wrapper" @openMenu="handleOpenMenu" @closeMenu="handleCloseMenu">
-			<a id="men" href="/cate/men">
-				<span>Men</span>
-			</a>
-			<a id="women" href="/cate/women">
-				<span>Women</span>
-			</a>
-			<a id="all" href="/cate/all">
-				<span>All</span>
-			</a>
+			<router-link class="route" to="/cate/men">Men</router-link>
+			<router-link class="route" to="/cate/women">Women</router-link>
+			<router-link class="route" to="/cate/all">All</router-link>
 		</Slide>
 		<div class="upmost">
 			<div class="left">
