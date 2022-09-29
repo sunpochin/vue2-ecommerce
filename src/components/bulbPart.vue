@@ -67,6 +67,8 @@ export default {
 <style>
 .holder {
   display: flex;
+  gap: 10px;
+  margin-left: 10px;
 }
 
 .circle {
@@ -74,9 +76,11 @@ export default {
   height: 50px;
   background-color: grey;
   border-radius: 50px;
+  border: black;
 }
 
+
 .high {
-  background-color: red;
+  background-color: green;
 }
 </style>
