@@ -3,9 +3,21 @@ import VueRouter from 'vue-router';
 import ProductList from '../components/products/ProductList.vue';
 import ProductDetail from '../components/products/ProductDetail.vue';
 import CartView from '../components/carts/CartView.vue';
+import LalaPartVue from '../components/LalaPart.vue';
+import bulbPartVue from '../components/bulbPart.vue';
 
 Vue.use(VueRouter);
 const routes = [
+	{
+		path: '/bulbs',
+		component: bulbPartVue,
+		props: true,
+	},
+	{
+		path: '/balls',
+		component: LalaPartVue,
+		props: true,
+	},
 	{
 		path: '/cate/:cateID',
 		component: ProductList,
