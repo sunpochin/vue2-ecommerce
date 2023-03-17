@@ -1,16 +1,48 @@
 <template>
   <div class="home">
-    <div class="holder">
+    <!-- <div class="holder">
       <div v-for="(item, idx) in results" :key="item.id" class="circle" :class="decide(idx)">
       </div>
-    </div>
+    </div> -->
+    <vimeo-player
+      class="vimeo"
+      ref="player"
+      :video-id="videoID"
+      @ready="onReady"
+      :autoplay="true"
+      :player-height="320"
+      :player-width="640"
+      loop="1"
+    ></vimeo-player>
+        <!-- <vue-vimeo-player
+          ref="vimeo-player"
+          video-id="247494684"
+        /> -->
+    <!-- <vimeo-player ref="player" :video-id="videoID" @ready="onReady" :player-height="height"></vimeo-player> -->
+
+
+
   </div>
 </template>
 
 <script>
+// import { vueVimeoPlayer } from 'vue-vimeo-player'
+// import { vueVimeoPlayer } from 'vue-vimeo-player'
+
 export default {
+  // components: {
+	// 	vueVimeoPlayer
+	// },
   data() {
     return {
+      videoID: 'some-id',
+			height: 500,
+			options: {
+        muted: true,
+        autoplay: true,
+			},
+			playerReady: false,
+
       curIdx: 0,
       results:[
       {
@@ -43,6 +75,16 @@ export default {
     this.initLala();
   },
   methods: {
+		onReady() {
+			this.playerReady = true
+		},
+		play () {
+			this.$refs.player.play()
+		},
+		pause () {
+			this.$refs.player.pause()
+		},
+
     decide(idx) {
       if (this.curIdx == idx) {
         return "high"

@@ -195,7 +195,7 @@ export default {
 	methods: {
 		changeBig(idx) {
 			console.log('idx: ', idx)
-			this.bigImgIdx = idx 
+			this.bigImgIdx = idx
 		},
 		addToCart() {
 			store.commit('addToCart', this.product);
@@ -221,4 +221,3 @@ export default {
 	},
 };
 </script>
-
