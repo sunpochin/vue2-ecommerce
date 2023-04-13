@@ -10,6 +10,11 @@ https://vue2-ecommerce.netlify.app/
 ```
 yarn install
 ```
+### Unit test and Code coverage
+```
+yarn test:unit
+yarn coveralls
+```
 
 ### Compiles and hot-reloads for development
 ```
