@@ -12,7 +12,7 @@
 </template>
 
 <script scoped>
-import store from '@/store';
+import store from '@/vuex';
 import router from '@/router';
 
 export default {

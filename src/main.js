@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import App from './App.vue';
+import App from './AppBACK.vue';
 import router from './router/index';
-import store from './store/index';
+// import store from './vuex/index';
 
 import vueVimeoPlayer from 'vue-vimeo-player';
 Vue.use(vueVimeoPlayer);
@@ -20,7 +20,7 @@ import '@fortawesome/fontawesome-free/js/all.js';
 Vue.prototype.$hostname = 'https://pac-backend.onrender.com/v1';
 
 Vue.use(router);
-Vue.use(store);
+// Vue.use(store);
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
@@ -35,5 +35,5 @@ new Vue({
 	},
 	render: (h) => h(App),
 	router,
-	store,
+	// store,
 }).$mount('#app');

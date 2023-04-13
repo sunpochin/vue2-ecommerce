@@ -12,7 +12,7 @@
 import ProductCard from './ProductCard.vue';
 import { mapActions, mapGetters } from 'vuex';
 // import CommonMixin from '@/utils/CommonMixin';
-import store from '@/store';
+import store from '@/vuex';
 
 
 export default {

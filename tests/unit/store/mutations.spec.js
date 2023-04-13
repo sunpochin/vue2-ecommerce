@@ -1,8 +1,8 @@
 // mutations.spec.ts
 // import { it, describe, expect, test, beforeAll } from 'vitest';
-import rootMutations from '@/store/mutations';
-import rootActions from '@/store/actions';
-import rootGetters from '@/store/getters';
+import rootMutations from '@/vuex/mutations';
+import rootActions from '@/vuex/actions';
+import rootGetters from '@/vuex/getters';
 import productJson from '@/assets/products.json';
 import CommonMixin from '@/utils/CommonMixin';
 

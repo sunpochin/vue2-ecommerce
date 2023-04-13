@@ -41,7 +41,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import store from '@/store';
+import store from '@/vuex';
 import router from '@/router';
 import { Slide } from 'vue-burger-menu'  //in this case we are using `Slide`
 

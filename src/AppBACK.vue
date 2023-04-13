@@ -12,7 +12,7 @@ import HeaderPart from './components/main/HeaderPart.vue';
 import FooterPart from './components/main/FooterPart.vue';
 import CheckOutHaha from './components/checkout/CheckOutHaha';
 import CommonMixin from './utils/CommonMixin';
-import store from '@/store';
+import store from '@/vuex';
 import axios from 'axios';
 
 export default {

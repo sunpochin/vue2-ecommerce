@@ -63,7 +63,7 @@
 <script>
 // import axios from 'axios';
 import { mapState } from 'vuex';
-import store from '@/store';
+import store from '@/vuex';
 
 export default {
 	components: {

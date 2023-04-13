@@ -168,7 +168,7 @@ html {
 
 <script>
 import { mapActions } from 'vuex';
-import store from '@/store';
+import store from '@/vuex';
 
 export default {
 	data() {
