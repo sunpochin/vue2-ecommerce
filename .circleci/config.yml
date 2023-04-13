@@ -20,7 +20,7 @@ jobs:
             - ./node_modules
       - run:
           name: Run test for the application
-          command: npm run test:unit
+          command: npm run coveralls
 workflows:
   build-and-test:
     jobs:
