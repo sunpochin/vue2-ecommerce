@@ -1,135 +1,134 @@
 <template>
-	<div class="product-card" @click="jumpToDetail">
-		<!-- <image-container :product="product"></image-container> -->
-		<div class="center-cropped">
-			<img :src="product.img[0]" />
-		</div>
-		<div class="card-details">
-			<div class="card-title">{{ product.title }}</div>
-			<div class="card-price">Price: ${{ product.price }}</div>
-		</div>
-	</div>
+  <div class="product-card" @click="jumpToDetail">
+    <!-- <image-container :product="product"></image-container> -->
+    <div class="center-cropped">
+      <img :src="product.img[0]" />
+    </div>
+    <div class="card-details">
+      <div class="card-title">{{ product.title }}</div>
+      <div class="card-price">價格: ${{ product.price }}</div>
+    </div>
+  </div>
 </template>
 
 <script scoped>
-import store from '@/vuex';
-import router from '@/router';
+import store from "@/vuex";
+import router from "@/router";
 
 export default {
-	// components: { ImageContainer },
-	props: {
-		product: Object,
-	},
-	methods: {
-		addToCart() {
-			store.commit('addToCart', this.product);
-		},
-		jumpToDetail() {
-			let str = '/products/' + this.product.id
-			console.log('id: ', str)
-			router.push(str)
-		},
-	}
+  // components: { ImageContainer },
+  props: {
+    product: Object,
+  },
+  methods: {
+    addToCart() {
+      store.commit("addToCart", this.product);
+    },
+    jumpToDetail() {
+      let str = "/products/" + this.product.id;
+      console.log("id: ", str);
+      router.push(str);
+    },
+  },
 };
 </script>
 
 <style scoped>
 /* https://stackoverflow.com/questions/11552380/how-to-automatically-crop-and-center-an-image */
 .center-cropped {
-	width: 100%;
-	height: 300px;
-	/* background-position: center center;
+  width: 100%;
+  height: 300px;
+  /* background-position: center center;
 	background-repeat: no-repeat; */
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .center-cropped img {
-	object-fit: cover;
-	height: 100%;
-	width: 100%;
-	border-radius: 9px;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 9px;
 }
 
 .product-card {
-	cursor: pointer;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: auto;
-	/* border: 1px solid black; */
-	/* max-width: 300px; */
-	height: 450px;
-	/* background-color: grey; */
-	border-radius: 9px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  /* border: 1px solid black; */
+  /* max-width: 300px; */
+  height: 450px;
+  /* background-color: grey; */
+  border-radius: 9px;
 }
 
 .card-details {
-	height: 60px;
+  height: 60px;
 }
 
 .card-title {
-	font-weight: bold;
-	font-size: 24px;
-	margin-top: 10px;
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 10px;
 
-	height: 100%;
-	/* text-overflow: ellipsis;
+  height: 100%;
+  /* text-overflow: ellipsis;
 	overflow: hidden; */
 }
 
 .card-price {
-	margin-top: 10px;
-	font-size: 24px;
-	height: 30px;
+  margin-top: 10px;
+  font-size: 24px;
+  height: 30px;
 }
 
 .row {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	/* margin-bottom: 20px; */
-	padding: auto;
-	height: 20%;
-	width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-bottom: 20px; */
+  padding: auto;
+  height: 20%;
+  width: 100%;
 }
 
 .btn-detail {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-	text-decoration: none;
-	height: 3rem;
-	width: 100%;
-	color: grey;
-	background-color: black;
-	border: 1px solid grey;
-	border-radius: 5px;
+  text-decoration: none;
+  height: 3rem;
+  width: 100%;
+  color: grey;
+  background-color: black;
+  border: 1px solid grey;
+  border-radius: 5px;
 
-	transition: 0.3s;
-	cursor: pointer;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
 .btn-detail:hover {
-	transform: scale(1.05);
-	/* background-color: grey; */
+  transform: scale(1.05);
+  /* background-color: grey; */
 }
 
 .btn-detail:active {
-	background-color: grey;
-	color: white;
+  background-color: grey;
+  color: white;
 }
 
-
 @media (max-width: 1200) {
-	html {
-		font-size: 85%;
-	}
+  html {
+    font-size: 85%;
+  }
 }
 
 @media (max-width: 768) {
-	html {
-		font-size: 55%;
-	}
+  html {
+    font-size: 55%;
+  }
 }
 </style>
