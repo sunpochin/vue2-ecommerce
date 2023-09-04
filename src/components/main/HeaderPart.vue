@@ -5,9 +5,9 @@
       @openMenu="handleOpenMenu"
       @closeMenu="handleCloseMenu"
     >
-      <router-link class="route" to="/cate/men">Men</router-link>
-      <router-link class="route" to="/cate/women">Women</router-link>
-      <router-link class="route" to="/cate/all">All</router-link>
+      <router-link class="route" to="/cate/men">男鞋</router-link>
+      <router-link class="route" to="/cate/women">女鞋</router-link>
+      <router-link class="route" to="/cate/all">全部</router-link>
     </Slide>
     <div class="upmost">
       <div class="left">
