@@ -113,8 +113,8 @@ export default {
 }
 
 .logo {
-  min-width: 130px;
-  margin-right: 50px;
+  min-width: 100px;
+  margin-right: 10px;
 }
 
 .logo a {
