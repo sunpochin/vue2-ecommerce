@@ -21,7 +21,7 @@
         <div class="product-desc">{{ product.description }}</div>
         <div class="product-price">價格: ${{ product.price }}</div>
         <div class="row">
-          <button @click="addToCart" class="btn-detail">Add to cart</button>
+          <button @click="addToCart" class="btn-detail">加到購物車</button>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@ html {
 
 .product-card {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   /* gap: 5px; */
   width: 100%;
   /* max-width: 1024px; */
