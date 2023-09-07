@@ -81,9 +81,24 @@ export default {
   gap: 1rem;
   justify-content: space-between;
   margin: 1rem;
+  align-content: center;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-around;
+    align-content: center;
+  }
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: space-around;
+    align-content: center;
+  }
 }
 
-@media (max-width: 1024px) {
+/* @media (max-width: 1024px) {
   .product-list {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -91,7 +106,6 @@ export default {
 
 @media (max-width: 768px) {
   .product-list {
-    /* background-color: green; */
     grid-template-columns: repeat(2, 1fr);
     justify-content: space-around;
     align-content: center;
@@ -104,5 +118,5 @@ export default {
     justify-content: space-around;
     align-content: center;
   }
-}
+} */
 </style>
