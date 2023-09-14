@@ -3,14 +3,12 @@
     <HeaderPart />
     <router-view :key="$route.path"></router-view>
     <FooterPart />
-    <CheckOutHaha />
   </div>
 </template>
 
 <script>
 import HeaderPart from "./components/main/HeaderPart.vue";
 import FooterPart from "./components/main/FooterPart.vue";
-import CheckOutHaha from "./components/checkout/CheckOutHaha";
 import CommonMixin from "./utils/CommonMixin";
 import store from "@/vuex";
 
@@ -19,7 +17,6 @@ export default {
   components: {
     HeaderPart,
     FooterPart,
-    CheckOutHaha,
   },
   methods: {
     setProducts(pro) {

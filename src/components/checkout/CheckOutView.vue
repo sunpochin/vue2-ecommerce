@@ -4,21 +4,21 @@
   </div>
 </template>
 
-<script >
+<script>
 export default {
-	props: {
-		product: Object,
-	},
-	mounted() {
-		// console.log('image-container: ', this.product);
-	},
+  props: {
+    product: Object,
+  },
+  mounted() {
+    // console.log('image-container: ', this.product);
+  },
 };
 </script>
 
 <style>
 .checkout {
-  display: none;
-  height: 0px;
+  /* display: none; */
+  height: 200px;
 }
 
 img {

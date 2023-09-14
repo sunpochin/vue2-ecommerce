@@ -155,25 +155,24 @@ button:hover {
   transform: scale(1.1);
 }
 .clsCount {
-  /* display: flex;
+  display: flex;
   align-content: center;
   align-items: center;
-  justify-content: center; */
+  justify-content: center;
 }
 
 .containerImg {
-  max-width: 100px;
+  width: 200px;
+  height: 200px;
   text-overflow: ellipsis;
   overflow: hidden;
 }
 
-/* table {
-	border-collapse: collapse;
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-
-tr {
-	border-bottom: 1pt solid black;
-} */
 
 .containerDesc {
   max-width: 90px;

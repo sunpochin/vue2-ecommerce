@@ -63,23 +63,14 @@ html {
 } */
 
 .big-image {
-  /* width: 100%;
-	background: gold; */
-  /** <-- For the demo **/
   width: 100%;
   height: 300px;
   object-fit: cover;
-
-  /* aspect-ratio: 1 / 1; */
-  /* height: 100%; */
-  /* width: 100%; */
 }
 
 .small_conatiner {
   display: flex;
   width: 100%;
-  /* max-width: 100%;
-	max-height: 100%; */
   justify-content: space-between;
   gap: 10px;
   margin: 20px 0;
@@ -136,7 +127,6 @@ html {
 
 .btn-detail:hover {
   transform: scale(1.05);
-  /* background-color: grey; */
 }
 
 .btn-detail:active {
@@ -155,7 +145,6 @@ html {
     width: 100%;
     margin: 0px;
     padding: 15px;
-    /* padding: 5px; */
   }
 
   .images-holder {
@@ -163,9 +152,6 @@ html {
     flex: 0 0 100%;
     padding: 10px;
   }
-}
-
-@media (max-width: 480px) {
 }
 </style>
 
