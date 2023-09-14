@@ -10,31 +10,45 @@
           >
         </h2>
       </div>
-      <table v-if="showTable">
-        <thead>
-          <tr class="clstr">
+      <table class="table table-bordered table-striped" v-if="showTable">
+        <thead class="thead-dark">
+          <tr>
             <th scope="col">圖</th>
             <th scope="col">品名</th>
             <th scope="col">價格</th>
             <th scope="col">數量</th>
           </tr>
         </thead>
-        <tr v-for="item in getCartProducts" :key="item.id">
-          <td>
-            <div class="containerImg">
-              <img :src="item.img[0]" />
-            </div>
-          </td>
-          <td>{{ item.title }}</td>
-          <td>{{ item.price }}</td>
-          <td>
-            <div class="clsCount">
-              <button @click="removeItem(item)">-</button>
-              {{ item.count }}
-              <button @click="addItem(item)">+</button>
-            </div>
-          </td>
-        </tr>
+        <tbody>
+          <tr v-for="item in getCartProducts" :key="item.id">
+            <td scope="row">
+              <div class="containerImg">
+                <img :src="item.img[0]" />
+              </div>
+            </td>
+            <td scope="row">{{ item.title }}</td>
+            <td scope="row">{{ item.price }}</td>
+            <td scope="row">
+              <div class="clsCount">
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  @click="removeItem(item)"
+                >
+                  -
+                </button>
+                {{ item.count }}
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  @click="addItem(item)"
+                >
+                  +
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
       </table>
     </div>
     <hr />
@@ -42,7 +56,9 @@
       <div class="checkout">
         <div>總金額: {{ getSubTotal }} USD</div>
         <div>貨品數: {{ getTotalCount }} 個</div>
-        <button class="checkout-button" @click="checkout">Checkout</button>
+        <button class="btn btn-success checkout-button" @click="checkout">
+          Checkout
+        </button>
       </div>
     </div>
   </div>
@@ -118,7 +134,8 @@ export default {
 }
 
 .checkout-button {
-  width: 100%;
+  width: 200px;
+  /* width: 100%; */
 }
 
 .empty-cart {
@@ -135,6 +152,7 @@ export default {
   margin: 0;
   padding: 0;
   width: 100%;
+  font-size: 32px;
 }
 
 .containerTable {
@@ -150,10 +168,11 @@ button {
   width: 2rem;
   height: 2rem;
 }
-button:hover {
+
+/* button:hover {
   transition: transform 0.9s ease-in-out;
   transform: scale(1.1);
-}
+} */
 .clsCount {
   display: flex;
   align-content: center;
@@ -162,8 +181,8 @@ button:hover {
 }
 
 .containerImg {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   text-overflow: ellipsis;
   overflow: hidden;
 }
@@ -172,15 +191,6 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.containerDesc {
-  max-width: 90px;
-}
-
-.clstr {
-  border: 1px solid black;
-  background-color: grey;
 }
 
 td,
