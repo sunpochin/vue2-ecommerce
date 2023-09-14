@@ -1,6 +1,5 @@
 <template>
   <div class="product-card" @click="jumpToDetail">
-    <!-- <image-container :product="product"></image-container> -->
     <div class="center-cropped">
       <img :src="product.img[0]" />
     </div>
@@ -16,7 +15,6 @@ import store from "@/vuex";
 import router from "@/router";
 
 export default {
-  // components: { ImageContainer },
   props: {
     product: Object,
   },
@@ -38,8 +36,6 @@ export default {
 .center-cropped {
   width: 100%;
   height: 300px;
-  /* background-position: center center;
-	background-repeat: no-repeat; */
   overflow: hidden;
 }
 
@@ -56,10 +52,7 @@ export default {
   flex-direction: column;
   align-items: center;
   margin: auto;
-  /* border: 1px solid black; */
-  /* max-width: 300px; */
   height: 450px;
-  /* background-color: grey; */
   border-radius: 9px;
 }
 
@@ -71,10 +64,7 @@ export default {
   font-weight: bold;
   font-size: 24px;
   margin-top: 10px;
-
   height: 100%;
-  /* text-overflow: ellipsis;
-	overflow: hidden; */
 }
 
 .card-price {
@@ -87,7 +77,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* margin-bottom: 20px; */
   padding: auto;
   height: 20%;
   width: 100%;
@@ -112,7 +101,6 @@ export default {
 
 .btn-detail:hover {
   transform: scale(1.05);
-  /* background-color: grey; */
 }
 
 .btn-detail:active {
