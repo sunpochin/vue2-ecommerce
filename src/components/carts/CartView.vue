@@ -51,6 +51,7 @@
 <script>
 import { mapState } from "vuex";
 import store from "@/vuex";
+import axios from "axios";
 
 export default {
   components: {},
@@ -76,7 +77,17 @@ export default {
     },
     ...mapState(["itemsInCart"]),
   },
+
   methods: {
+    async getCartFromServer() {
+      // console.log("App.vue this: ", Vue.prototype.$hostname);
+      let curAddress = this.$hostname;
+      let cateAddress = curAddress + "/items/list";
+      console.log("cateAddress: ", cateAddress);
+      let response = await axios.get(cateAddress);
+      let items = response.data.items;
+      store.commit("updateCartFromServer", items);
+    },
     checkout() {
       store.commit("openCheckout", true);
     },
@@ -91,7 +102,9 @@ export default {
       this.$forceUpdate();
     },
   },
-  mounted() {},
+  mounted() {
+    this.getCartFromServer();
+  },
 };
 </script>
 
@@ -142,10 +155,10 @@ button:hover {
   transform: scale(1.1);
 }
 .clsCount {
-  display: flex;
+  /* display: flex;
   align-content: center;
   align-items: center;
-  justify-content: center;
+  justify-content: center; */
 }
 
 .containerImg {

@@ -26,9 +26,7 @@ Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
 
 new Vue({
-  beforeCreate: function () {
-    console.log("globa: ", this.$hostname);
-  },
+  beforeCreate: function () {},
   render: (h) => h(App),
   router,
   // store,
