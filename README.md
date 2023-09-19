@@ -4,6 +4,8 @@
 前端使用 Vue2, Vuex, Vue-Router 技術。
 後端使用 node.js .
 
+這個專案有用 Circle CI 執行 unit test 跟 code coverage, 雖然 coverage 不高。
+
 ## Live demo
 
 https://vue2-ecommerce.netlify.app/
