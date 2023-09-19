@@ -26,7 +26,7 @@ yarn test:unit
 yarn coveralls
 ```
 
-### Compiles and hot-reloads for development
+### 執行
 
 ```
 yarn serve
