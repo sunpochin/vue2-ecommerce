@@ -1,11 +1,18 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import ProductList from "../components/products/ProductList.vue";
+import TestView from "../view/TestView.vue";
 import ProductDetail from "../components/products/ProductDetail.vue";
 import CartView from "../components/carts/CartView.vue";
 
 Vue.use(VueRouter);
 const routes = [
+  {
+    path: "/test",
+    component: TestView,
+    name: "test",
+    props: true,
+  },
   {
     path: "/cate/:cateID",
     component: ProductList,
